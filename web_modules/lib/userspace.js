@@ -1,7 +1,7 @@
 import Parse from 'parse'
 
 Parse.initialize("userspace")
-Parse.serverURL = `http://localhost:1337/main`
+Parse.serverURL = `http://user.space/main`
 Parse.login = (creds) => {
     Parse.credentials = creds
 }

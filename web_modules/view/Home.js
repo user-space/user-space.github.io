@@ -11,7 +11,7 @@ const Home = ({actions, apps, spaces}) =>
           <h2>
               <a onClick={actions.logout}>Logout</a>
               <span> - </span>
-              <a target="new" href={`http://localhost:1337/login?token=${localStorage.id_token}`}>Dashboard</a>
+              <a target="new" href={`http://user.space/login?token=${localStorage.id_token}`}>Dashboard</a>
           </h2>
         </div>
         <div className="stats">
