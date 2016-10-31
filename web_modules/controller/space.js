@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs';
 import { space } from 'event';
-import { Parse } from 'lib/userspace'
+import {userspace} from 'lib/userspace'
 
+const Parse = userspace('main')
 const Space = Parse.Object.extend("Space");
 const query = new (Parse.Query)(Space);
-
 
 export default (action$) =>
   Observable.merge(

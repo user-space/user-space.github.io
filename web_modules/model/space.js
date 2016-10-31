@@ -1,4 +1,5 @@
 import { space } from 'event'
+import { user } from 'event'
 
 const initialState = {
     list : [],
@@ -7,6 +8,7 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         case space.LIST :
+        case user.LOGOUT : 
         case space.LIST_FAIL :
             return {
                 ...state,

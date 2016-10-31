@@ -4,14 +4,16 @@ import connect from 'lib/connect'
 import { logout } from 'event/user'
 import * as app from 'event/app'
 import * as space from 'event/space'
+import { urls } from 'lib/userspace'
 
-const Home = ({actions, apps, spaces}) =>
+const Home = ({actions, apps, spaces, username, token}) =>
       <section className="main-content">
         <div className="login-box" style={{textAlign: "center"}}>
+          <h3>{username}</h3>
           <h2>
               <a onClick={actions.logout}>Logout</a>
               <span> - </span>
-              <a target="new" href={`http://user.space/login?token=${localStorage.id_token}`}>Dashboard</a>
+              <a href={urls.dashboard(token)}>Dashboard</a>
           </h2>
         </div>
         <div className="stats">
@@ -49,7 +51,9 @@ const HomeClass = React.createClass({
 export default connect(
     state => ({
         apps: state.app.list,
-        spaces: state.space.list
+        spaces: state.space.list,
+        username: state.user.id,
+        token: state.user.token.token,
     }),
   {logout, listApps: app.list, listSpaces: space.list}
 )(HomeClass);

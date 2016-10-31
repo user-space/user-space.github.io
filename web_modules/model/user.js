@@ -10,6 +10,7 @@ const previous = {
 const initialState = {
     loading : false,
     token : previous.token ,
+    id : !previous.profile? ANON_USER : previous.profile.user_id,
     profile : (!previous.profile? ANON_USER : {
         name : previous.profile.nickname,
         avatar : previous.profile.picture,
@@ -33,6 +34,7 @@ export default function reducer(state = initialState, action = {}) {
             return {
                 ...state,
                 token : action.payload.token,
+                id : action.payload.profile.user_id,
                 profile : {
                     name : action.payload.profile.nickname,
                     avatar : action.payload.profile.picture
