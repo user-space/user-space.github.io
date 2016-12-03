@@ -24689,7 +24689,7 @@ webpackJsonp([0],[
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _rxjs = __webpack_require__(943);
@@ -24702,35 +24702,23 @@ webpackJsonp([0],[
 	var Space = Parse.Object.extend("Space");
 	var query = new Parse.Query(Space);
 	
-	exports.default = function (action$) {
-	  return _rxjs.Observable.merge(action$.ofType(_event.space.LIST).flatMap(function (action) {
-	    return query.limit(10).addDescending("createdAt").find();
-	  }).map(function (result) {
-	    return {
-	      type: _event.space.LIST_OK,
-	      payload: result
-	    };
-	  }).catch(function (error) {
-	    return _rxjs.Observable.of({
-	      type: _event.space.LIST_FAIL,
-	      payload: error.xhr.response,
-	      error: true
-	    });
-	  })
-	
-	  // action$.ofType(user.DELETE)
-	  //   .flatMap(action => auth.login())
-	  //   .map(result => ({
-	  //     type: user.LOGIN_OK,
-	  //     payload: result,
-	  //   }))
-	  //   .catch(error => Observable.of({
-	  //       type: user.LOGIN_FAIL,
-	  //       payload: error.xhr.response,
-	  //       error: true
-	  //   }))
-	
-	  );
+	exports.default = function (action$, store) {
+	    return _rxjs.Observable.merge(action$.ofType(_event.space.LIST).flatMap(function (action) {
+	        return query.limit(10).addDescending("createdAt").find();
+	    }).map(function (result) {
+	        return {
+	            type: _event.space.LIST_OK,
+	            payload: result
+	        };
+	    }).catch(function (error) {
+	        return _rxjs.Observable.of({
+	            type: _event.space.LIST_FAIL,
+	            payload: error.xhr.response,
+	            error: true
+	        });
+	    }), action$.ofType(_event.user.LOGIN_OK).do(function (action) {
+	        return Parse.login(store.getState().user.token.token);
+	    }).ignoreElements());
 	};
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "space.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }

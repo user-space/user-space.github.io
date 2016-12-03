@@ -1,12 +1,12 @@
 import { Observable } from 'rxjs';
-import { space } from 'event';
+import { space, user } from 'event';
 import {userspace} from 'lib/userspace'
 
 const Parse = userspace('main')
 const Space = Parse.Object.extend("Space");
 const query = new (Parse.Query)(Space);
 
-export default (action$) =>
+export default (action$,store) =>
   Observable.merge(
 
     action$.ofType(space.LIST)
@@ -19,7 +19,11 @@ export default (action$) =>
             type: space.LIST_FAIL,
             payload: error.xhr.response,
             error: true
-        }))
+        })),
+
+    action$.ofType(user.LOGIN_OK)
+        .do(action => Parse.login(store.getState().user.token.token))
+        .ignoreElements(),
 
         // action$.ofType(user.DELETE)
         //   .flatMap(action => auth.login())
