@@ -20,6 +20,21 @@ export default (action$) =>
             type: app.LIST_FAIL,
             payload: error.xhr.response,
             error: true
+        })),
+
+    action$.ofType(app.CREATE)
+        .flatMap(action => new App().save({
+            name  : action.payload.name,
+            app    : action.payload.app,
+            url   : action.payload.url,
+            secret: action.payload.secret,
+            owner : action.payload.owner,
+        }))
+        .flatMap(result => Parse.share({
+            object : result
+        }))
+        .map(result => ({
+            type: app.CREATE_OK
         }))
 
         // action$.ofType(user.DELETE)

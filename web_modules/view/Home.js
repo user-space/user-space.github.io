@@ -5,6 +5,8 @@ import { logout } from 'event/user'
 import * as app from 'event/app'
 import * as space from 'event/space'
 import { urls } from 'lib/userspace'
+import { Link } from 'react-router'
+
 
 const Home = ({actions, apps, spaces, username, token}) =>
       <section className="main-content">
@@ -26,6 +28,7 @@ const Home = ({actions, apps, spaces, username, token}) =>
         <div className="panel">
             <div className="left">
                 <h4>Apps</h4>
+                <Link to="/new-app"> new </Link>
                 <ul>{apps.map((app,idx)=>
                     <li key={idx}>e</li>
                 )}</ul>
