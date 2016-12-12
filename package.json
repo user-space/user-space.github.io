@@ -16,7 +16,6 @@
   },
   "homepage": "https://my.user.space",
   "devDependencies": {
-    "auth0-lock": "^10.2.2",
     "axios": "^0.14.0",
     "babel-core": "^6.3.13",
     "babel-loader": "^6.2.4",

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { space, user } from 'event';
-import {userspace} from 'lib/userspace'
+import {userspace, size} from 'lib/userspace'
 
 const Parse = userspace('main')
 const Space = Parse.Object.extend("Space");
@@ -8,6 +8,12 @@ const query = new (Parse.Query)(Space);
 
 export default (action$,store) =>
   Observable.merge(
+    action$.ofType(space.LIST)
+        .flatMap(action => size())
+        .map(result => ({
+            type: space.SIZE_OK,
+            payload: result
+        })),
 
     action$.ofType(space.LIST)
         .flatMap(action => query.limit(10).addDescending("createdAt").find() )

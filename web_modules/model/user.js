@@ -1,20 +1,10 @@
 import { user } from 'event'
+import { localToken } from 'lib/userspace'
 
-import { localToken, localProfile } from 'lib/auth0'
-
-const ANON_USER = { name: 'anon' , avatar: 'none'}
-const previous = {
-  token : localToken(),
-  profile : localProfile()
-};
+const ANON_USER = "anonymous"
 const initialState = {
     loading : false,
-    token : previous.token ,
-    id : !previous.profile? ANON_USER : previous.profile.user_id,
-    profile : (!previous.profile? ANON_USER : {
-        name : previous.profile.nickname,
-        avatar : previous.profile.picture,
-    })
+    token : localToken(),
 }
 
 export default function reducer(state = initialState, action = {}) {

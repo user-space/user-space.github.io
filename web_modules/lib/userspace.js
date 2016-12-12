@@ -14,9 +14,11 @@ function userspace(namespace) {
     Parse.login = (creds) => {
         Parse.credentials = creds
         if (!Parse.credentials) return;
-        Parse.session = {
-            client : decode(creds).aud
-        }
+        Parse.session = {}
+        try {
+            Parse.session.client = decode(creds).aud
+        } catch (e) {}
+
         request.get(`${base}/apps`)
             .query({id : Parse.session.client })
             .then((res)=>{
@@ -41,6 +43,66 @@ function userspace(namespace) {
     return Parse;
 }
 
+const offsetSeconds = 5;
+
+class Token {
+  constructor(token) {
+    this.token = token
+  }
+  isLoggedIn() {
+    return !this.isTokenExpired()
+  }
+  isTokenExpired() {
+    const date = this.getTokenExpirationDate()
+    return date === null || !(date.valueOf() > (new Date().valueOf() + (offsetSeconds * 1000)))
+  }
+  getTokenExpirationDate(){
+    if (!this.token) return null;
+    const decoded = decode(this.token)
+    if(!decoded.exp) return null
+    const date = new Date(0) // The 0 here is the key, which sets the date to the epoch
+    date.setUTCSeconds(decoded.exp)
+    return date
+  }
+  clear() {
+    return new Token()
+  }
+}
+
+function watchLogin() {
+    const hasToken = window.location.href.match(/[\?&]token=(.*)[#&]?/)
+    if (hasToken && hasToken.length === 2) {
+        localStorage.id_token = hasToken[1]
+        window.location = window.location.origin
+    }
+}
+
+function signin(app,url) {
+    window.location = `${base}/sign/${app}?redirect=${url}`
+}
+
+function signout() {
+    localStorage.id_token = ""
+}
+
+function localToken() {
+    return new Token(localStorage.id_token)
+}
+
+function size() {
+    return new Promise(ok =>
+        fetch(`${base}/size`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.id_token}`,
+            }
+        }).then(
+            res => res.json()
+        ).then(
+            res => ok(res)
+        )
+    )
+}
+
 export {
-    urls, userspace
+    urls, userspace, watchLogin, signin, signout, localToken, size
 }
