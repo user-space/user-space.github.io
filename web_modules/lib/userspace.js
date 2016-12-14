@@ -72,12 +72,12 @@ function watchLogin() {
     const hasToken = window.location.href.match(/[\?&]token=(.*)[#&]?/)
     if (hasToken && hasToken.length === 2) {
         localStorage.id_token = hasToken[1]
-        window.location = window.location.origin
+        window.location = window.location.origin + window.location.pathname
     }
 }
 
 function signin(app) {
-    app = new Buffer(app || window.location.protocol + '//' + window.location.hostname + window.location.pathname).toString('base64')
+    app = new Buffer(app || window.location.origin + window.location.pathname).toString('base64')
     window.location = `${base}/sign/${app}`
 }
 
