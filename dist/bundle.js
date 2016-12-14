@@ -8243,7 +8243,7 @@ webpackJsonp([0],[
 	}();
 	
 	function watchLogin() {
-	    var hasToken = window.location.href.match(/[\?&]token=(.*)[#&]?/);
+	    var hasToken = window.location.search.match(/[\?&]token=(.*)[#&]?/);
 	    if (hasToken && hasToken.length === 2) {
 	        localStorage.id_token = hasToken[1];
 	        window.location = window.location.origin + window.location.pathname;
