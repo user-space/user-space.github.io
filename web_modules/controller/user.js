@@ -12,7 +12,7 @@ export default (action$) =>
       .ignoreElements(),
 
     action$.ofType(user.LOGIN)
-      .flatMap(action => signin("my"))
+      .flatMap(action => signin())
       .map(result => ({
         type: user.LOGIN_OK,
         payload: result,

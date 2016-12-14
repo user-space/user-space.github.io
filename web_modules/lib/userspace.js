@@ -1,4 +1,3 @@
-import Parse from 'parse'
 import decode from 'jwt-decode';
 import request from 'superagent'
 
@@ -77,8 +76,9 @@ function watchLogin() {
     }
 }
 
-function signin(app,url) {
-    window.location = `${base}/sign/${app}?redirect=${url}`
+function signin(app) {
+    app = new Buffer(app || window.location.protocol + '//' + window.location.hostname + window.location.pathname).toString('base64')
+    window.location = `${base}/sign/${app}`
 }
 
 function signout() {
