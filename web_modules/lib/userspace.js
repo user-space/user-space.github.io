@@ -1,7 +1,7 @@
 import decode from 'jwt-decode';
 import request from 'superagent'
 
-const base = "http://localhost:1337"
+const base = "http://user.space"
 
 const urls = {
     dashboard : (token) => `${base}/login/?token=${token}`

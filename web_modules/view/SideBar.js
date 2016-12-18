@@ -45,13 +45,13 @@ var SideBar = ({children}) =>
                 </Link>
             </li>
             <li>
-                <a target='_blank' href={`http://localhost:1337/login?token=${localStorage.id_token}`}>
+                <a target='_blank' href={`http://user.space/login?token=${localStorage.id_token}`}>
                     <i className="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a href={`http://localhost:1337/sign/${new Buffer(window.location.origin + window.location.pathname).toString('base64')}`}>
+                <a href={`http://user.space/sign/${new Buffer(window.location.origin + window.location.pathname).toString('base64')}`}>
                     <i className="material-icons">perm_identity</i>
                     <p>Change user</p>
                 </a>
