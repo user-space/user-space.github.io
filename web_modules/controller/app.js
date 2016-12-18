@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { app } from 'event';
-import {userspace} from 'lib/userspace'
+import {userspace, topapps} from 'lib/userspace'
 
 const Parse = userspace('main')
 const App = Parse.Object.extend("App");
@@ -11,7 +11,7 @@ export default (action$) =>
   Observable.merge(
 
     action$.ofType(app.LIST)
-        .flatMap(action => query.limit(10).addDescending("createdAt").find() )
+        .flatMap(action => topapps() )
         .map(result => ({
           type: app.LIST_OK,
           payload: result,

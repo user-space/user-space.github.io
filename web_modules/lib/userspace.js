@@ -1,7 +1,7 @@
 import decode from 'jwt-decode';
 import request from 'superagent'
 
-const base = "http://user.space"
+const base = "http://localhost:1337"
 
 const urls = {
     dashboard : (token) => `${base}/login/?token=${token}`
@@ -89,6 +89,20 @@ function localToken() {
     return new Token(localStorage.id_token)
 }
 
+function topapps() {
+    return new Promise(ok =>
+        fetch(`${base}/topapps`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.id_token}`,
+            }
+        }).then(
+            res => res.json()
+        ).then(
+            res => ok(res)
+        )
+    )
+}
+
 function size() {
     return new Promise(ok =>
         fetch(`${base}/size`, {
@@ -104,5 +118,5 @@ function size() {
 }
 
 export {
-    urls, userspace, watchLogin, signin, signout, localToken, size
+    urls, userspace, watchLogin, signin, signout, localToken, size, topapps
 }
