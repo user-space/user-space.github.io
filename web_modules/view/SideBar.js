@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router'
+import { logout } from 'event/user'
+import connect from 'lib/connect'
 
-var SideBar = ({children}) =>
+var SideBar = ({actions}) =>
 <div className="sidebar" data-active-color="rose" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
     <div className="logo">
         <a href="http://user.space" className="simple-text">
@@ -51,9 +53,9 @@ var SideBar = ({children}) =>
                 </a>
             </li>
             <li>
-                <a href={`http://user.space/sign/${new Buffer(window.location.origin + window.location.pathname).toString('base64')}`}>
-                    <i className="material-icons">perm_identity</i>
-                    <p>Change user</p>
+                <a onClick={actions.logout}>
+                    <i className="material-icons">exit_to_app</i>
+                    <p>Logout</p>
                 </a>
             </li>
         </ul>
@@ -61,4 +63,4 @@ var SideBar = ({children}) =>
 </div>
 
 
-export default SideBar
+export default connect(undefined, {logout})(SideBar)

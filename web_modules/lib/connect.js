@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
-export default (storeMapping = store => ({}), actionMapping = {}) =>
+export default (storeMapping = store => ({}), actionMapping = ({})) =>
   connect(
     storeMapping,
     (dispatch) => ({

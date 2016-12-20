@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import connect from 'lib/connect'
-import { logout } from 'event/user'
 import * as app from 'event/app'
 import * as space from 'event/space'
 import { urls } from 'lib/userspace'
@@ -143,5 +142,5 @@ export default connect(
         free : state.space.total - state.space.fill,
         ratio: 100*state.space.fill/state.space.total,
     }),
-  {logout, listApps: app.list, listSpaces: space.list}
+  {listApps: app.list, listSpaces: space.list}
 )(HomeClass);

@@ -5,6 +5,7 @@ import SideBar from './SideBar'
 
 var App = ({title, children}) =>
 <div className="wrapper">
+    <link href="assets/css/material-dashboard.css" rel="stylesheet" />
     <SideBar />
     <div className="main-panel">
         <Navigation title={title || 'Title'} />

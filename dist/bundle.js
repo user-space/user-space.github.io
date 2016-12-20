@@ -31,7 +31,7 @@ webpackJsonp([0],[
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
-	var _userspace = __webpack_require__(579);
+	var _userspace = __webpack_require__(575);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -1072,7 +1072,7 @@ webpackJsonp([0],[
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
 	var _store = __webpack_require__(943);
 	
@@ -1156,12 +1156,12 @@ webpackJsonp([0],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var routes = {
-	    path: '/',
+	var routes = [{
 	    component: (0, _reactRouter.withRouter)(_view.App),
-	    indexRoute: { component: _view.Landing },
-	    childRoutes: [{ path: "home", component: _view.Home }, { path: "apps", component: _view.Applications }, { path: "spaces", component: _view.Spaces }, { path: "new-app", component: _view.NewApp }]
-	};
+	    childRoutes: [{ path: "/home", component: _view.Home }, { path: "/apps", component: _view.Applications }, { path: "/spaces", component: _view.Spaces }, { path: "/new-app", component: _view.NewApp }] }, {
+	    path: '/',
+	    indexRoute: { component: _view.Landing }
+	}];
 	
 	exports.default = function (store) {
 	    return function () {
@@ -7462,11 +7462,11 @@ webpackJsonp([0],[
 	
 	var _App3 = _interopRequireDefault(_App2);
 	
-	var _Landing2 = __webpack_require__(550);
+	var _Landing2 = __webpack_require__(571);
 	
 	var _Landing3 = _interopRequireDefault(_Landing2);
 	
-	var _Home2 = __webpack_require__(576);
+	var _Home2 = __webpack_require__(572);
 	
 	var _Home3 = _interopRequireDefault(_Home2);
 	
@@ -7524,6 +7524,7 @@ webpackJsonp([0],[
 	    return _react2.default.createElement(
 	        'div',
 	        { className: 'wrapper' },
+	        _react2.default.createElement('link', { href: 'assets/css/material-dashboard.css', rel: 'stylesheet' }),
 	        _react2.default.createElement(_SideBar2.default, null),
 	        _react2.default.createElement(
 	            'div',
@@ -7919,7 +7920,7 @@ webpackJsonp([0],[
 /* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 	
 	'use strict';
 	
@@ -7937,10 +7938,16 @@ webpackJsonp([0],[
 	
 	var _reactRouter = __webpack_require__(333);
 	
+	var _user = __webpack_require__(546);
+	
+	var _connect = __webpack_require__(548);
+	
+	var _connect2 = _interopRequireDefault(_connect);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var SideBar = function SideBar(_ref) {
-	    var children = _ref.children;
+	    var actions = _ref.actions;
 	    return _react2.default.createElement(
 	        'div',
 	        { className: 'sidebar', 'data-active-color': 'rose', 'data-background-color': 'black', 'data-image': 'assets/img/sidebar-1.jpg' },
@@ -8063,16 +8070,16 @@ webpackJsonp([0],[
 	                    null,
 	                    _react2.default.createElement(
 	                        'a',
-	                        { href: 'http://user.space/sign/' + new Buffer(window.location.origin + window.location.pathname).toString('base64') },
+	                        { onClick: actions.logout },
 	                        _react2.default.createElement(
 	                            'i',
 	                            { className: 'material-icons' },
-	                            'perm_identity'
+	                            'exit_to_app'
 	                        ),
 	                        _react2.default.createElement(
 	                            'p',
 	                            null,
-	                            'Change user'
+	                            'Logout'
 	                        )
 	                    )
 	                )
@@ -8081,13 +8088,1237 @@ webpackJsonp([0],[
 	    );
 	};
 	
-	exports.default = SideBar;
+	exports.default = (0, _connect2.default)(undefined, { logout: _user.logout })(SideBar);
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "SideBar.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(546).Buffer))
 
 /***/ },
 /* 546 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.login = login;
+	exports.logout = logout;
+	
+	var _namesGenerator = __webpack_require__(547);
+	
+	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var events = (0, _namesGenerator2.default)({
+	    namespace: "event/user",
+	    actions: ["LOGIN", "LOGOUT"]
+	});
+	
+	function login() {
+	    return { type: events.LOGIN };
+	}
+	
+	function logout() {
+	    return { type: events.LOGOUT };
+	}
+	
+	exports.default = events;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "user.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 547 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = namesGenerator;
+	var expand_names = function expand_names(namespace, name) {
+	    var result = {};
+	    result["" + name] = namespace + "/" + name;
+	    result[name + "_OK"] = namespace + "/" + name + "/ok";
+	    result[name + "_FAIL"] = namespace + "/" + name + "/fail";
+	    return result;
+	};
+	
+	function namesGenerator(_ref) {
+	    var namespace = _ref.namespace,
+	        actions = _ref.actions;
+	
+	    var result = {};
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	        for (var _iterator = actions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var name = _step.value;
+	
+	            result = _extends({}, result, expand_names(namespace, name));
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+	
+	    return result;
+	}
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "namesGenerator.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 548 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(549);
+	
+	var _redux = __webpack_require__(556);
+	
+	exports.default = function () {
+	  var storeMapping = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (store) {
+	    return {};
+	  };
+	  var actionMapping = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	  return (0, _reactRedux.connect)(storeMapping, function (dispatch) {
+	    return {
+	      actions: (0, _redux.bindActionCreators)(actionMapping, dispatch)
+	    };
+	  });
+	};
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "connect.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(300);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(406);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _connect = __webpack_require__(548);
+	
+	var _connect2 = _interopRequireDefault(_connect);
+	
+	var _user = __webpack_require__(546);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Landing = function Landing(_ref) {
+	    var actions = _ref.actions;
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'landing-page' },
+	        _react2.default.createElement('link', { href: 'assets/css/material-kit.css', rel: 'stylesheet' }),
+	        _react2.default.createElement(
+	            'nav',
+	            { className: 'navbar navbar-danger navbar-transparent navbar-absolute' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'navbar-header' },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { className: 'navbar-brand' },
+	                        'My User Space'
+	                    )
+	                )
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'page-header header-filter', 'data-parallax': 'active', style: { backgroundImage: "url('/assets/img/background.jpg')" } },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-6' },
+	                        _react2.default.createElement(
+	                            'h1',
+	                            { className: 'title' },
+	                            'Control the data you share'
+	                        ),
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            'Every time you use a web application you share information about what you do and who you are. With User Space you are the owner of every byte and then only one who can decide wheter to delete it or share it.'
+	                        ),
+	                        _react2.default.createElement('br', null),
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', target: '_blank', className: 'btn btn-danger btn-raised btn-lg' },
+	                            _react2.default.createElement('i', { className: 'fa fa-play' }),
+	                            ' Watch video'
+	                        ),
+	                        _react2.default.createElement(
+	                            'a',
+	                            { onClick: actions.login, className: 'btn btn-success btn-raised btn-lg' },
+	                            _react2.default.createElement('i', { className: 'fa fa-sign-in' }),
+	                            ' Login'
+	                        )
+	                    )
+	                )
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'main main-raised' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'section text-center' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-8 col-md-offset-2' },
+	                            _react2.default.createElement(
+	                                'h2',
+	                                { className: 'title' },
+	                                'Build applications with The User Space'
+	                            ),
+	                            _react2.default.createElement(
+	                                'h5',
+	                                { className: 'description' },
+	                                'Applications builded with The User Space will scale unlimited, perform like champions and works out of the box. It also protect the user information by restricting the access just to the owner.'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'features' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-4' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'info' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'icon icon-info' },
+	                                        _react2.default.createElement('i', { className: 'fa fa-server' })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'h4',
+	                                        { className: 'info-title' },
+	                                        'Forget about backend'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'We give you the endpoints ready out-of-the-box, you just worry about what do you need to save and how you will get it'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-4' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'info' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'icon icon-success' },
+	                                        _react2.default.createElement(
+	                                            'i',
+	                                            { className: 'material-icons' },
+	                                            'verified_user'
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'h4',
+	                                        { className: 'info-title' },
+	                                        'Integrated Login'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'The easiest and secured way. Keep focus in your application strengths and leave common problems to the experts'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-4' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'info' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'icon icon-danger' },
+	                                        _react2.default.createElement('i', { className: 'fa fa-fighter-jet' })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'h4',
+	                                        { className: 'info-title' },
+	                                        'Start in seconds... literally'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Convert a single-page-application into a full-stack with a few lines of code. ',
+	                                        _react2.default.createElement(
+	                                            'a',
+	                                            { target: '_blank', href: 'https://github.com/user-space/todomvc/commit/2a31fbbdeeed0f6760dbba344028becdccbc4e48' },
+	                                            'Take a look'
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'section text-center' },
+	                    _react2.default.createElement(
+	                        'h2',
+	                        { className: 'title' },
+	                        'Behind the courtain'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'team' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'card card-profile card-plain' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-5' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'card-image' },
+	                                            _react2.default.createElement(
+	                                                'a',
+	                                                null,
+	                                                _react2.default.createElement('img', { className: 'img', src: '/assets/img/faces/card-profile1-square.jpg' })
+	                                            )
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-7' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'content' },
+	                                            _react2.default.createElement(
+	                                                'h4',
+	                                                { className: 'card-title' },
+	                                                'Sebastian Javier Marchano'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'h6',
+	                                                { className: 'category text-muted' },
+	                                                'Founder'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'p',
+	                                                { className: 'card-description' },
+	                                                'Dont be scared of the truth because we need to restart the human foundation in truth...'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'footer' },
+	                                                _react2.default.createElement(
+	                                                    'a',
+	                                                    { href: 'https://twitter.com/sebasjm', className: 'btn btn-just-icon btn-simple btn-twitter' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-twitter' })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'a',
+	                                                    { href: 'https://facebook.com/sebasjm', className: 'btn btn-just-icon btn-simple btn-facebook' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-facebook-square' })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'a',
+	                                                    { href: 'https://google.com/+SebastianMarchano', className: 'btn btn-just-icon btn-simple btn-google' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-google' })
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'a',
+	                                                    { href: 'https://github.com/sebasjm', className: 'btn btn-just-icon btn-simple btn-github' },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-github' })
+	                                                )
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'section section-contacts' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-8 col-md-offset-2' },
+	                            _react2.default.createElement(
+	                                'h2',
+	                                { className: 'text-center title' },
+	                                'Work with us'
+	                            ),
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'text-center description' },
+	                                'Tell us what you do and what you like. We will try to get back to you in a couple of hours.'
+	                            ),
+	                            _react2.default.createElement(
+	                                'form',
+	                                { className: 'contact-form' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group label-floating' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                { className: 'control-label' },
+	                                                'Your Name'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'email', className: 'form-control' })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group label-floating' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                { className: 'control-label' },
+	                                                'Your Email'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'email', className: 'form-control' })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'form-group label-floating' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        { className: 'control-label' },
+	                                        'Your Messge'
+	                                    ),
+	                                    _react2.default.createElement('textarea', { className: 'form-control', rows: '4' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-4 col-md-offset-4 text-center' },
+	                                        _react2.default.createElement(
+	                                            'button',
+	                                            { className: 'btn btn-primary btn-raised' },
+	                                            'Send Message'
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'footer',
+	            { className: 'footer' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'nav',
+	                    { className: 'pull-left' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        null,
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'http://the.user.space' },
+	                                'The User Space'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'http://user.space/about' },
+	                                'About Us'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'http://user.space/blog' },
+	                                'Blog'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'http://user.space/license' },
+	                                'Licenses'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'copyright pull-right' },
+	                    '\xA9 2016, made by User Space'
+	                )
+	            )
+	        )
+	    );
+	};
+	
+	exports.default = (0, _connect2.default)(undefined, { login: _user.login })(Landing);
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Landing.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 572 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(300);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(406);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _connect = __webpack_require__(548);
+	
+	var _connect2 = _interopRequireDefault(_connect);
+	
+	var _app = __webpack_require__(573);
+	
+	var app = _interopRequireWildcard(_app);
+	
+	var _space = __webpack_require__(574);
+	
+	var space = _interopRequireWildcard(_space);
+	
+	var _userspace = __webpack_require__(575);
+	
+	var _reactRouter = __webpack_require__(333);
+	
+	var _ChartPie = __webpack_require__(757);
+	
+	var _ChartPie2 = _interopRequireDefault(_ChartPie);
+	
+	var _ChartLine = __webpack_require__(758);
+	
+	var _ChartLine2 = _interopRequireDefault(_ChartLine);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Home = function Home(_ref) {
+	    var apps = _ref.apps,
+	        spaces = _ref.spaces,
+	        free = _ref.free,
+	        ratio = _ref.ratio,
+	        fill = _ref.fill,
+	        total = _ref.total,
+	        sizes = _ref.sizes;
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'container-fluid' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'progress' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'progress-bar', role: 'progressbar', 'aria-valuenow': '60', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: ratio + '%' } },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'sr-only' },
+	                        '60% Complete'
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'card' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-header card-header-icon', 'data-background-color': 'blue' },
+	                        _react2.default.createElement(
+	                            'i',
+	                            { className: 'material-icons' },
+	                            'pie_chart'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-content' },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            { className: 'card-title' },
+	                            'Spaces usage'
+	                        )
+	                    ),
+	                    _react2.default.createElement(_ChartPie2.default, { pieName: 'spaces-usage-pie', series: sizes.concat({ size: free }).map(function (s) {
+	                            return 100 * s.size / total;
+	                        }) }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-footer' },
+	                        _react2.default.createElement(
+	                            'h6',
+	                            null,
+	                            'Legend'
+	                        ),
+	                        sizes.map(function (size) {
+	                            return _react2.default.createElement(
+	                                'span',
+	                                { key: size.app },
+	                                _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
+	                                ' ',
+	                                (spaces.filter(function (space) {
+	                                    return space.app === size.app;
+	                                })[0] || { name: 'pepe' }).name,
+	                                ' '
+	                            );
+	                        }),
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
+	                            ' Free '
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-8' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'card' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-header card-header-icon', 'data-background-color': 'red' },
+	                        _react2.default.createElement(
+	                            'i',
+	                            { className: 'material-icons' },
+	                            'pie_chart'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-content' },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            { className: 'card-title' },
+	                            'Active users'
+	                        )
+	                    ),
+	                    _react2.default.createElement(_ChartLine2.default, { lineName: 'active-users-pie' }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-footer' },
+	                        _react2.default.createElement(
+	                            'h6',
+	                            null,
+	                            'Legend'
+	                        ),
+	                        _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
+	                        ' Apple',
+	                        _react2.default.createElement('i', { className: 'fa fa-circle text-warning' }),
+	                        ' Samsung',
+	                        _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
+	                        ' Windows Phone'
+	                    )
+	                )
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-6' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'card' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-header card-header-text', 'data-background-color': 'orange' },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            { className: 'card-title' },
+	                            'Top Spaces'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { className: 'category' },
+	                            'List of your most used spaces'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-content table-responsive' },
+	                        _react2.default.createElement(
+	                            'table',
+	                            { className: 'table table-hover' },
+	                            _react2.default.createElement(
+	                                'thead',
+	                                { className: 'text-warning' },
+	                                _react2.default.createElement(
+	                                    'tr',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'URL'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Name'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Memory'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Last used'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tbody',
+	                                null,
+	                                spaces.map(function (space) {
+	                                    return _react2.default.createElement(
+	                                        'tr',
+	                                        { key: space.id },
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            _react2.default.createElement(
+	                                                'a',
+	                                                { href: '#' },
+	                                                space.app
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            space.name
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            (sizes.filter(function (s) {
+	                                                return s.app === space.app;
+	                                            })[0] || { size: 0 }).size
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            '11/05/2016'
+	                                        )
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-6' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'card' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-header card-header-text', 'data-background-color': 'green' },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            { className: 'card-title' },
+	                            'Top Applications'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { className: 'category' },
+	                            'List of your most used applications'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card-content table-responsive' },
+	                        _react2.default.createElement(
+	                            'table',
+	                            { className: 'table table-hover' },
+	                            _react2.default.createElement(
+	                                'thead',
+	                                { className: 'text-warning' },
+	                                _react2.default.createElement(
+	                                    'tr',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'URL'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Name'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Active users'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Last used'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tbody',
+	                                null,
+	                                apps.map(function (app) {
+	                                    return _react2.default.createElement(
+	                                        'tr',
+	                                        { key: app.id },
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            _react2.default.createElement(
+	                                                'a',
+	                                                { href: '#' },
+	                                                app.url
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            app.name
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            app.sessions
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            '11/05/2016'
+	                                        )
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    )
+	                )
+	            )
+	        )
+	    );
+	};
+	
+	var HomeClass = _react2.default.createClass({
+	    displayName: 'HomeClass',
+	
+	    componentWillMount: function componentWillMount() {
+	        this.props.actions.listApps();
+	        this.props.actions.listSpaces();
+	    },
+	    render: function render() {
+	        return Home(this.props);
+	    }
+	});
+	exports.default = (0, _connect2.default)(function (state) {
+	    return {
+	        apps: state.app.list,
+	        spaces: state.space.list,
+	        sizes: state.space.sizes,
+	        fill: state.space.fill,
+	        total: state.space.total,
+	        free: state.space.total - state.space.fill,
+	        ratio: 100 * state.space.fill / state.space.total
+	    };
+	}, { listApps: app.list, listSpaces: space.list })(HomeClass);
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 573 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.list = list;
+	exports.remove = remove;
+	exports.create = create;
+	
+	var _namesGenerator = __webpack_require__(547);
+	
+	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var events = (0, _namesGenerator2.default)({
+	    namespace: "event/app",
+	    actions: ["LIST", "DELETE", "CREATE"]
+	});
+	
+	function list() {
+	    return { type: events.LIST };
+	}
+	
+	function remove(id) {
+	    return { type: events.DELETE, payload: { app: id } };
+	}
+	
+	function create(info) {
+	    return { type: events.CREATE, payload: info };
+	}
+	
+	exports.default = events;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "app.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 574 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.list = list;
+	exports.size = size;
+	
+	var _namesGenerator = __webpack_require__(547);
+	
+	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var events = (0, _namesGenerator2.default)({
+	    namespace: "event/space",
+	    actions: ["LIST", "SIZE"]
+	});
+	
+	function list() {
+	    return { type: events.LIST };
+	}
+	function size() {
+	    return { type: events.SIZE };
+	}
+	
+	exports.default = events;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "space.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 575 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(Buffer) {/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.topapps = exports.size = exports.localToken = exports.signout = exports.signin = exports.watchLogin = exports.userspace = exports.urls = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _jwtDecode = __webpack_require__(580);
+	
+	var _jwtDecode2 = _interopRequireDefault(_jwtDecode);
+	
+	var _superagent = __webpack_require__(583);
+	
+	var _superagent2 = _interopRequireDefault(_superagent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var base = "http://user.space";
+	
+	var urls = {
+	    dashboard: function dashboard(token) {
+	        return base + '/login/?token=' + token;
+	    }
+	};
+	function userspace(namespace) {
+	    var Parse = __webpack_require__(588);
+	    Parse.initialize("userspace");
+	    Parse.serverURL = base + '/' + namespace;
+	    Parse.login = function (creds) {
+	        Parse.credentials = creds;
+	        if (!Parse.credentials) return;
+	        Parse.session = {};
+	        try {
+	            Parse.session.client = (0, _jwtDecode2.default)(creds).aud;
+	        } catch (e) {}
+	
+	        _superagent2.default.get(base + '/apps').query({ id: Parse.session.client }).then(function (res) {
+	            Parse.session.owner = res.body.owner;
+	        });
+	    };
+	    Parse.logout = function () {
+	        Parse.credentials = null;
+	    };
+	
+	    var Notify = Parse.Object.extend("Notify");
+	    Parse.share = function (_ref) {
+	        var object = _ref.object,
+	            app = _ref.app,
+	            user = _ref.user;
+	        return new Notify({
+	            ref: object.id,
+	            clazz: object.className,
+	            app: app || Parse.session.client,
+	            user: user || Parse.session.owner
+	        }).save();
+	    };
+	
+	    Parse.login(localStorage.id_token);
+	    return Parse;
+	}
+	
+	var offsetSeconds = 5;
+	
+	var Token = function () {
+	    function Token(token) {
+	        _classCallCheck(this, Token);
+	
+	        this.token = token;
+	    }
+	
+	    _createClass(Token, [{
+	        key: 'isLoggedIn',
+	        value: function isLoggedIn() {
+	            return !this.isTokenExpired();
+	        }
+	    }, {
+	        key: 'isTokenExpired',
+	        value: function isTokenExpired() {
+	            var date = this.getTokenExpirationDate();
+	            return date === null || !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000);
+	        }
+	    }, {
+	        key: 'getTokenExpirationDate',
+	        value: function getTokenExpirationDate() {
+	            if (!this.token) return null;
+	            var decoded = (0, _jwtDecode2.default)(this.token);
+	            if (!decoded.exp) return null;
+	            var date = new Date(0); // The 0 here is the key, which sets the date to the epoch
+	            date.setUTCSeconds(decoded.exp);
+	            return date;
+	        }
+	    }, {
+	        key: 'clear',
+	        value: function clear() {
+	            return new Token();
+	        }
+	    }]);
+	
+	    return Token;
+	}();
+	
+	function watchLogin() {
+	    var hasToken = window.location.search.match(/[\?&]token=(.*)[#&]?/);
+	    if (hasToken && hasToken.length === 2) {
+	        localStorage.id_token = hasToken[1];
+	        window.location = window.location.origin + window.location.pathname;
+	    }
+	}
+	
+	function signin(app) {
+	    app = new Buffer(app || window.location.origin + window.location.pathname).toString('base64');
+	    window.location = base + '/sign/' + app;
+	}
+	
+	function signout() {
+	    localStorage.id_token = "";
+	}
+	
+	function localToken() {
+	    return new Token(localStorage.id_token);
+	}
+	
+	function topapps() {
+	    return new Promise(function (ok) {
+	        return fetch(base + '/topapps', {
+	            headers: {
+	                'Authorization': 'Bearer ' + localStorage.id_token
+	            }
+	        }).then(function (res) {
+	            return res.json();
+	        }).then(function (res) {
+	            return ok(res);
+	        });
+	    });
+	}
+	
+	function size() {
+	    return new Promise(function (ok) {
+	        return fetch(base + '/size', {
+	            headers: {
+	                'Authorization': 'Bearer ' + localStorage.id_token
+	            }
+	        }).then(function (res) {
+	            return res.json();
+	        }).then(function (res) {
+	            return ok(res);
+	        });
+	    });
+	}
+	
+	exports.urls = urls;
+	exports.userspace = userspace;
+	exports.watchLogin = watchLogin;
+	exports.signin = signin;
+	exports.signout = signout;
+	exports.localToken = localToken;
+	exports.size = size;
+	exports.topapps = topapps;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "userspace.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(576).Buffer))
+
+/***/ },
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
@@ -8100,9 +9331,9 @@ webpackJsonp([0],[
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(547)
-	var ieee754 = __webpack_require__(548)
-	var isArray = __webpack_require__(549)
+	var base64 = __webpack_require__(577)
+	var ieee754 = __webpack_require__(578)
+	var isArray = __webpack_require__(579)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -9880,10 +11111,10 @@ webpackJsonp([0],[
 	  return val !== val // eslint-disable-line no-self-compare
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(546).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(576).Buffer, (function() { return this; }())))
 
 /***/ },
-/* 547 */
+/* 577 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -10003,7 +11234,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 548 */
+/* 578 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -10093,7 +11324,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 549 */
+/* 579 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -10102,850 +11333,6 @@ webpackJsonp([0],[
 	  return toString.call(arr) == '[object Array]';
 	};
 
-
-/***/ },
-/* 550 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(300);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(406);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _connect = __webpack_require__(551);
-	
-	var _connect2 = _interopRequireDefault(_connect);
-	
-	var _user = __webpack_require__(574);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Landing = function Landing(_ref) {
-	  var actions = _ref.actions;
-	  return _react2.default.createElement(
-	    'section',
-	    { className: 'main-content' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'login-box', style: { textAlign: "center" } },
-	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        _react2.default.createElement(
-	          'a',
-	          { onClick: actions.login },
-	          'Sign In'
-	        )
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = (0, _connect2.default)(undefined, { login: _user.login })(Landing);
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Landing.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 551 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(552);
-	
-	var _redux = __webpack_require__(559);
-	
-	exports.default = function () {
-	  var storeMapping = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (store) {
-	    return {};
-	  };
-	  var actionMapping = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-	  return (0, _reactRedux.connect)(storeMapping, function (dispatch) {
-	    return {
-	      actions: (0, _redux.bindActionCreators)(actionMapping, dispatch)
-	    };
-	  });
-	};
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "connect.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 552 */,
-/* 553 */,
-/* 554 */,
-/* 555 */,
-/* 556 */,
-/* 557 */,
-/* 558 */,
-/* 559 */,
-/* 560 */,
-/* 561 */,
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */,
-/* 569 */,
-/* 570 */,
-/* 571 */,
-/* 572 */,
-/* 573 */,
-/* 574 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.login = login;
-	exports.logout = logout;
-	
-	var _namesGenerator = __webpack_require__(575);
-	
-	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var events = (0, _namesGenerator2.default)({
-	    namespace: "event/user",
-	    actions: ["LOGIN", "LOGOUT"]
-	});
-	
-	function login() {
-	    return { type: events.LOGIN };
-	}
-	
-	function logout() {
-	    return { type: events.LOGOUT };
-	}
-	
-	exports.default = events;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "user.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 575 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	exports.default = namesGenerator;
-	var expand_names = function expand_names(namespace, name) {
-	    var result = {};
-	    result["" + name] = namespace + "/" + name;
-	    result[name + "_OK"] = namespace + "/" + name + "/ok";
-	    result[name + "_FAIL"] = namespace + "/" + name + "/fail";
-	    return result;
-	};
-	
-	function namesGenerator(_ref) {
-	    var namespace = _ref.namespace,
-	        actions = _ref.actions;
-	
-	    var result = {};
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-	
-	    try {
-	        for (var _iterator = actions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var name = _step.value;
-	
-	            result = _extends({}, result, expand_names(namespace, name));
-	        }
-	    } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	            }
-	        } finally {
-	            if (_didIteratorError) {
-	                throw _iteratorError;
-	            }
-	        }
-	    }
-	
-	    return result;
-	}
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "namesGenerator.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 576 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(300);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(406);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _connect = __webpack_require__(551);
-	
-	var _connect2 = _interopRequireDefault(_connect);
-	
-	var _user = __webpack_require__(574);
-	
-	var _app = __webpack_require__(577);
-	
-	var app = _interopRequireWildcard(_app);
-	
-	var _space = __webpack_require__(578);
-	
-	var space = _interopRequireWildcard(_space);
-	
-	var _userspace = __webpack_require__(579);
-	
-	var _reactRouter = __webpack_require__(333);
-	
-	var _ChartPie = __webpack_require__(757);
-	
-	var _ChartPie2 = _interopRequireDefault(_ChartPie);
-	
-	var _ChartLine = __webpack_require__(758);
-	
-	var _ChartLine2 = _interopRequireDefault(_ChartLine);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Home = function Home(_ref) {
-	    var apps = _ref.apps,
-	        spaces = _ref.spaces,
-	        free = _ref.free,
-	        ratio = _ref.ratio,
-	        fill = _ref.fill,
-	        total = _ref.total,
-	        sizes = _ref.sizes;
-	    return _react2.default.createElement(
-	        'div',
-	        { className: 'container-fluid' },
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	                'div',
-	                { className: 'progress' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'progress-bar', role: 'progressbar', 'aria-valuenow': '60', 'aria-valuemin': '0', 'aria-valuemax': '100', style: { width: ratio + '%' } },
-	                    _react2.default.createElement(
-	                        'span',
-	                        { className: 'sr-only' },
-	                        '60% Complete'
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                { className: 'col-md-4' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'card' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-header card-header-icon', 'data-background-color': 'blue' },
-	                        _react2.default.createElement(
-	                            'i',
-	                            { className: 'material-icons' },
-	                            'pie_chart'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-content' },
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: 'card-title' },
-	                            'Spaces usage'
-	                        )
-	                    ),
-	                    _react2.default.createElement(_ChartPie2.default, { pieName: 'spaces-usage-pie', series: sizes.concat({ size: free }).map(function (s) {
-	                            return 100 * s.size / total;
-	                        }) }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-footer' },
-	                        _react2.default.createElement(
-	                            'h6',
-	                            null,
-	                            'Legend'
-	                        ),
-	                        sizes.map(function (size) {
-	                            return _react2.default.createElement(
-	                                'span',
-	                                { key: size.app },
-	                                _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
-	                                ' ',
-	                                (spaces.filter(function (space) {
-	                                    return space.app === size.app;
-	                                })[0] || { name: 'pepe' }).name,
-	                                ' '
-	                            );
-	                        }),
-	                        _react2.default.createElement(
-	                            'span',
-	                            null,
-	                            _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
-	                            ' Free '
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                { className: 'col-md-8' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'card' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-header card-header-icon', 'data-background-color': 'red' },
-	                        _react2.default.createElement(
-	                            'i',
-	                            { className: 'material-icons' },
-	                            'pie_chart'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-content' },
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: 'card-title' },
-	                            'Active users'
-	                        )
-	                    ),
-	                    _react2.default.createElement(_ChartLine2.default, { lineName: 'active-users-pie' }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-footer' },
-	                        _react2.default.createElement(
-	                            'h6',
-	                            null,
-	                            'Legend'
-	                        ),
-	                        _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
-	                        ' Apple',
-	                        _react2.default.createElement('i', { className: 'fa fa-circle text-warning' }),
-	                        ' Samsung',
-	                        _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
-	                        ' Windows Phone'
-	                    )
-	                )
-	            )
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	                'div',
-	                { className: 'col-md-6' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'card' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-header card-header-text', 'data-background-color': 'orange' },
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: 'card-title' },
-	                            'Top Spaces'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            { className: 'category' },
-	                            'List of your most used spaces'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-content table-responsive' },
-	                        _react2.default.createElement(
-	                            'table',
-	                            { className: 'table table-hover' },
-	                            _react2.default.createElement(
-	                                'thead',
-	                                { className: 'text-warning' },
-	                                _react2.default.createElement(
-	                                    'tr',
-	                                    null,
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'URL'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Name'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Memory'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Last used'
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tbody',
-	                                null,
-	                                spaces.map(function (space) {
-	                                    return _react2.default.createElement(
-	                                        'tr',
-	                                        { key: space.id },
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            _react2.default.createElement(
-	                                                'a',
-	                                                { href: '#' },
-	                                                space.app
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            space.name
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            (sizes.filter(function (s) {
-	                                                return s.app === space.app;
-	                                            })[0] || { size: 0 }).size
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            '11/05/2016'
-	                                        )
-	                                    );
-	                                })
-	                            )
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                { className: 'col-md-6' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'card' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-header card-header-text', 'data-background-color': 'green' },
-	                        _react2.default.createElement(
-	                            'h4',
-	                            { className: 'card-title' },
-	                            'Top Applications'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            { className: 'category' },
-	                            'List of your most used applications'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card-content table-responsive' },
-	                        _react2.default.createElement(
-	                            'table',
-	                            { className: 'table table-hover' },
-	                            _react2.default.createElement(
-	                                'thead',
-	                                { className: 'text-warning' },
-	                                _react2.default.createElement(
-	                                    'tr',
-	                                    null,
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'URL'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Name'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Active users'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Last used'
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tbody',
-	                                null,
-	                                apps.map(function (app) {
-	                                    return _react2.default.createElement(
-	                                        'tr',
-	                                        { key: app.id },
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            _react2.default.createElement(
-	                                                'a',
-	                                                { href: '#' },
-	                                                app.url
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            app.name
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            app.sessions
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'td',
-	                                            null,
-	                                            '11/05/2016'
-	                                        )
-	                                    );
-	                                })
-	                            )
-	                        )
-	                    )
-	                )
-	            )
-	        )
-	    );
-	};
-	
-	var HomeClass = _react2.default.createClass({
-	    displayName: 'HomeClass',
-	
-	    componentWillMount: function componentWillMount() {
-	        this.props.actions.listApps();
-	        this.props.actions.listSpaces();
-	    },
-	    render: function render() {
-	        return Home(this.props);
-	    }
-	});
-	exports.default = (0, _connect2.default)(function (state) {
-	    return {
-	        apps: state.app.list,
-	        spaces: state.space.list,
-	        sizes: state.space.sizes,
-	        fill: state.space.fill,
-	        total: state.space.total,
-	        free: state.space.total - state.space.fill,
-	        ratio: 100 * state.space.fill / state.space.total
-	    };
-	}, { logout: _user.logout, listApps: app.list, listSpaces: space.list })(HomeClass);
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 577 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.list = list;
-	exports.remove = remove;
-	exports.create = create;
-	
-	var _namesGenerator = __webpack_require__(575);
-	
-	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var events = (0, _namesGenerator2.default)({
-	    namespace: "event/app",
-	    actions: ["LIST", "DELETE", "CREATE"]
-	});
-	
-	function list() {
-	    return { type: events.LIST };
-	}
-	
-	function remove(id) {
-	    return { type: events.DELETE, payload: { app: id } };
-	}
-	
-	function create(info) {
-	    return { type: events.CREATE, payload: info };
-	}
-	
-	exports.default = events;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "app.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 578 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.list = list;
-	exports.size = size;
-	
-	var _namesGenerator = __webpack_require__(575);
-	
-	var _namesGenerator2 = _interopRequireDefault(_namesGenerator);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var events = (0, _namesGenerator2.default)({
-	    namespace: "event/space",
-	    actions: ["LIST", "SIZE"]
-	});
-	
-	function list() {
-	    return { type: events.LIST };
-	}
-	function size() {
-	    return { type: events.SIZE };
-	}
-	
-	exports.default = events;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "space.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 579 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(Buffer) {/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-	
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.topapps = exports.size = exports.localToken = exports.signout = exports.signin = exports.watchLogin = exports.userspace = exports.urls = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _jwtDecode = __webpack_require__(580);
-	
-	var _jwtDecode2 = _interopRequireDefault(_jwtDecode);
-	
-	var _superagent = __webpack_require__(583);
-	
-	var _superagent2 = _interopRequireDefault(_superagent);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var base = "http://user.space";
-	
-	var urls = {
-	    dashboard: function dashboard(token) {
-	        return base + '/login/?token=' + token;
-	    }
-	};
-	function userspace(namespace) {
-	    var Parse = __webpack_require__(588);
-	    Parse.initialize("userspace");
-	    Parse.serverURL = base + '/' + namespace;
-	    Parse.login = function (creds) {
-	        Parse.credentials = creds;
-	        if (!Parse.credentials) return;
-	        Parse.session = {};
-	        try {
-	            Parse.session.client = (0, _jwtDecode2.default)(creds).aud;
-	        } catch (e) {}
-	
-	        _superagent2.default.get(base + '/apps').query({ id: Parse.session.client }).then(function (res) {
-	            Parse.session.owner = res.body.owner;
-	        });
-	    };
-	    Parse.logout = function () {
-	        Parse.credentials = null;
-	    };
-	
-	    var Notify = Parse.Object.extend("Notify");
-	    Parse.share = function (_ref) {
-	        var object = _ref.object,
-	            app = _ref.app,
-	            user = _ref.user;
-	        return new Notify({
-	            ref: object.id,
-	            clazz: object.className,
-	            app: app || Parse.session.client,
-	            user: user || Parse.session.owner
-	        }).save();
-	    };
-	
-	    Parse.login(localStorage.id_token);
-	    return Parse;
-	}
-	
-	var offsetSeconds = 5;
-	
-	var Token = function () {
-	    function Token(token) {
-	        _classCallCheck(this, Token);
-	
-	        this.token = token;
-	    }
-	
-	    _createClass(Token, [{
-	        key: 'isLoggedIn',
-	        value: function isLoggedIn() {
-	            return !this.isTokenExpired();
-	        }
-	    }, {
-	        key: 'isTokenExpired',
-	        value: function isTokenExpired() {
-	            var date = this.getTokenExpirationDate();
-	            return date === null || !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000);
-	        }
-	    }, {
-	        key: 'getTokenExpirationDate',
-	        value: function getTokenExpirationDate() {
-	            if (!this.token) return null;
-	            var decoded = (0, _jwtDecode2.default)(this.token);
-	            if (!decoded.exp) return null;
-	            var date = new Date(0); // The 0 here is the key, which sets the date to the epoch
-	            date.setUTCSeconds(decoded.exp);
-	            return date;
-	        }
-	    }, {
-	        key: 'clear',
-	        value: function clear() {
-	            return new Token();
-	        }
-	    }]);
-	
-	    return Token;
-	}();
-	
-	function watchLogin() {
-	    var hasToken = window.location.search.match(/[\?&]token=(.*)[#&]?/);
-	    if (hasToken && hasToken.length === 2) {
-	        localStorage.id_token = hasToken[1];
-	        window.location = window.location.origin + window.location.pathname;
-	    }
-	}
-	
-	function signin(app) {
-	    app = new Buffer(app || window.location.origin + window.location.pathname).toString('base64');
-	    window.location = base + '/sign/' + app;
-	}
-	
-	function signout() {
-	    localStorage.id_token = "";
-	}
-	
-	function localToken() {
-	    return new Token(localStorage.id_token);
-	}
-	
-	function topapps() {
-	    return new Promise(function (ok) {
-	        return fetch(base + '/topapps', {
-	            headers: {
-	                'Authorization': 'Bearer ' + localStorage.id_token
-	            }
-	        }).then(function (res) {
-	            return res.json();
-	        }).then(function (res) {
-	            return ok(res);
-	        });
-	    });
-	}
-	
-	function size() {
-	    return new Promise(function (ok) {
-	        return fetch(base + '/size', {
-	            headers: {
-	                'Authorization': 'Bearer ' + localStorage.id_token
-	            }
-	        }).then(function (res) {
-	            return res.json();
-	        }).then(function (res) {
-	            return ok(res);
-	        });
-	    });
-	}
-	
-	exports.urls = urls;
-	exports.userspace = userspace;
-	exports.watchLogin = watchLogin;
-	exports.signin = signin;
-	exports.signout = signout;
-	exports.localToken = localToken;
-	exports.size = size;
-	exports.topapps = topapps;
-	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/home/sebasjm/Work/github/user-space.github.io/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "userspace.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(546).Buffer))
 
 /***/ },
 /* 580 */
@@ -27126,11 +27513,11 @@ webpackJsonp([0],[
 	
 	var _reduxForm = __webpack_require__(760);
 	
-	var _connect = __webpack_require__(551);
+	var _connect = __webpack_require__(548);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
-	var _app = __webpack_require__(577);
+	var _app = __webpack_require__(573);
 	
 	var app = _interopRequireWildcard(_app);
 	
@@ -29597,9 +29984,9 @@ webpackJsonp([0],[
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
-	var _redux = __webpack_require__(559);
+	var _redux = __webpack_require__(556);
 	
 	var _isPromise = __webpack_require__(883);
 	
@@ -30766,7 +31153,7 @@ webpackJsonp([0],[
 	
 	module.exports = isBuffer;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(567)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(564)(module)))
 
 /***/ },
 /* 829 */
@@ -31007,7 +31394,7 @@ webpackJsonp([0],[
 	
 	module.exports = nodeUtil;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(567)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(564)(module)))
 
 /***/ },
 /* 836 */
@@ -34038,7 +34425,7 @@ webpackJsonp([0],[
 	
 	var _react = __webpack_require__(300);
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
 	var _createFieldProps2 = __webpack_require__(911);
 	
@@ -35704,7 +36091,7 @@ webpackJsonp([0],[
 	
 	var _react = __webpack_require__(300);
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
 	var _createFieldProps2 = __webpack_require__(911);
 	
@@ -36040,9 +36427,9 @@ webpackJsonp([0],[
 	
 	var _react = __webpack_require__(300);
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
-	var _redux = __webpack_require__(559);
+	var _redux = __webpack_require__(556);
 	
 	var _createFieldArrayProps = __webpack_require__(931);
 	
@@ -36373,7 +36760,7 @@ webpackJsonp([0],[
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _reactRedux = __webpack_require__(552);
+	var _reactRedux = __webpack_require__(549);
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
@@ -37999,7 +38386,7 @@ webpackJsonp([0],[
 	  return store;
 	};
 	
-	var _redux = __webpack_require__(559);
+	var _redux = __webpack_require__(556);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -38018,7 +38405,7 @@ webpackJsonp([0],[
 	});
 	exports.space = exports.user = exports.app = undefined;
 	
-	var _redux = __webpack_require__(559);
+	var _redux = __webpack_require__(556);
 	
 	var _reactRouterRedux = __webpack_require__(396);
 	
@@ -38067,7 +38454,7 @@ webpackJsonp([0],[
 	
 	var _event = __webpack_require__(998);
 	
-	var _userspace = __webpack_require__(579);
+	var _userspace = __webpack_require__(575);
 	
 	var ANON_USER = "anonymous";
 	var initialState = {
@@ -38122,15 +38509,15 @@ webpackJsonp([0],[
 	});
 	exports.space = exports.app = exports.user = undefined;
 	
-	var _user = __webpack_require__(574);
+	var _user = __webpack_require__(546);
 	
 	var _user2 = _interopRequireDefault(_user);
 	
-	var _app = __webpack_require__(577);
+	var _app = __webpack_require__(573);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _space = __webpack_require__(578);
+	var _space = __webpack_require__(574);
 	
 	var _space2 = _interopRequireDefault(_space);
 	
@@ -38315,7 +38702,7 @@ webpackJsonp([0],[
 	
 	var _event = __webpack_require__(998);
 	
-	var _userspace = __webpack_require__(579);
+	var _userspace = __webpack_require__(575);
 	
 	var _reactRouterRedux = __webpack_require__(396);
 	
@@ -38704,7 +39091,7 @@ webpackJsonp([0],[
 	
 	var _event = __webpack_require__(998);
 	
-	var _userspace = __webpack_require__(579);
+	var _userspace = __webpack_require__(575);
 	
 	var Parse = (0, _userspace.userspace)('main');
 	var App = Parse.Object.extend("App");
@@ -38775,7 +39162,7 @@ webpackJsonp([0],[
 	
 	var _event = __webpack_require__(998);
 	
-	var _userspace = __webpack_require__(579);
+	var _userspace = __webpack_require__(575);
 	
 	var Parse = (0, _userspace.userspace)('main');
 	var Space = Parse.Object.extend("Space");
