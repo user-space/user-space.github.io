@@ -1,5 +1,5 @@
 import { user } from 'event'
-import { localToken } from 'lib/userspace'
+import { localToken } from 'userspace-sdk-js'
 
 const ANON_USER = "anonymous"
 const initialState = {
@@ -12,13 +12,13 @@ export default function reducer(state = initialState, action = {}) {
         case user.LOGIN :
             return {
                 ...state,
-                token : state.token.clear()
+                token : state.token.constructor.clear()
             };
         case user.LOGOUT :
             return {
                 ...state,
                 profile : ANON_USER,
-                token : state.token.clear()
+                token : state.token.constructor.clear()
             }
         case user.LOGIN_OK :
             return {
@@ -33,7 +33,7 @@ export default function reducer(state = initialState, action = {}) {
         case user.LOGIN_FAIL :
             return {
                 ...state,
-                token : state.token.clear()
+                token : state.token.constructor.clear()
             }
         default : return state;
   }

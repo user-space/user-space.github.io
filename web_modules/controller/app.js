@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { app } from 'event';
-import {userspace, topapps} from 'lib/userspace'
+import {userspace, topapps} from 'userspace-sdk-js'
 
-const Parse = userspace('main')
+const Parse = userspace()
 const App = Parse.Object.extend("App");
 const query = new (Parse.Query)(App);
 

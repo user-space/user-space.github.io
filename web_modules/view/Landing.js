@@ -172,17 +172,17 @@ var Landing = ({actions}) =>
                         </a>
                     </li>
                     <li>
-                        <a href="http://user.space/about">
+                        <a href="https://user.space/about">
                            About Us
                         </a>
                     </li>
                     <li>
-                        <a href="http://user.space/blog">
+                        <a href="https://user.space/blog">
                            Blog
                         </a>
                     </li>
                     <li>
-                        <a href="http://user.space/license">
+                        <a href="https://user.space/license">
                             Licenses
                         </a>
                     </li>

@@ -4,7 +4,7 @@ import Root from 'Root'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {watchLogin} from 'lib/userspace'
+import {watchLogin} from 'userspace-sdk-js'
 
 injectTapEventPlugin();
 watchLogin();

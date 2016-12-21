@@ -44,6 +44,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "parse": "sebasjm/Parse-SDK-JS#dist"
+    "parse": "sebasjm/Parse-SDK-JS#dist",
+    "userspace-sdk-js": "0.0.2"
   }
 }

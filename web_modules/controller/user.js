@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { user } from 'event';
-import { signin, signout } from 'lib/userspace'
+import { signin, signout } from 'userspace-sdk-js'
 import { replace } from 'react-router-redux';
 
 

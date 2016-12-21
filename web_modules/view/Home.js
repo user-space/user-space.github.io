@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import connect from 'lib/connect'
 import * as app from 'event/app'
 import * as space from 'event/space'
-import { urls } from 'lib/userspace'
+import { urls } from 'userspace-sdk-js'
 import { Link } from 'react-router'
 import ChartPie from './ChartPie'
 import ChartLine from './ChartLine'
@@ -74,7 +74,7 @@ const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
                             {
                                 spaces.map(space=>
                                     <tr key={space.id}>
-                                        <td><a href="#">{space.app}</a></td>
+                                        <td><a href={space.app} target='_blank'>{space.app}</a></td>
                                         <td>{space.name}</td>
                                         <td>{(sizes.filter(s=>s.app === space.app)[0] || {size:0}).size}</td>
                                         <td>11/05/2016</td>
@@ -106,7 +106,7 @@ const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
                             {
                                 apps.map(app=>
                                     <tr key={app.id}>
-                                        <td><a href="#">{app.url}</a></td>
+                                        <td><a href={app.url} target='_blank'>{app.url}</a></td>
                                         <td>{app.name}</td>
                                         <td>{app.sessions}</td>
                                         <td>11/05/2016</td>
