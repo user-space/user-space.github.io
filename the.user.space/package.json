@@ -1,0 +1,50 @@
+{
+  "name": "the-user-space",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "static": "node src/static.js",
+    "hot": "node src/hot.js",
+    "dev": "webpack-dev-server --progress --colors",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userspace/the.user.space"
+  },
+  "homepage": "https://the.user.space",
+  "devDependencies": {
+    "axios": "^0.14.0",
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-1": "^6.13.0",
+    "jwt-decode": "^2.1.0",
+    "react": "^15.1",
+    "react-dom": "^15.1",
+    "react-hot-loader": "^1.3.1",
+    "react-modal": "^1.4.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-apply-middleware": "0.0.2",
+    "react-router-redux": "^4.0.5",
+    "react-router-relative-links": "^0.1.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.0.0",
+    "redux-form": "^6.2.1",
+    "redux-logger": "^2.6.1",
+    "redux-observable": "^0.12.0",
+    "rxjs": "^5.0.0-beta.12",
+    "superagent": "^3.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "parse": "sebasjm/Parse-SDK-JS#dist",
+    "userspace-sdk-js": "0.0.2"
+  }
+}
