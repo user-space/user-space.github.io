@@ -5,7 +5,7 @@ module.exports = {
      main : [
        './src/main.js'
      ],
-     vendor : ["react","react-redux", "react-dom", "rxjs", "core-js", "auth0-lock"]
+     vendor : ["react","react-redux", "react-dom", "rxjs", "core-js"]
    },
    output: {
      path: __dirname,

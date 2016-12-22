@@ -41,7 +41,7 @@ const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
                     <i className="material-icons">pie_chart</i>
                 </div>
                 <div className="card-content">
-                    <h4 className="card-title">Active users</h4>
+                    <h4 className="card-title">Space usage over time</h4>
                 </div>
                 <ChartLine lineName="active-users-pie" />
                 <div className="card-footer">
@@ -58,7 +58,7 @@ const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
             <div className="card">
                 <div className="card-header card-header-text" data-background-color="orange">
                     <h4 className="card-title">Top Spaces</h4>
-                    <p className="category">List of your most used spaces</p>
+                    <p className="category">List of your applications that use most of your space</p>
                 </div>
                 <div className="card-content table-responsive">
                     <table className="table table-hover">
@@ -90,7 +90,7 @@ const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
             <div className="card">
                 <div className="card-header card-header-text" data-background-color="green">
                     <h4 className="card-title">Top Applications</h4>
-                    <p className="category">List of your most used applications</p>
+                    <p className="category">List of applications that you may like</p>
                 </div>
                 <div className="card-content table-responsive">
                     <table className="table table-hover">
@@ -130,6 +130,9 @@ const HomeClass = React.createClass({
     },
     render: function() {
         return Home(this.props)
+    },
+    componentDidMount : function() {
+        mixpanel.track("Home did mount");
     }
 })
 export default connect(
