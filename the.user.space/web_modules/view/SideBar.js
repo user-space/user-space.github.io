@@ -41,18 +41,6 @@ var SideBar = ({actions}) =>
                 </Link>
             </li>
             <li>
-                <Link to="/spaces">
-                    <i className="material-icons">sd_storage</i>
-                    <p>Spaces</p>
-                </Link>
-            </li>
-            <li>
-                <a target='_blank' href={`https://user.space/login?token=${localStorage.id_token}`}>
-                    <i className="material-icons">dashboard</i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
-            <li>
                 <a onClick={actions.logout}>
                     <i className="material-icons">exit_to_app</i>
                     <p>Logout</p>
