@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/user-space/user-space.github.io"
+    "url": "git+https://github.com/userspace/my.user.space"
   },
   "homepage": "https://my.user.space",
   "devDependencies": {
