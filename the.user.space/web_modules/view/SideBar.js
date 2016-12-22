@@ -8,12 +8,12 @@ var SideBar = ({actions}) =>
 <div className="sidebar" data-active-color="rose" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
     <div className="logo">
         <a href="https://user.space" className="simple-text">
-            My User Space
+            The User Space
         </a>
     </div>
     <div className="logo logo-mini">
         <a href="https://user.space" className="simple-text">
-            MyUS
+            TheUS
         </a>
     </div>
     <div className="sidebar-wrapper">

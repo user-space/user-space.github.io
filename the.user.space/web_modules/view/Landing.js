@@ -9,7 +9,7 @@ var Landing = ({actions}) =>
     <nav className="navbar navbar-danger navbar-transparent navbar-absolute">
         <div className="container">
             <div className="navbar-header">
-                <a className="navbar-brand">My User Space</a>
+                <a className="navbar-brand">The User Space</a>
             </div>
 
         </div>
@@ -20,8 +20,8 @@ var Landing = ({actions}) =>
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h1 className="title">Control the data you share</h1>
-                    <h4>Every time you use a web application you share information about what you do and who you are. With User Space you are the owner of every byte and then only one who can decide wheter to delete it or share it.</h4>
+                    <h1 className="title">Friction-less backend for developers</h1>
+                    <h4>Convert your single page application into a full stack one with no effort. Forget about configuring databases and server, focus in your app.</h4>
                     <br />
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" className="btn btn-danger btn-raised btn-lg">
                         <i className="fa fa-play"></i> Watch video
