@@ -1,6 +1,6 @@
 {
   "name": "The User Space",
-  "short_name": "Tus",
+  "short_name": "TheUserSpace",
   "description": "Friction-less backend for developers",
   "start_url": "./?utm_source=web_app_manifest",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "lang": "es-US",
   "sign": "as12kjeoqiweu1lkjasd",
   "icons": [{
-    "src": "images/img/favicon.png",
+    "src": "/assets/img/favicon.png",
     "sizes": "96x96",
     "type": "image/png"
   }]
