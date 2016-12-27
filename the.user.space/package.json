@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "parse": "sebasjm/Parse-SDK-JS#dist",
-    "userspace-sdk-js": "0.0.3"
+    "userspace-sdk-js": "0.0.4"
   }
 }
