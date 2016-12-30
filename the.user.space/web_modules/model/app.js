@@ -41,7 +41,7 @@ export default function reducer(state = initialState, action = {}) {
                 done : false,
             }
         case app.CREATE:
-            const icons = state.info.icons.slice()
+            const icons = (state.info.icons||[]).slice()
             if (!icons.find(element => element.src === action.payload.image)) {
               icons.unshift({src: action.payload.image, sizes: '96x96', type: 'image/png'})
             }
