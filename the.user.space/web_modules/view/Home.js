@@ -12,9 +12,9 @@ import ChartLine from './ChartLine'
 const Home = ({apps, spaces, free, ratio, fill, total, sizes}) =>
 <div className="container-fluid">
     <div className="row">
-        <button className="btn btn-just-icon btn-round btn-twitter">
+        <Link className="btn btn-just-icon btn-round btn-twitter" to="/new-app">
             <i className="fa fa-plus"></i>New
-        </button>
+        </Link>
     </div>
     <div className="row">
         <div className="col-md-12">

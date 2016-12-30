@@ -7,12 +7,12 @@ import connect from 'lib/connect'
 var SideBar = ({actions}) =>
 <div className="sidebar" data-active-color="rose" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
     <div className="logo">
-        <a href="https://user.space" className="simple-text">
+        <a href="https://my.user.space" className="simple-text">
             My User Space
         </a>
     </div>
     <div className="logo logo-mini">
-        <a href="https://user.space" className="simple-text">
+        <a href="https://my.user.space" className="simple-text">
             MyUS
         </a>
     </div>
@@ -47,7 +47,7 @@ var SideBar = ({actions}) =>
                 </Link>
             </li>
             <li>
-                <a target='_blank' href={`https://user.space/login?token=${localStorage.id_token}`}>
+                <a target='_blank' href={`https://gateway.user.space/login?token=${localStorage.id_token}`}>
                     <i className="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>

@@ -3703,7 +3703,7 @@ be a descendant of the grid when it is being dragged.
   min-height: 410px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
-.wizard-card .picture-container {
+.picture-container {
   position: relative;
   cursor: pointer;
   text-align: center;
@@ -3711,7 +3711,7 @@ be a descendant of the grid when it is being dragged.
 .wizard-card .wizard-navigation {
   position: relative;
 }
-.wizard-card .picture {
+.picture {
   width: 106px;
   height: 106px;
   background-color: #999999;
@@ -3723,7 +3723,7 @@ be a descendant of the grid when it is being dragged.
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
 }
-.wizard-card .picture:hover {
+.picture:hover {
   border-color: #2ca8ff;
 }
 .wizard-card .moving-tab {
@@ -3878,7 +3878,7 @@ be a descendant of the grid when it is being dragged.
 .wizard-card[data-color="rose"] .radio input[type=radio]:checked ~ .circle {
   border-color: #e91e63;
 }
-.wizard-card .picture input[type="file"] {
+.picture input[type="file"] {
   cursor: pointer;
   display: block;
   height: 100%;
@@ -3888,7 +3888,7 @@ be a descendant of the grid when it is being dragged.
   top: 0;
   width: 100%;
 }
-.wizard-card .picture-src {
+.picture-src {
   width: 100%;
 }
 .wizard-card .tab-content {
@@ -7467,7 +7467,7 @@ label,
 .label-on-right {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #111111;
   font-weight: 400;
 }
 

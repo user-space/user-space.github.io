@@ -2,12 +2,16 @@ import namesGenerator from "lib/namesGenerator"
 
 const events = namesGenerator({
     namespace: "event/app",
-    actions: ["LIST","DELETE", "CREATE"]
+    actions: ["LIST","DELETE", "CREATE", 'GET_INFO', 'EDIT']
 })
 
 
 export function list() {
     return { type : events.LIST }
+}
+
+export function edit() {
+    return { type : events.EDIT }
 }
 
 export function remove(id) {
