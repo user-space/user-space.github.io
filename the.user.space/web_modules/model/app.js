@@ -17,6 +17,7 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action = {}) {
+    const manifest = (action.payload||{}).manifest || {}
     switch (action.type) {
         case app.LIST :
         case user.LOGOUT:
@@ -30,9 +31,11 @@ export default function reducer(state = initialState, action = {}) {
                 ...state,
                 list : action.payload,
             }
+        case app.RELOAD:
         case app.GET_INFO:
             return {
                 ...state,
+                validated: false,
                 checking : true,
             }
         case app.EDIT:
@@ -40,7 +43,7 @@ export default function reducer(state = initialState, action = {}) {
                 ...state,
                 done : false,
             }
-        case app.CREATE:
+        case app.CREATE_OK:
             const icons = (state.info.icons||[]).slice()
             if (!icons.find(element => element.src === action.payload.image)) {
               icons.unshift({src: action.payload.image, sizes: '96x96', type: 'image/png'})
@@ -51,12 +54,21 @@ export default function reducer(state = initialState, action = {}) {
                 ...state.info,
                 name: action.payload.name,
                 description: action.payload.description,
-                icons
+                icons,
+                userspace: action.payload.signature,
               },
               done: true,
             }
+        case app.RELOAD_OK:
+            const manifestAreEquals = (x,y) => JSON.stringify(x) === JSON.stringify(y);
+
+            return {
+              ...state,
+              manifest: action.payload.manifest,
+              validated: manifestAreEquals(state.info, action.payload.manifest),
+              checking : false,
+            }
         case app.GET_INFO_OK:
-            const manifest = action.payload.manifest || {}
             return {
               ...state,
               url: action.payload.url,

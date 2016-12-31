@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Field, reduxForm } from 'redux-form';
 import connect from 'lib/connect'
 import * as app from 'event/app'
+import { toBase64} from "base64url";
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
@@ -14,13 +15,13 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
   </div>
 )
 
-const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pristine, reset, submitting, checking, done }) =>
+const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pristine, reset, submitting, checking, done, validated }) =>
 <div className="container-fluid">
     <div className="row">
         <div className="col-md-12">
             <div className="card">
                 <form className="form-horizontal" onSubmit={handleSubmit(actions.create)}>
-                    <div className="card-header card-header-text" data-background-color="rose">
+                    <div className="card-header card-header-icon" data-background-color="rose">
                         <h4 className="card-title">Application registration</h4>
                     </div>
                     <div className="card-content">
@@ -69,11 +70,11 @@ const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pri
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-6" />
-                      <button type="submit" className="btn btn-fill btn-rose" disabled={pristine || submitting || checking} >Done</button>
-                      <button type="submit" className="btn btn-fill btn-rose" disabled={pristine || submitting || checking} onClick={reset}>Reset</button>
+                        <div className="row">
+                          <div className="col-sm-6" />
+                          <button type="submit" className="btn btn-fill btn-rose" disabled={pristine || submitting || checking} >Done</button>
+                          <button type="submit" className="btn btn-fill btn-rose" disabled={pristine || submitting || checking} onClick={reset}>Reset</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -89,7 +90,7 @@ const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pri
         <div className="row">
             <div className="col-md-6">
                 <div className="card">
-                    <div className="card-header card-header-text" data-background-color="green">
+                    <div className="card-header card-header-icon" data-background-color="green">
                         <i className="material-icons">code</i>
                     </div>
                     <div className="card-content">
@@ -97,7 +98,7 @@ const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pri
                         <p className="category">with the new values</p>
                         <div className="row">
                             <a className="btn btn-fill btn-rose"
-                              href={`data:application/octet-stream;charset=utf-8;base64,${new Buffer(JSON.stringify(info,null,2)).toString('base64')}`}
+                              href={`data:application/octet-stream;charset=utf-8;base64,${toBase64(JSON.stringify(info,null,2))}`}
                               download='manifest.json'>Download</a>
                         </div>
                         <div className="row">
@@ -111,14 +112,14 @@ const NewApp = ({ handleSubmit, actions, info, manifest, image, url, loaded, pri
             </div>
             <div className="col-md-6">
                 <div className="card">
-                    <div className="card-header card-header-text" data-background-color="red">
-                        <i className="material-icons">error</i>
+                    <div className="card-header card-header-icon" data-background-color={validated ? 'green' : 'red'}>
+                        <i className="material-icons">{validated ? 'done' : 'error'}</i>
                     </div>
                     <div className="card-content">
-                        <h4 className="card-title">Current manifest.json</h4>
+                        <h4 className="card-title">Current manifest.json: <span style={{color: validated ? 'green': 'red'}}>{validated ? 'synchronized' : 'hasnt been updated yet.'}</span></h4>
                         <p className="category">{`as found at ${url}/manifest.json`}</p>
                         <div className="row">
-                            <a className="btn btn-fill btn-rose">Check again</a>
+                            <a className="btn btn-fill btn-rose" onClick={() => actions.reload(url)}>Check again</a>
                         </div>
                         <div className="row">
                             <pre>{JSON.stringify(manifest, null, 2)}</pre>
@@ -148,11 +149,13 @@ export default connect(
         description: state.app.info.description,
       },
       image: state.app.image,
+      url: state.app.url,
       info: state.app.info,
       manifest: state.app.manifest,
       loaded: state.app.loaded,
+      validated: state.app.validated,
       checking: state.app.checking,
       done: state.app.done,
     }),
-    {create: app.create, edit: app.edit}
+    {create: app.create, edit: app.edit, reload: app.reload}
 )(NewAppClass);
