@@ -11,4 +11,13 @@ const Root = () =>
       <Routes />
   </Provider>
 
-export default Root
+class RootClass extends React.Component {
+  render() {
+    return Root(this.props)
+  }
+  componentDidMount() {
+    mixpanel.track("Root did mount");
+  }
+}
+
+export default RootClass
