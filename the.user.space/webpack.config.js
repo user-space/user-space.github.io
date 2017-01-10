@@ -14,7 +14,12 @@ module.exports = {
    devtool : 'source-map',
    plugins : [
      new webpack.optimize.CommonsChunkPlugin("vendor", "dist/vendor.bundle.js"),
-   ],
+     new webpack.DefinePlugin({
+       'process.env': {
+         'USERSPACE_GATEWAY': JSON.stringify(process.env.USERSPACE_GATEWAY)
+       }
+     }),
+  ],
    module:{
       loaders: [{
          test: /\.js?$/,
