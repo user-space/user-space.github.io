@@ -137,7 +137,7 @@ var Landing = ({actions}) =>
                                 <div className="col-md-6">
                                     <div className="form-group label-floating">
                                         <label className="control-label">Your Name</label>
-                                        <input type="email" className="form-control" />
+                                        <input type="text" className="form-control" />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
