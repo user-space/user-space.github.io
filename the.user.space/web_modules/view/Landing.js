@@ -11,11 +11,11 @@ var Landing = ({actions}) =>
             <div className="navbar-header">
                 <a className="navbar-brand">The User Space</a>
             </div>
-            <div class="collapse navbar-collapse" id="navigation-example">
-                <ul class="nav navbar-nav navbar-right">
+            <div className="collapse navbar-collapse" id="navigation-example">
+                <ul className="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/docs/" target="_blank" class="btn btn-rose btn-round">
-                        <i class="material-icons">book</i>Documentation</a>
+                    <a href="/docs/" target="_blank" className="btn btn-rose btn-round">
+                        <i className="material-icons">book</i>Documentation</a>
                     </li>
                 </ul>
             </div>
