@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PFLogInView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/PFLogInView" class="dashAnchor"></a>
+    <a title="PFLogInView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Parse Docs</a></p>
+        <p class="header-right"><a href="https://github.com/ParsePlatform/Parse-SDK-iOS-OSX"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eparse%2Ecom%2Fdocs%2Fios%2Fapi%2Fdocsets%2FParse%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Parse Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PFLogInView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/PFAnonymousUtils(Deprecated).html">PFAnonymousUtils(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFCloud(Deprecated).html">PFCloud(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFCloud(Synchronous).html">PFCloud(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFConfig(Synchronous).html">PFConfig(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFFile(Deprecated).html">PFFile(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFFile(Synchronous).html">PFFile(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Deprecated).html">PFObject(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Subclass).html">PFObject(Subclass)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Synchronous).html">PFObject(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFPush(Deprecated).html">PFPush(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFPush(Synchronous).html">PFPush(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFQuery(Deprecated).html">PFQuery(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFQuery(Synchronous).html">PFQuery(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFUser(Deprecated).html">PFUser(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFUser(Synchronous).html">PFUser(Synchronous)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/PFACL.html">PFACL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFAnalytics.html">PFAnalytics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFAnonymousUtils.html">PFAnonymousUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFCloud.html">PFCloud</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFCollectionViewCell.html">PFCollectionViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFConfig.html">PFConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFFacebookUtils.html">PFFacebookUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFFile.html">PFFile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFGeoPoint.html">PFGeoPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFImageView.html">PFImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFInstallation.html">PFInstallation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFLogInView.html">PFLogInView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFLogInViewController.html">PFLogInViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFNetworkActivityIndicatorManager.html">PFNetworkActivityIndicatorManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFObject.html">PFObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFProduct.html">PFProduct</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFProductTableViewController.html">PFProductTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPurchase.html">PFPurchase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPurchaseTableViewCell.html">PFPurchaseTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPush.html">PFPush</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQuery.html">PFQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQueryCollectionViewController.html">PFQueryCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQueryTableViewController.html">PFQueryTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFRelation.html">PFRelation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFRole.html">PFRole</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSession.html">PFSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSignUpView.html">PFSignUpView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSignUpViewController.html">PFSignUpViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTableViewCell.html">PFTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTextField.html">PFTextField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTwitterUtils.html">PFTwitterUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFUser.html">PFUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PF_Twitter.html">PF_Twitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Parse.html">Parse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParseClientConfiguration.html">ParseClientConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInCancelNotification">PFLogInCancelNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInFailureNotification">PFLogInFailureNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInSuccessNotification">PFLogInSuccessNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInViewUsernameFieldAccessibilityIdentifier">PFLogInViewUsernameFieldAccessibilityIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkDidReceiveURLResponseNotification">PFNetworkDidReceiveURLResponseNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLRequestUserInfoKey">PFNetworkNotificationURLRequestUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLResponseBodyUserInfoKey">PFNetworkNotificationURLResponseBodyUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLResponseUserInfoKey">PFNetworkNotificationURLResponseUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkWillSendURLRequestNotification">PFNetworkWillSendURLRequestNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFObjectDefaultPin">PFObjectDefaultPin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFParseErrorDomain">PFParseErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpCancelNotification">PFSignUpCancelNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpFailureNotification">PFSignUpFailureNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpSuccessNotification">PFSignUpSuccessNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpViewUsernameFieldAccessibilityIdentifier">PFSignUpViewUsernameFieldAccessibilityIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kPFDeviceType">kPFDeviceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/PFCachePolicy.html">PFCachePolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFErrorCode.html">PFErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFLogInFields.html">PFLogInFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFLogLevel.html">PFLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFPurchaseTableViewCellState.html">PFPurchaseTableViewCellState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFSignUpFields.html">PFSignUpFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFTextFieldSeparatorStyle.html">PFTextFieldSeparatorStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PFLogInViewControllerDelegate.html">PFLogInViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFSignUpViewControllerDelegate.html">PFSignUpViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFSubclassing.html">PFSubclassing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFUserAuthenticationDelegate.html">PFUserAuthenticationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ParseMutableClientConfiguration.html">ParseMutableClientConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:PFQuery.h@T@PFQueryArrayResultBlock">PFQueryArrayResultBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PFLogInView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">PFLogInView</span> <span class="p">:</span> <span class="nc">UIScrollView</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>PFLogInView</code> class provides a standard log in interface for authenticating a <code><a href="../Classes/PFUser.html">PFUser</a></code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Creating%20Log%20In%20View"></a>
+                <a name="//apple_ref/objc/Section/Creating Log In View" class="dashAnchor"></a>
+                <a href="#/Creating%20Log%20In%20View">
+                  <h3 class="section-name">Creating Log In View</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(im)initWithFields:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithFields:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(im)initWithFields:">-initWithFields:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the view with the specified log in elements.</p>
+
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>PFLogInFields</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithFields</span><span class="p">:(</span><span class="n">PFLogInFields</span><span class="p">)</span><span class="nv">fields</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A bitmask specifying the log in elements which are enabled in the view</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code><a href="../Classes/PFLogInView.html">PFLogInView</a></code> object or <code>nil</code> if the object couldn&rsquo;t be created.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)presentingViewController"></a>
+                    <a name="//apple_ref/objc/Property/presentingViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)presentingViewController">presentingViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view controller that will present this view.</p>
+
+<p>Used to lay out elements correctly when the presenting view controller has translucent elements.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span>
+    <span class="n">UIViewController</span> <span class="o">*</span><span class="n">presentingViewController</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Customizing%20the%20Logo"></a>
+                <a name="//apple_ref/objc/Section/Customizing the Logo" class="dashAnchor"></a>
+                <a href="#/Customizing%20the%20Logo">
+                  <h3 class="section-name">Customizing the Logo</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)logo"></a>
+                    <a name="//apple_ref/objc/Property/logo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)logo">logo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The logo. By default, it is the Parse logo.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">logo</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configure%20Username%20Behaviour"></a>
+                <a name="//apple_ref/objc/Section/Configure Username Behaviour" class="dashAnchor"></a>
+                <a href="#/Configure%20Username%20Behaviour">
+                  <h3 class="section-name">Configure Username Behaviour</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)emailAsUsername"></a>
+                    <a name="//apple_ref/objc/Property/emailAsUsername" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)emailAsUsername">emailAsUsername</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If email should be used to log in, instead of username</p>
+
+<p>By default, this is set to <code>NO</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">emailAsUsername</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Log%20In%20Elements"></a>
+                <a name="//apple_ref/objc/Section/Log In Elements" class="dashAnchor"></a>
+                <a href="#/Log%20In%20Elements">
+                  <h3 class="section-name">Log In Elements</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)fields"></a>
+                    <a name="//apple_ref/objc/Property/fields" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)fields">fields</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The bitmask which specifies the enabled log in elements in the view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">PFLogInFields</span> <span class="n">fields</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)usernameField"></a>
+                    <a name="//apple_ref/objc/Property/usernameField" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)usernameField">usernameField</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The username text field. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">PFTextField</span> <span class="o">*</span><span class="n">usernameField</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)passwordField"></a>
+                    <a name="//apple_ref/objc/Property/passwordField" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)passwordField">passwordField</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The password text field. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">PFTextField</span> <span class="o">*</span><span class="n">passwordField</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)passwordForgottenButton"></a>
+                    <a name="//apple_ref/objc/Property/passwordForgottenButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)passwordForgottenButton">passwordForgottenButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The password forgotten button. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span>
+    <span class="n">UIButton</span> <span class="o">*</span><span class="n">passwordForgottenButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)logInButton"></a>
+                    <a name="//apple_ref/objc/Property/logInButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)logInButton">logInButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The log in button. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">logInButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)facebookButton"></a>
+                    <a name="//apple_ref/objc/Property/facebookButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)facebookButton">facebookButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Facebook button. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">facebookButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)twitterButton"></a>
+                    <a name="//apple_ref/objc/Property/twitterButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)twitterButton">twitterButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Twitter button. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">twitterButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)signUpButton"></a>
+                    <a name="//apple_ref/objc/Property/signUpButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)signUpButton">signUpButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sign up button. It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">signUpButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)dismissButton"></a>
+                    <a name="//apple_ref/objc/Property/dismissButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)dismissButton">dismissButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>It is <code>nil</code> if the element is not enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">dismissButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)externalLogInLabel"></a>
+                    <a name="//apple_ref/objc/Property/externalLogInLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)externalLogInLabel">externalLogInLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The facebook/twitter login label.</p>
+
+<p>@deprecated This property is deprecated and will always be nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">externalLogInLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)PFLogInView(py)signUpLabel"></a>
+                    <a name="//apple_ref/objc/Property/signUpLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)PFLogInView(py)signUpLabel">signUpLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sign up label.</p>
+
+<p>@deprecated This property is deprecated and will always be nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">signUpLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright &copy; 2015 Parse. All rights reserved.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

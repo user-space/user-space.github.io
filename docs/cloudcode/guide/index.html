@@ -1,0 +1,815 @@
+<!doctype html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Cloud Code Guide | Parse</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://parse.com/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://parse.com/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://parse.com/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://parse.com/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://parse.com/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://parse.com/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://parse.com/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://parse.com/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://parse.com/apple-touch-icon-180x180.png">
+  <meta name="apple-mobile-web-app-title" content="Parse">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#5298fc">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="application-name" content="Parse">
+
+  <meta name="theme-color" content="#5298fc">
+
+      <!-- CSS -->
+      <!-- build:css -->
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+      <link href="/docs/css/docs.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" rel="stylesheet" />
+      <!-- endbuild -->
+
+      <!--[if lte IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+      <![endif]-->
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  <!--[if lt IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
+  <![endif]-->
+  <!--[if IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" />
+  <![endif]-->
+  <!--[if lt IE 10]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie89.css" />
+  <![endif]-->
+  <script>if(Function('/*@cc_on return document.documentMode===10@*/')()){document.documentElement.className+=' ie10';}</script>
+
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="KxDoKysxiXDIRV8VXwDYlQStDGzjbGZ24y6ZgQLYAsE=">
+  <meta name="description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta name="keywords" content="backend, mobile, development, server, code">
+  <meta property="fb:app_id" content="361736430535656">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Parse">
+  <meta property="og:image" content="/docs/assets/images/social.jpg">
+  <meta property="og:description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta property="og:url" content="/cloudcode/guide/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+  <body class="pure p_docs p_docs_show_guide user_logged_in" style="position: relative;">
+  <div class="site__wrapper">
+    <div class="site__content">
+
+      <aside class="site__menu">
+    <nav class="site__menu__nav">
+        <ul>
+            <li><a href="/migration">Migration Guide</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="http://blog.parse.com/">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="site__menu__socials">
+        <h4 class="h4">Stay Connected</h4>
+
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/parseit">
+                    <svg class="icon icon-fb"><use xlink:href="/docs/assets/symbols.svg#fb"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/parseit">
+                    <svg class="icon icon-twitter"><use xlink:href="/docs/assets/symbols.svg#twitter"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://parseplatform.github.io">
+                    <svg class="icon icon-github"><use xlink:href="/docs/assets/symbols.svg#github"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="http://stackoverflow.com/questions/tagged/parse.com">
+                    <svg class="icon icon-stack-overflow"><use xlink:href="/docs/assets/symbols.svg#stack-overflow"></use></svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="site__menu__build-together">Let&rsquo;s build together.</p>
+    </div>
+</aside>
+
+      <div class="content__wrapper">
+        <header class="site__header site__header--white">
+    <div class="container">
+
+        <a href="/" class="header-logo">
+            <span class="hidden">Parse</span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 152 60" style="enable-background:new 0 0 152 60;" xml:space="preserve">
+            <g>
+            	<path class="line one" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line two" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line three" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="st1" d="M151.88,31.106c0-4.561-2.575-7.835-7.173-7.872c-5.665-0.037-9.197,4.12-9.197,10.484v0.11
+            		c0,6.033,3.863,9.601,9.601,9.601c1.839,0,4.083-0.405,5.739-1.177v-3.568c-1.839,0.956-3.752,1.398-5.408,1.398
+            		c-3.568,0-6.07-1.803-6.18-5.959h12.36C151.807,33.056,151.88,32.026,151.88,31.106z M148.312,31.07h-8.829
+            		c0.625-3.053,2.354-4.745,4.966-4.745c2.575,0,3.863,1.729,3.863,4.561V31.07z"/>
+            	<path class="st1" d="M125.725,34.712l0.405,0.147c2.869,1.03,3.531,1.655,3.531,2.906c0,1.471-0.993,2.428-3.458,2.428
+            		c-1.986,0-4.12-0.662-6.364-1.692v3.752c1.803,0.699,4.12,1.177,6.364,1.177c4.819,0,7.21-2.428,7.21-5.812
+            		c0-2.943-1.471-4.525-5.408-5.959l-0.405-0.147c-3.127-1.14-3.752-1.655-3.752-2.869c0-1.361,0.956-2.281,3.237-2.281
+            		c1.839,0,3.642,0.589,5.408,1.435v-3.531c-1.582-0.625-3.348-1.03-5.26-1.03c-4.598,0-7.1,2.575-7.1,5.886
+            		C120.134,31.695,121.679,33.24,125.725,34.712"/>
+            	<path class="st1" d="M110.863,29.892c1.288-2.023,3.09-3.016,5.26-3.016c0.773,0,1.508,0.11,2.17,0.331v-3.384
+            		c-0.625-0.258-1.361-0.405-2.134-0.405c-2.281,0-4.01,1.03-5.518,3.09l-0.258-2.869h-3.164v19.386h3.642V29.892z"/>
+            	<path class="st1" d="M96.481,23.197c-2.281,0-4.672,0.699-6.474,1.692v3.605c2.023-1.251,4.378-2.023,6.254-2.023
+            		c2.612,0,3.679,1.14,3.679,3.274v1.619c-5.334,0.147-8.461,1.03-10.116,2.685c-1.177,1.14-1.692,2.685-1.692,4.267
+            		c0,3.274,2.354,5.15,5.702,5.15c2.244,0,4.378-0.92,6.327-2.796l0.221,2.354h3.164V30.003
+            		C103.544,25.405,101.263,23.197,96.481,23.197z M99.938,37.728c-1.471,1.619-3.2,2.722-5.297,2.722
+            		c-1.729,0-2.833-0.883-2.833-2.428c0-2.281,1.876-3.642,8.13-3.826V37.728z"/>
+            	<path class="st1" d="M77.609,17.643h-8.571v25.383h3.826v-8.314h4.745c5.923,0,9.491-3.164,9.491-8.498V26.14
+            		C87.1,20.806,83.532,17.643,77.609,17.643z M83.311,26.214c0,3.421-1.986,5.04-5.444,5.04h-5.003V21.101h5.04
+            		c3.421,0,5.408,1.619,5.408,5.04V26.214z"/>
+            	<path class="st1" d="M27.838,2.192C12.204,2.192-0.12,14.589-0.12,30.15c0,15.597,12.323,27.958,27.958,27.958
+            		c15.634,0,27.958-12.36,27.958-27.958C55.795,14.589,43.472,2.192,27.838,2.192z M32.473,36.955H18.752
+            		c-1.986,0-3.164,1.214-3.164,3.017c0,1.582,1.067,2.722,2.612,2.722c1.766,0,2.796-1.214,2.906-3.016h4.01
+            		c-0.184,4.341-2.906,6.658-6.953,6.658c-3.789,0-6.585-2.575-6.585-6.401c0-3.973,2.98-6.769,7.394-6.769h13.611
+            		c4.598,0,8.093-3.348,8.093-7.909c0-4.598-3.127-7.799-7.578-7.799c-4.414,0-7.946,3.237-7.946,9.123v3.863h-4.046v-3.863
+            		c0-7.872,5.076-12.986,12.066-12.986c6.695,0,11.551,4.782,11.551,11.588C44.723,32.026,39.499,36.955,32.473,36.955z"/>
+            </g>
+            </svg>
+        </a>
+
+        <a href="javascript:;" class="header-hamburger" data-menu-trigger="toggle">
+            <span class="header-hamburger__wrap">
+                <span class="header-hamburger__line--top"></span>
+                <span class="header-hamburger__line--middle"></span>
+                <span class="header-hamburger__line--bottom"></span>
+
+                <span class="header-hamburger__line--arrow-top"></span>
+                <span class="header-hamburger__line--arrow-bottom"></span>
+            </span>
+        </a>
+
+        <ul class="header-nav">
+            <li><a href="https://parse.com/migration">Migration Guide</a></li>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="http://blog.parse.com">Blog</a></li>
+            <li><a href="https://parse.com/help">Help</a></li>
+        </ul>
+
+    </div><!-- container -->
+</header>
+
+        <aside class="hero hero--docs cloudcode_docs_header">
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <p class="h1 h1--white" data-ignore-from-select>
+                <span>Cloud Code <em>Guide</em></span>
+
+                <a href="/docs/" class="btn btn--back">
+                  <span class="hide-mobile">Browse all platforms</span>
+                  <span class="show-mobile">Browse</span>
+                </a>
+
+                <svg class="icon icon-cloudcode"><use xlink:href="/docs/assets/symbols.svg#cloudcode"></use></svg>
+
+              </p>
+            </div>
+          </div>
+        </aside><!-- .hero -->
+
+        <div class="guide" data-nav-waypoint>
+          <div id="mobile_toc" class="">
+          	<select></select>
+          </div>
+
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <div class="guide_content">
+                <div id="toc">
+                  <div style="overflow-y: scroll; height: 100%;">
+                    <div class="top_links">
+                    
+                    
+                    
+                      <!-- .algolia-search-wrapper -->
+                      <div class="algolia-search-wrapper">
+                        <input id="algolia-doc-search" class="cloudcode_docs_docsearch" tabindex="0" type="text" placeholder="Search..." />
+                      </div><!-- .algolia-search-wrapper -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wysiwyg-content">
+                  
+                    
+                    <h1 id="getting-started">Getting Started</h1>
+
+<p>Cloud Code is <a href="https://github.com/ParsePlatform/parse-server/wiki/Parse-Server-Guide#usage">built into Parse Server</a>. The default entry point for your Cloud Code is at <code class="highlighter-rouge">./cloud/main.js</code>.</p>
+
+<h2 id="what-is-cloud-code">What is Cloud Code?</h2>
+
+<p>For complex apps, sometimes you just need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.</p>
+
+<p>Cloud Code is easy to use because it’s built on the same JavaScript SDK that powers thousands of apps. The only difference is that this code runs in your Parse Server rather than running on the user’s mobile device. When you update your Cloud Code, it becomes available to all mobile environments instantly. You don’t have to wait for a new release of your application. This lets you change app behavior on the fly and add new features faster.</p>
+
+<p>Even if you’re only familiar with mobile development, we hope you’ll find Cloud Code straightforward and easy to use.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/cloudcode">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="cloud-functions">Cloud Functions</h1>
+
+<p>Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information. For example, let’s say you’re writing an app that lets people review movies. A single <code class="highlighter-rouge">Review</code> object could look like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"movie"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Matrix"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stars"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too bad they never made any sequels."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>If you wanted to find the average number of stars for The Matrix, you could query for all of the reviews, and average the stars on the device. However, this uses a lot of bandwidth when you only need a single number. With Cloud Code, we can just pass up the name of the movie, and return the average star rating.</p>
+
+<p>Cloud functions accept a JSON parameters dictionary on the <code class="highlighter-rouge">request</code> object, so we can use that to pass up the movie name. The entire Parse JavaScript SDK is available in the cloud environment, so we can use that to query over <code class="highlighter-rouge">Review</code> objects. Together, the code to implement <code class="highlighter-rouge">averageStars</code> looks like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">"averageStars"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s2">"Review"</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s2">"movie"</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">movie</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">get</span><span class="p">(</span><span class="s2">"stars"</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">sum</span> <span class="o">/</span> <span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"movie lookup failed"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The only difference between using <code class="highlighter-rouge">averageStars</code> and <code class="highlighter-rouge">hello</code> is that we have to provide the parameter that will be accessed in <code class="highlighter-rouge">request.params.movie</code> when we call the Cloud function. Read on to learn more about how Cloud functions can be called.</p>
+
+<p>Cloud functions can be called from any of the client SDKs, as well as through the REST API. For example, to call the Cloud function named <code class="highlighter-rouge">averageStars</code> with a parameter named <code class="highlighter-rouge">movie</code> from an Android app:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"movie"</span><span class="o">,</span> <span class="s">"The Matrix"</span><span class="o">);</span>
+<span class="n">ParseCloud</span><span class="o">.</span><span class="na">callFunctionInBackground</span><span class="o">(</span><span class="s">"averageStars"</span><span class="o">,</span> <span class="n">params</span><span class="o">,</span> <span class="k">new</span> <span class="n">FunctionCallback</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;()</span> <span class="o">{</span>
+   <span class="kt">void</span> <span class="n">done</span><span class="o">(</span><span class="n">Float</span> <span class="n">ratings</span><span class="o">,</span> <span class="n">ParseException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span><span class="n">e</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// ratings is 4.5</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">});</span>
+</code></pre>
+</div>
+
+<p>To call the same Cloud function from an iOS app:</p>
+
+<pre><code class="language-objectivec">// Objective-C
+[PFCloud callFunctionInBackground:@"averageStars"
+                   withParameters:@{@"movie": @"The Matrix"}
+                            block:^(NSNumber *ratings, NSError *error) {
+  if (!error) {
+     // ratings is 4.5
+  }
+}];
+</code></pre>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Swift</span>
+<span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunctionInBackground</span><span class="p">(</span><span class="s">"averageRatings"</span><span class="p">,</span> <span class="nv">withParameters</span><span class="p">:</span> <span class="p">[</span><span class="s">"movie"</span><span class="p">:</span><span class="s">"The Matrix"</span><span class="p">])</span> <span class="p">{</span>
+  <span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="nv">ratings</span> <span class="o">=</span> <span class="n">response</span> <span class="k">as?</span> <span class="kt">Float</span>
+  <span class="c1">// ratings is 4.5</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This is how you would call the same Cloud function using PHP:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ratings = ParseCloud::run("averageRatings", ["movie" =&gt; "The Matrix"]);
+// $ratings is 4.5
+</code></pre>
+</div>
+
+<p>The following example shows how you can call the “averageRatings” Cloud function from a .NET C# app such as in the case of Windows 10, Unity, and Xamarin applications:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">IDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="k">params</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="p">{</span> <span class="s">"movie"</span><span class="p">,</span> <span class="s">"The Matrix"</span> <span class="p">}</span>
+<span class="p">};</span>
+<span class="n">ParseCloud</span><span class="p">.</span><span class="n">CallFunctionAsync</span><span class="p">&lt;</span><span class="n">IDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;&gt;(</span><span class="s">"averageStars"</span><span class="p">,</span> <span class="k">params</span><span class="p">).</span><span class="nf">ContinueWith</span><span class="p">(</span><span class="n">t</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="n">var</span> <span class="n">ratings</span> <span class="p">=</span> <span class="n">t</span><span class="p">.</span><span class="n">Result</span><span class="p">;</span>
+  <span class="c1">// ratings is 4.5
+</span><span class="p">});</span>
+</code></pre>
+</div>
+
+<p>You can also call Cloud functions using the REST API:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="se">\</span>
+  -H <span class="s2">"X-Parse-Application-Id: </span><span class="k">${</span><span class="nv">APPLICATION_ID</span><span class="k">}</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Parse-REST-API-Key: </span><span class="k">${</span><span class="nv">REST_API_KEY</span><span class="k">}</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{ "movie": "The Matrix" }'</span> <span class="se">\</span>
+  https://api.parse.com/1/functions/averageStars
+</code></pre>
+</div>
+
+<p>And finally, to call the same function from a JavaScript app:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">'averageStars'</span><span class="p">,</span> <span class="p">{</span> <span class="na">movie</span><span class="p">:</span> <span class="s1">'The Matrix'</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ratings</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ratings should be 4.5</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>In general, two arguments will be passed into cloud functions:</p>
+
+<ol>
+  <li><strong><code class="highlighter-rouge">request</code></strong> - The request object contains information about the request. The following fields are set:</li>
+  <li><strong><code class="highlighter-rouge">params</code></strong> - The parameters object sent to the function by the client.</li>
+  <li><strong><code class="highlighter-rouge">user</code></strong> - The <code class="highlighter-rouge">Parse.User</code> that is making the request.  This will not be set if there was no logged-in user.</li>
+</ol>
+
+<p>If the function is successful, the response in the client looks like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>If there is an error, the response in the client looks like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">141</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"movie lookup failed"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h1 id="cloud-jobs">Cloud Jobs</h1>
+
+<p>Sometimes you want to execute long running functions, and you don’t want to wait for the response. Cloud Jobs are just meant for that.</p>
+
+<h2 id="define-a-job">Define a Job</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">job</span><span class="p">(</span><span class="s2">"myJob"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// the params passed through the start request</span>
+  <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">params</span><span class="p">;</span>
+  <span class="c1">// Headers from the request that triggered the job</span>
+  <span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">;</span>
+
+  <span class="c1">// get the parse-server logger</span>
+  <span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span>
+
+  <span class="c1">// Update the Job status message</span>
+  <span class="nx">status</span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="s2">"I just started"</span><span class="p">);</span>
+  <span class="nx">doSomethingVeryLong</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Mark the job as successful</span>
+    <span class="c1">// success and error only support string as parameters</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="s2">"I just finished"</span><span class="p">);</span>
+  <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Mark the job as errored</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"There was an error"</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Note that calling <code class="highlighter-rouge">status.success</code> or <code class="highlighter-rouge">status.error</code> won’t prevent any further execution of the job.</p>
+
+<h2 id="running-a-job">Running a Job</h2>
+
+<p>Calling jobs is done via the REST API and is protected by the master key.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -X POST -H <span class="s1">'X-Parse-Application-Id: appId'</span> -H <span class="s1">'X-Parse-Master-Key: masterKey'</span> https://my-parse-server.com/1/jobs/myJob
+</code></pre>
+</div>
+
+<p>The response will consist of an empty body and contain the <code class="highlighter-rouge">X-Parse-Job-Status-Id: a1c3e5g7i9k</code> header. With the _JobStatus’s objectId that has just been created.</p>
+
+<p>You can pass some data alongside the call if you want to customize the job execution.</p>
+
+<h2 id="scheduling-a-job">Scheduling a Job</h2>
+
+<p>We don’t support at the moment job scheduling and highly recommend to use a 3rd party system for scheduling your jobs.</p>
+
+<ul>
+  <li>On <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#worker-periodictasks">AWS Elastic Beanstalk</a></li>
+  <li>On <a href="https://cloud.google.com/appengine/docs/flexible/nodejs/scheduling-jobs-with-cron-yaml">Google App Engine</a></li>
+  <li>On <a href="https://devcenter.heroku.com/articles/scheduler#scheduling-jobs">Heroku</a></li>
+</ul>
+
+<h2 id="viewing-jobs">Viewing Jobs</h2>
+
+<p>Viewing jobs is currently not supported on parse-dashboard, but you can query the _JobStatus class with a masterKey call to fetch your recent jobs.</p>
+
+<h1 id="beforesave-triggers">beforeSave Triggers</h1>
+
+<h2 id="implementing-validation">Implementing validation</h2>
+
+<p>Another reason to run code in the cloud is to enforce a particular data format. For example, you might have both an Android and an iOS app, and you want to validate data for each of those. Rather than writing code once for each client environment, you can write it just once with Cloud Code.</p>
+
+<p>Let’s take a look at our movie review example. When you’re choosing how many stars to give something, you can typically only give 1, 2, 3, 4, or 5 stars. You can’t give -6 stars or 1337 stars in a review. If we want to reject reviews that are out of bounds, we can do this with the <code class="highlighter-rouge">beforeSave</code> method:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeSave</span><span class="p">(</span><span class="s2">"Review"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"stars"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"you cannot give less than one star"</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"stars"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"you cannot give more than five stars"</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>If <code class="highlighter-rouge">response.error</code> is called, the <code class="highlighter-rouge">Review</code> object will not be saved, and the client will get an error. If <code class="highlighter-rouge">response.success</code> is called, the object will be saved normally. Your code should call one of these two callbacks.</p>
+
+<p>One useful tip is that even if your mobile app has many different versions, the same version of Cloud Code applies to all of them. Thus, if you launch an application that doesn’t correctly check the validity of input data, you can still fix this problem by adding a validation with <code class="highlighter-rouge">beforeSave</code>.</p>
+
+<p>If you want to use <code class="highlighter-rouge">beforeSave</code> for a predefined class in the Parse JavaScript SDK (e.g. <a href="https://parse.com/docs/js/api/symbols/Parse.User.html">Parse.User</a>), you should not pass a String for the first argument. Instead, you should pass the class itself:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeSave</span><span class="p">(</span><span class="nx">Parse</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"email is required for signup"</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h2 id="modifying-objects-on-save">Modifying Objects on Save</h2>
+
+<p>In some cases, you don’t want to throw out invalid data. You just want to tweak it a bit before saving it. <code class="highlighter-rouge">beforeSave</code> can handle this case, too. You just call <code class="highlighter-rouge">response.success</code> on the altered object.</p>
+
+<p>In our movie review example, we might want to ensure that comments aren’t too long. A single long comment might be tricky to display. We can use <code class="highlighter-rouge">beforeSave</code> to truncate the <code class="highlighter-rouge">comment</code> field to 140 characters:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeSave</span><span class="p">(</span><span class="s2">"Review"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">comment</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">comment</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">140</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Truncate and add a ...</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">,</span> <span class="nx">comment</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">137</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"..."</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h1 id="aftersave-triggers">afterSave Triggers</h1>
+
+<p>In some cases, you may want to perform some action, such as a push, after an object has been saved. You can do this by registering a handler with the <code class="highlighter-rouge">afterSave</code> method. For example, suppose you want to keep track of the number of comments on a blog post. You can do that by writing a function like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">afterSave</span><span class="p">(</span><span class="s2">"Comment"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s2">"Post"</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"post"</span><span class="p">).</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">post</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">post</span><span class="p">.</span><span class="nx">increment</span><span class="p">(</span><span class="s2">"comments"</span><span class="p">);</span>
+      <span class="nx">post</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"Got an error "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="s2">" : "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The client will receive a successful response to the save request after the handler terminates, regardless of how it terminates. For instance, the client will receive a successful response even if the handler throws an exception. Any errors that occurred while running the handler can be found in the Cloud Code log.</p>
+
+<p>If you want to use <code class="highlighter-rouge">afterSave</code> for a predefined class in the Parse JavaScript SDK (e.g. <a href="https://parse.com/docs/js/api/symbols/Parse.User.html">Parse.User</a>), you should not pass a String for the first argument. Instead, you should pass the class itself.</p>
+
+<h1 id="beforedelete-triggers">beforeDelete Triggers</h1>
+
+<p>You can run custom Cloud Code before an object is deleted. You can do this with the <code class="highlighter-rouge">beforeDelete</code> method. For instance, this can be used to implement a restricted delete policy that is more sophisticated than what can be expressed through  <a href="https://parse.com/docs/js/api/symbols/Parse.ACL.html">ACLs</a>. For example, suppose you have a photo album app, where many photos are associated with each album, and you want to prevent the user from deleting an album if it still has a photo in it. You can do that by writing a function like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeDelete</span><span class="p">(</span><span class="s2">"Album"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s2">"Photo"</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s2">"album"</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">count</span><span class="p">({</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"Can't delete album if it still has photos."</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"Error "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="s2">" : "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span> <span class="o">+</span> <span class="s2">" when getting photo count."</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>If <code class="highlighter-rouge">response.error</code> is called, the <code class="highlighter-rouge">Album</code> object will not be deleted, and the client will get an error. If <code class="highlighter-rouge">response.success</code> is called, the object will be deleted normally. Your code should call one of these two callbacks.</p>
+
+<p>If you want to use <code class="highlighter-rouge">beforeDelete</code> for a predefined class in the Parse JavaScript SDK (e.g. <a href="https://parse.com/docs/js/api/symbols/Parse.User.html">Parse.User</a>), you should not pass a String for the first argument. Instead, you should pass the class itself.</p>
+
+<h1 id="afterdelete-triggers">afterDelete Triggers</h1>
+
+<p>In some cases, you may want to perform some action, such as a push, after an object has been deleted. You can do this by registering a handler with the <code class="highlighter-rouge">afterDelete</code> method. For example, suppose that after deleting a blog post, you also want to delete all associated comments. You can do that by writing a function like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">afterDelete</span><span class="p">(</span><span class="s2">"Post"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s2">"Comment"</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s2">"post"</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">object</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">comments</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">Parse</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">destroyAll</span><span class="p">(</span><span class="nx">comments</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+        <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"Error deleting related comments "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"Error finding related comments "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">afterDelete</code> handler can access the object that was deleted through <code class="highlighter-rouge">request.object</code>. This object is fully fetched, but cannot be refetched or resaved.</p>
+
+<p>The client will receive a successful response to the delete request after the handler terminates, regardless of how it terminates. For instance, the client will receive a successful response even if the handler throws an exception. Any errors that occurred while running the handler can be found in the Cloud Code log.</p>
+
+<p>If you want to use <code class="highlighter-rouge">afterDelete</code> for a predefined class in the Parse JavaScript SDK (e.g. <a href="https://parse.com/docs/js/api/symbols/Parse.User.html">Parse.User</a>), you should not pass a String for the first argument. Instead, you should pass the class itself.</p>
+
+<h1 id="beforefind-triggers">beforeFind Triggers</h1>
+
+<p><em>Available only on parse-server cloud code starting 2.2.20</em></p>
+
+<p>In some cases you may want to transform an incoming query, adding an additional limit or increasing the default limit, adding extra includes or restrict the results to a subset of keys. You can do so with the <code class="highlighter-rouge">beforeFind</code> trigger.</p>
+
+<h2 id="examples">Examples</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Properties available</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeFind</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span> <span class="c1">// the Parse.Query</span>
+  <span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span> <span class="c1">// the user</span>
+  <span class="kd">let</span> <span class="nx">triggerName</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">triggerName</span><span class="p">;</span> <span class="c1">// beforeFind</span>
+  <span class="kd">let</span> <span class="nx">isMaster</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">master</span><span class="p">;</span> <span class="c1">// if the query is run with masterKey</span>
+  <span class="kd">let</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span> <span class="c1">// the logger</span>
+  <span class="kd">let</span> <span class="nx">installationId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">installationId</span><span class="p">;</span> <span class="c1">// The installationId</span>
+<span class="p">});</span>
+
+<span class="c1">// Selecting keys</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeFind</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span> <span class="c1">// the Parse.Query</span>
+  <span class="c1">// Force the selection on some keys</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">select</span><span class="p">([</span><span class="s1">'key1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">]);</span>
+<span class="p">});</span>
+
+<span class="c1">// Asynchronous support</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeFind</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span> 
+  <span class="k">return</span> <span class="nx">aPromise</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span><span class="err"> </span><span class="p">{</span>
+    <span class="c1">// do something with the results</span>
+    <span class="nx">query</span><span class="p">.</span><span class="nx">containedIn</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="nx">results</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Returning a different query</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeFind</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span> 
+  <span class="kd">let</span> <span class="nx">otherQuery</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">);</span>
+  <span class="nx">otherQuery</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">.</span><span class="nx">or</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">otherQuery</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Rejecting a query</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">beforeFind</span><span class="p">(</span><span class="s1">'MyObject'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// throw an error</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nb">Error</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">'error'</span><span class="p">);</span>
+
+  <span class="c1">// rejecting promise</span>
+  <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s1">'error'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/cloudcode">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="networking">Networking</h1>
+
+<h2 id="httprequest">httpRequest</h2>
+
+<p>You can use your favorite npm module to make HTTP requests, such as <a href="https://www.npmjs.com/package/request">request</a>. Parse Server also supports <code class="highlighter-rouge">Parse.Cloud.httpRequest</code> for legacy reasons. It allows you to send HTTP requests to any HTTP Server. This function takes an options object to configure the call.</p>
+
+<p>A simple GET request would look like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.parse.com/'</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// success</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// error</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">Parse.Cloud.httpRequest</code> returns a Promise that will be resolved on a successful http status code; otherwise the Promise will be rejected. In the above example, we use <code class="highlighter-rouge">then()</code> to handle both outcomes.</p>
+
+<p>A GET request that specifies the port number would look like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.parse.com:8080/'</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Valid port numbers are 80, 443, and all numbers from 1025 through 65535.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>You can specify query parameters to append to the end of the url by setting <code class="highlighter-rouge">params</code> on the options object.  You can either pass a JSON object of key value pairs like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.google.com/search'</span><span class="p">,</span>
+  <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">q</span> <span class="p">:</span> <span class="s1">'Sean Plott'</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>or as a raw <code class="highlighter-rouge">String</code> like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.google.com/search'</span><span class="p">,</span>
+  <span class="na">params</span><span class="p">:</span> <span class="s1">'q=Sean Plott'</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="setting-headers">Setting Headers</h3>
+
+<p>You can send HTTP Headers by setting the <code class="highlighter-rouge">header</code> attribute of the options object.  Let’s say you want set the Content-Type of the request, you can do:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.example.com/'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json;charset=utf-8'</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="sending-a-post-request">Sending a POST Request</h3>
+
+<p>You can send a post request by setting the <code class="highlighter-rouge">method</code> attribute of the options object.  The body of the POST can be set using the <code class="highlighter-rouge">body</code>. A simple example would be:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.example.com/create_post'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="s1">'Vote for Pedro'</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="s1">'If you vote for Pedro, your wildest dreams will come true'</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>This will send a post to <code class="highlighter-rouge">http://www.example.com/create_post</code> with body that is the url form encoded <code class="highlighter-rouge">body</code> attribute.  If you want the body to be JSON encoded, you can instead do:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.example.com/create_post'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json;charset=utf-8'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="s1">'Vote for Pedro'</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="s1">'If you vote for Pedro, your wildest dreams will come true'</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>To ensure that your HTTP request body is encoded correctly, please always include the charset in your Content-Type header.</p>
+
+<h3 id="following-redirects">Following Redirects</h3>
+
+<p>By default, <code class="highlighter-rouge">Parse.Cloud.httpRequest</code> does not follow redirects caused by HTTP 3xx response codes. You can use the <code class="highlighter-rouge">followRedirects</code> option to change this behavior to follow redirects:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://www.example.com/'</span><span class="p">,</span>
+  <span class="na">followRedirects</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Request failed with response code '</span> <span class="o">+</span> <span class="nx">httpResponse</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="the-response-object">The Response Object</h3>
+
+<p>The response object passed into the <code class="highlighter-rouge">success</code> and <code class="highlighter-rouge">error</code> will contain:</p>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">status</code></strong> - The HTTP Response status.</li>
+  <li><strong><code class="highlighter-rouge">headers</code></strong> - The response headers</li>
+  <li><strong><code class="highlighter-rouge">buffer</code></strong> - The raw byte representation of the response body.</li>
+  <li><strong><code class="highlighter-rouge">text</code></strong> - The raw response body.</li>
+  <li><strong><code class="highlighter-rouge">data</code></strong> - The parsed response, if Cloud Code knows how to parse the content-type that was sent.</li>
+  <li><strong><code class="highlighter-rouge">cookies</code></strong> - The cookies sent by the server. They are <a href="https://parse.com/docs/js/api/classes/Parse.Cloud.HTTPResponse.html">Parse.Cloud.Cookie</a> objects.</li>
+</ul>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/cloudcode">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                </div>
+
+              </div>
+          		<!-- footer goes here -->
+            </div>
+          </div><!-- end content grid col -->
+        </div><!-- end .guide > .grid-container -->
+      </div><!-- /.content__wrapper -->
+    </div><!-- /.site__content -->
+  </div><!-- /.site__wrapper -->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+  <script src="/docs/assets/js/bundle.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: 'c7f5661ba53e2e3c1c3752696362209e',
+    indexName: 'parse',
+    inputSelector: '#algolia-doc-search',
+    algoliaOptions: { 'facetFilters': ["tags:cloudcode"] }, // android, arduino, cloudcode, dotnet, embedded_c, ios, js, macos, parse-server, php, rest, unity
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1430 @@
+<!doctype html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Arduino Developers Guide | Parse</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://parse.com/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://parse.com/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://parse.com/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://parse.com/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://parse.com/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://parse.com/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://parse.com/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://parse.com/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://parse.com/apple-touch-icon-180x180.png">
+  <meta name="apple-mobile-web-app-title" content="Parse">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#5298fc">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="application-name" content="Parse">
+
+  <meta name="theme-color" content="#5298fc">
+
+      <!-- CSS -->
+      <!-- build:css -->
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+      <link href="/docs/css/docs.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" rel="stylesheet" />
+      <!-- endbuild -->
+
+      <!--[if lte IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+      <![endif]-->
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  <!--[if lt IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
+  <![endif]-->
+  <!--[if IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" />
+  <![endif]-->
+  <!--[if lt IE 10]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie89.css" />
+  <![endif]-->
+  <script>if(Function('/*@cc_on return document.documentMode===10@*/')()){document.documentElement.className+=' ie10';}</script>
+
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="KxDoKysxiXDIRV8VXwDYlQStDGzjbGZ24y6ZgQLYAsE=">
+  <meta name="description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta name="keywords" content="backend, mobile, development, server, code">
+  <meta property="fb:app_id" content="361736430535656">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Parse">
+  <meta property="og:image" content="/docs/assets/images/social.jpg">
+  <meta property="og:description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta property="og:url" content="/arduino/guide/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+  <body class="pure p_docs p_docs_show_guide user_logged_in" style="position: relative;">
+  <div class="site__wrapper">
+    <div class="site__content">
+
+      <aside class="site__menu">
+    <nav class="site__menu__nav">
+        <ul>
+            <li><a href="/migration">Migration Guide</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="http://blog.parse.com/">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="site__menu__socials">
+        <h4 class="h4">Stay Connected</h4>
+
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/parseit">
+                    <svg class="icon icon-fb"><use xlink:href="/docs/assets/symbols.svg#fb"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/parseit">
+                    <svg class="icon icon-twitter"><use xlink:href="/docs/assets/symbols.svg#twitter"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://parseplatform.github.io">
+                    <svg class="icon icon-github"><use xlink:href="/docs/assets/symbols.svg#github"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="http://stackoverflow.com/questions/tagged/parse.com">
+                    <svg class="icon icon-stack-overflow"><use xlink:href="/docs/assets/symbols.svg#stack-overflow"></use></svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="site__menu__build-together">Let&rsquo;s build together.</p>
+    </div>
+</aside>
+
+      <div class="content__wrapper">
+        <header class="site__header site__header--white">
+    <div class="container">
+
+        <a href="/" class="header-logo">
+            <span class="hidden">Parse</span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 152 60" style="enable-background:new 0 0 152 60;" xml:space="preserve">
+            <g>
+            	<path class="line one" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line two" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line three" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="st1" d="M151.88,31.106c0-4.561-2.575-7.835-7.173-7.872c-5.665-0.037-9.197,4.12-9.197,10.484v0.11
+            		c0,6.033,3.863,9.601,9.601,9.601c1.839,0,4.083-0.405,5.739-1.177v-3.568c-1.839,0.956-3.752,1.398-5.408,1.398
+            		c-3.568,0-6.07-1.803-6.18-5.959h12.36C151.807,33.056,151.88,32.026,151.88,31.106z M148.312,31.07h-8.829
+            		c0.625-3.053,2.354-4.745,4.966-4.745c2.575,0,3.863,1.729,3.863,4.561V31.07z"/>
+            	<path class="st1" d="M125.725,34.712l0.405,0.147c2.869,1.03,3.531,1.655,3.531,2.906c0,1.471-0.993,2.428-3.458,2.428
+            		c-1.986,0-4.12-0.662-6.364-1.692v3.752c1.803,0.699,4.12,1.177,6.364,1.177c4.819,0,7.21-2.428,7.21-5.812
+            		c0-2.943-1.471-4.525-5.408-5.959l-0.405-0.147c-3.127-1.14-3.752-1.655-3.752-2.869c0-1.361,0.956-2.281,3.237-2.281
+            		c1.839,0,3.642,0.589,5.408,1.435v-3.531c-1.582-0.625-3.348-1.03-5.26-1.03c-4.598,0-7.1,2.575-7.1,5.886
+            		C120.134,31.695,121.679,33.24,125.725,34.712"/>
+            	<path class="st1" d="M110.863,29.892c1.288-2.023,3.09-3.016,5.26-3.016c0.773,0,1.508,0.11,2.17,0.331v-3.384
+            		c-0.625-0.258-1.361-0.405-2.134-0.405c-2.281,0-4.01,1.03-5.518,3.09l-0.258-2.869h-3.164v19.386h3.642V29.892z"/>
+            	<path class="st1" d="M96.481,23.197c-2.281,0-4.672,0.699-6.474,1.692v3.605c2.023-1.251,4.378-2.023,6.254-2.023
+            		c2.612,0,3.679,1.14,3.679,3.274v1.619c-5.334,0.147-8.461,1.03-10.116,2.685c-1.177,1.14-1.692,2.685-1.692,4.267
+            		c0,3.274,2.354,5.15,5.702,5.15c2.244,0,4.378-0.92,6.327-2.796l0.221,2.354h3.164V30.003
+            		C103.544,25.405,101.263,23.197,96.481,23.197z M99.938,37.728c-1.471,1.619-3.2,2.722-5.297,2.722
+            		c-1.729,0-2.833-0.883-2.833-2.428c0-2.281,1.876-3.642,8.13-3.826V37.728z"/>
+            	<path class="st1" d="M77.609,17.643h-8.571v25.383h3.826v-8.314h4.745c5.923,0,9.491-3.164,9.491-8.498V26.14
+            		C87.1,20.806,83.532,17.643,77.609,17.643z M83.311,26.214c0,3.421-1.986,5.04-5.444,5.04h-5.003V21.101h5.04
+            		c3.421,0,5.408,1.619,5.408,5.04V26.214z"/>
+            	<path class="st1" d="M27.838,2.192C12.204,2.192-0.12,14.589-0.12,30.15c0,15.597,12.323,27.958,27.958,27.958
+            		c15.634,0,27.958-12.36,27.958-27.958C55.795,14.589,43.472,2.192,27.838,2.192z M32.473,36.955H18.752
+            		c-1.986,0-3.164,1.214-3.164,3.017c0,1.582,1.067,2.722,2.612,2.722c1.766,0,2.796-1.214,2.906-3.016h4.01
+            		c-0.184,4.341-2.906,6.658-6.953,6.658c-3.789,0-6.585-2.575-6.585-6.401c0-3.973,2.98-6.769,7.394-6.769h13.611
+            		c4.598,0,8.093-3.348,8.093-7.909c0-4.598-3.127-7.799-7.578-7.799c-4.414,0-7.946,3.237-7.946,9.123v3.863h-4.046v-3.863
+            		c0-7.872,5.076-12.986,12.066-12.986c6.695,0,11.551,4.782,11.551,11.588C44.723,32.026,39.499,36.955,32.473,36.955z"/>
+            </g>
+            </svg>
+        </a>
+
+        <a href="javascript:;" class="header-hamburger" data-menu-trigger="toggle">
+            <span class="header-hamburger__wrap">
+                <span class="header-hamburger__line--top"></span>
+                <span class="header-hamburger__line--middle"></span>
+                <span class="header-hamburger__line--bottom"></span>
+
+                <span class="header-hamburger__line--arrow-top"></span>
+                <span class="header-hamburger__line--arrow-bottom"></span>
+            </span>
+        </a>
+
+        <ul class="header-nav">
+            <li><a href="https://parse.com/migration">Migration Guide</a></li>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="http://blog.parse.com">Blog</a></li>
+            <li><a href="https://parse.com/help">Help</a></li>
+        </ul>
+
+    </div><!-- container -->
+</header>
+
+        <aside class="hero hero--docs arduino_docs_header">
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <p class="h1 h1--white" data-ignore-from-select>
+                <span>Arduino <em>Guide</em></span>
+
+                <a href="/docs/" class="btn btn--back">
+                  <span class="hide-mobile">Browse all platforms</span>
+                  <span class="show-mobile">Browse</span>
+                </a>
+
+                <svg class="icon icon-arduino"><use xlink:href="/docs/assets/symbols.svg#arduino"></use></svg>
+
+              </p>
+            </div>
+          </div>
+        </aside><!-- .hero -->
+
+        <div class="guide" data-nav-waypoint>
+          <div id="mobile_toc" class="">
+          	<select></select>
+          </div>
+
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <div class="guide_content">
+                <div id="toc">
+                  <div style="overflow-y: scroll; height: 100%;">
+                    <div class="top_links">
+                    
+                      <a href="https://parse.com/apps/quickstart">Quickstart<i class="icon_minimize"></i></a>
+                    
+                    
+                    
+                      <a href="/sdk/Parse-SDK-Arduino/api">API Reference<i class="icon_minimize"></i></a>
+                    
+                      <!-- .algolia-search-wrapper -->
+                      <div class="algolia-search-wrapper">
+                        <input id="algolia-doc-search" class="arduino_docs_docsearch" tabindex="0" type="text" placeholder="Search..." />
+                      </div><!-- .algolia-search-wrapper -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wysiwyg-content">
+                  
+                    
+                    <h1 id="getting-started">Getting Started</h1>
+
+<p>If you haven’t installed the SDK yet, please <a href="https://parse.comhttps://parse.com/apps/quickstart#embedded/arduino">head over to the QuickStart guide</a> to install the SDK in the Arduino IDE. Note that this SDK requires the Arduino Yún and the Arduino IDE v1.6.0+.</p>
+
+<p>The Parse platform provides a complete backend solution for your hardware device. Our goal is to totally eliminate the need for writing server code or maintaining servers.</p>
+
+<p>Note that the Arduino SDK only contains a subset of Parse features found in mobile and desktop. This allows the SDK to be smaller in size and more performant, making it suitable for constrained embedded environments. The Arduino SDK is fully open source, and anyone can contribute to make it better, or make their own changes if necessary. Check out the<a href="https://github.com/ParsePlatform/parse-embedded-sdks"> GitHub repository</a> for more information.</p>
+
+<h2 id="initialization">Initialization</h2>
+
+<p>In order for Parse to know which app is associated with the Arduino device, simply specify the application ID and client key in your <code class="highlighter-rouge">setup</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">Parse</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="s">"${APPLICATION_ID}"</span><span class="p">,</span> <span class="s">"${CLIENT_KEY}"</span><span class="p">);</span>
+	<span class="c1">// ...
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>After this, all calls to the Parse Server will use the specified app.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="objects">Objects</h1>
+
+<h2 id="the-parse-object">The Parse Object</h2>
+
+<p>Storing data on Parse is built around the Parse Object. Each Parse Object contains key-value pairs of JSON-compatible data. This data is schemaless, which means that you don’t need to specify ahead of time what keys exist on each object. You simply set whatever key-value pairs you want, and our backend will store it.</p>
+
+<p>For example, let’s say you’re tracking data for your smart toaster. A single Parse Object could contain:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">temperature</span><span class="err">:</span> <span class="mf">175.0</span><span class="p">,</span> <span class="nx">leverDown</span><span class="err">:</span> <span class="kc">true</span>
+</code></pre>
+</div>
+
+<p>Keys must be alphanumeric strings. Values can be strings, numbers, booleans, or even arrays and dictionaries - anything that can be JSON-encoded.</p>
+
+<p>Each object has a class name that you can use to distinguish different sorts of data. For example, we store the temperature data in a class called <code class="highlighter-rouge">Temperature</code>. We recommend that you NameYourClassesLikeThis and nameYourKeysLikeThis, just to keep your code looking pretty.</p>
+
+<h2 id="saving-objects">Saving Objects</h2>
+
+<p>Let’s say you want to save the <code class="highlighter-rouge">Temperature</code> described above to the Parse Cloud. You would do the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseObjectCreate</span> <span class="n">create</span><span class="p">;</span>
+<span class="n">create</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"Temperature"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">175.0</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"leverDown"</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">ParseResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">create</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="n">getErrorCode</span><span class="p">())</span> <span class="p">{</span>
+	<span class="c1">// The object has been saved
+</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="c1">// There was a problem, check response.
+</span>	<span class="n">getErrorCode</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">response</span><span class="p">.</span><span class="n">close</span><span class="p">();</span> <span class="c1">// Free the resource
+</span></code></pre>
+</div>
+
+<p>After this code runs, you will probably be wondering if anything really happened. To make sure the data was saved, you can look at the Data Browser in your app on Parse. You should see something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	<span class="nx">objectId</span><span class="err">:</span> <span class="s2">"xWMyZ4YEGZ"</span><span class="p">,</span> <span class="nx">temperature</span><span class="err">:</span> <span class="mf">175.0</span><span class="p">,</span> <span class="nx">leverDown</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">createdAt</span><span class="err">:</span> <span class="s2">"2011-06-10T18:33:42Z"</span><span class="p">,</span> <span class="nx">updatedAt</span><span class="err">:</span> <span class="s2">"2011-06-10T18:33:42Z"</span>
+</code></pre>
+</div>
+
+<p>There are two things to note here. You didn’t have to configure or set up a new Class called <code class="highlighter-rouge">Temperature</code> before running this code. Your Parse app lazily creates this Class for you when it first encounters it.</p>
+
+<p>There are also a few fields you don’t need to specify that are provided as a convenience. <code class="highlighter-rouge">objectId</code> is a unique identifier for each saved object. <code class="highlighter-rouge">createdAt</code> and<code class="highlighter-rouge">updatedAt</code> represent the time that each object was created and last modified in the Parse Cloud. Each of these fields is filled in by Parse, so they don’t exist on a Parse Object until a save operation has completed.</p>
+
+<h2 id="retrieving-objects">Retrieving Objects</h2>
+
+<p>Saving data to the cloud is fun, but it’s even more fun to get that data out again. If you have the <code class="highlighter-rouge">objectId</code>, you can retrieve the object using a query:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseObjectGet</span> <span class="n">get</span><span class="p">;</span>
+<span class="n">get</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"Temperature"</span><span class="p">);</span>
+<span class="n">get</span><span class="p">.</span><span class="n">setObjectId</span><span class="p">(</span><span class="s">"xWMyZ4YEGZ"</span><span class="p">);</span>
+<span class="n">ParseResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">get</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+<span class="kt">double</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">getDouble</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="n">response</span><span class="p">.</span><span class="n">close</span><span class="p">();</span> <span class="c1">// Free the resource
+</span></code></pre>
+</div>
+
+<h2 id="updating-objects">Updating Objects</h2>
+
+<p>Updating an object is very similar to creating one. Assuming you have saved the object and have the <code class="highlighter-rouge">objectId</code>, can do the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseObjectUpdate</span> <span class="n">update</span><span class="p">;</span>
+<span class="n">update</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"Temperature"</span><span class="p">);</span>
+<span class="n">update</span><span class="p">.</span><span class="n">setObjectId</span><span class="p">(</span><span class="s">"xWMyZ4YEGZ"</span><span class="p">);</span>
+<span class="n">update</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">update</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h2 id="deleting-objects">Deleting Objects</h2>
+
+<p>To delete an object from the cloud:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseObjectDelete</span> <span class="n">del</span><span class="p">;</span>
+<span class="n">del</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"Temperature"</span><span class="p">);</span>
+<span class="n">del</span><span class="p">.</span><span class="n">setObjectId</span><span class="p">(</span><span class="s">"xWMyZ4YEGZ"</span><span class="p">);</span>
+<span class="n">del</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h2 id="data-types">Data Types</h2>
+
+<p>So far we’ve used values with type <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">double</code>, and <code class="highlighter-rouge">bool</code>. The Parse Arduino SDK also supports <code class="highlighter-rouge">GeoPoint</code>s (latitude and longitude). In addition, you can set values on objects via JSON and be able to represent Arrays, Objects, Dates, and more. Read more about representing these types as JSON in the <a href="/docs/rest#objects-types">REST API guide</a>.</p>
+
+<p>Overall, the following types are allowed for each field in your object:</p>
+
+<ul>
+  <li>String =&gt; <code class="highlighter-rouge">string</code></li>
+  <li>Number =&gt; <code class="highlighter-rouge">integer</code>, <code class="highlighter-rouge">double</code></li>
+  <li>Boolean =&gt; <code class="highlighter-rouge">bool</code></li>
+  <li>Array =&gt; <code class="highlighter-rouge">JSON Array</code></li>
+  <li>Object =&gt; <code class="highlighter-rouge">JSON Object</code></li>
+  <li>Date =&gt; <code class="highlighter-rouge">JSON Date</code></li>
+  <li>File =&gt; <code class="highlighter-rouge">ParseFile</code></li>
+  <li>Pointer =&gt; other <code class="highlighter-rouge">ParseObject</code></li>
+  <li>Relation =&gt; <code class="highlighter-rouge">ParseRelation</code></li>
+</ul>
+
+<p>The type <code class="highlighter-rouge">JSON Object</code> simply denotes that each value can be composed of nested objects that are JSON-encodable. Keys including the characters <code class="highlighter-rouge">$</code> or <code class="highlighter-rouge">.</code>, along with the key <code class="highlighter-rouge">__type</code> key, are reserved for the framework to handle additional types, so don’t use those yourself.</p>
+
+<p>Some examples:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseObjectCreate</span> <span class="n">create</span><span class="p">;</span>
+<span class="n">create</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"TestObject"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"number"</span><span class="p">,</span> <span class="mf">42.0</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span> <span class="s">"bar"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">addGeoPoint</span><span class="p">(</span><span class="s">"location"</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">30.0</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">addJSONValue</span><span class="p">(</span><span class="s">"dateField"</span><span class="p">,</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">__type</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Date</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">iso</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">2011-08-21T18:02:52.249Z</span><span class="se">\"</span><span class="s"> }"</span><span class="p">);</span> <span class="n">create</span><span class="p">.</span><span class="n">addJSONValue</span><span class="p">(</span><span class="s">"arrayField"</span><span class="p">,</span> <span class="s">"[ 30, </span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s"> ]"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">addJSONValue</span><span class="p">(</span><span class="s">"objectField"</span><span class="p">,</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">number</span><span class="se">\"</span><span class="s">: 30, </span><span class="se">\"</span><span class="s">string</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">baz</span><span class="se">\"</span><span class="s"> }"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">addJSONValue</span><span class="p">(</span><span class="s">"emptyField"</span><span class="p">,</span> <span class="s">"null"</span><span class="p">);</span>
+<span class="n">create</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>We do not recommend storing large pieces of binary data like images or documents in a <code class="highlighter-rouge">ParseObject</code>. <code class="highlighter-rouge">ParseObject</code>s should not exceed 128 kilobytes in size. We recommend you use <code class="highlighter-rouge">ParseFile</code>s to store images, documents, and other types of files. You can do so by instantiating a <code class="highlighter-rouge">ParseFile</code> object and setting it on a field. See the <a href="/docs/rest#files">Files section in the REST documentation</a> for more details.</p>
+
+<p>For more information about how Parse handles data, check out our documentation on <a href="/docs/rest#data">Data</a>.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="queries">Queries</h1>
+
+<p>We’ve already seen how a <code class="highlighter-rouge">ParseObjectGet</code> with an <code class="highlighter-rouge">objectId</code> can retrieve a single object from Parse. There are many other ways to retrieve data with <code class="highlighter-rouge">ParseQuery</code> – you can retrieve many objects at once, put conditions on the objects you wish to retrieve, and more.</p>
+
+<h2 id="basic-queries">Basic Queries</h2>
+
+<p>The general pattern is to create a <code class="highlighter-rouge">ParseQuery</code>, put conditions on it, and then retrieve objects from the response. For example, to retrieve temperature data at a particular temperature, use the<code class="highlighter-rouge">whereEqualToInt</code> function to constrain the value for a key.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseQuery</span> <span class="n">query</span><span class="p">;</span>
+<span class="n">query</span><span class="p">.</span><span class="n">setClassName</span><span class="p">(</span><span class="s">"Temperature"</span><span class="p">);</span>
+<span class="n">query</span><span class="p">.</span><span class="n">whereEqualTo</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">);</span>
+<span class="n">ParseResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+<span class="kt">int</span> <span class="n">countOfResults</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">count</span><span class="p">();</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">countOfResults</span><span class="p">);</span>
+<span class="k">while</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">nextObject</span><span class="p">())</span> <span class="p">{</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">getJSONBody</span><span class="p">());</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">getDouble</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">));</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">getString</span><span class="p">(</span><span class="s">"createdAt"</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="n">response</span><span class="p">.</span><span class="n">close</span><span class="p">();</span> <span class="c1">// Free the resource
+</span></code></pre>
+</div>
+
+<h2 id="query-constraints">Query Constraints</h2>
+
+<p>Your query should have at least one constraint. There are several ways to put constraints on the objects found by a query. You can filter out objects with a particular key-value pair with:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">whereNotEqualTo</span><span class="p">(</span><span class="s">"toaster"</span><span class="p">,</span> <span class="s">"foo"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You can give multiple constraints, and objects will only be in the results if they match all of the constraints. In other words, it’s like an AND of constraints.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">whereEqualTo</span><span class="p">(</span><span class="s">"leverDown"</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">query</span><span class="p">.</span><span class="n">whereEqualTo</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You can limit the number of results by setting a limit. By default, results are limited to 100, but anything from 1 to 1000 is a valid limit:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You can skip the first results by setting <code class="highlighter-rouge">skip</code>. This can be useful for pagination:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">setSkip</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>For sortable types like numbers and strings, you can control the order in which results are returned:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Sorts the results in ascending order by the temperature field
+</span><span class="n">query</span><span class="p">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">);</span>
+<span class="c1">// Sorts the results in descending order by the temperature field
+</span><span class="n">query</span><span class="p">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s">"-temperature"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You can sort by multiple keys as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s">"temperature,name"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>For sortable types, you can also use comparisons in queries:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Restricts to temperatures &lt; 50
+</span><span class="n">query</span><span class="p">.</span><span class="n">whereLessThan</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">);</span>
+<span class="c1">// Restricts to temperatures &gt; 50 query.
+</span><span class="n">whereGreaterThan</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">);</span>
+<span class="c1">// Restricts to temperatures &gt;= 50 query.
+</span><span class="n">whereGreaterThanOrEqualTo</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You can restrict the fields returned by calling setKeys with a list of keys as a string. To retrieve objects that contain only the temperature field (and also special built-in fields such as<code class="highlighter-rouge">objectId</code>,<code class="highlighter-rouge">createdAt</code>, and<code class="highlighter-rouge">updatedAt</code>):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="p">.</span><span class="n">setKeys</span><span class="p">(</span><span class="s">"temperature"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>This is useful if the object has fields which are not required by the device. Since the Arduino is a constrained environment, we recommend using a combination of <code class="highlighter-rouge">setKeys</code> and<code class="highlighter-rouge">setLimit</code> to reduce processing and memory overhead.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="requests">Requests</h1>
+
+<p>Because the Arduino SDK was designed to minimize memory footprint, it doesn’t provide direct functions for all the Parse features that are present in the mobile SDKs. However, it does have the capability to call the REST API, which offers the full range of functionality.</p>
+
+<p>For example, you could sign up a user from Arduino through a REST call:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">Parse</span><span class="p">.</span><span class="n">sendRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/1/users"</span><span class="p">,</span> <span class="s">"{</span><span class="se">\"</span><span class="s">username</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">cooldude6</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">p_n7!-e8</span><span class="se">\"</span><span class="s">}"</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>In this case, the response will contain the objectId of the created user, assuming it was created successfully.</p>
+
+<p>Head on over to the <a href="/docs/rest">REST API documentation</a> to discover what’s possible. For each code sample, you can switch it to cURL to see what the endpoint and payload would look like.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="users-and-sessions">Users and Sessions</h1>
+
+<p>At the core of many apps, there is a notion of user accounts that lets users access their information in a secure manner. In our other SDKs, we provide a specialized user class that automatically handles much of the functionality required for user account management. Users are a special class of Parse Objects and has all the same features, such as flexible schema, automatic persistence, and a key value interface.</p>
+
+<p>The Arduino SDK does not provide methods to directly sign in as a user. If you want to have the Arduino device act on behalf of a user, you will need to <a href="/docs/ios#sessions">create a Session through a companion app</a> or another Parse SDK and pass a Restricted Session to the device. You can read more about users in our <a href="/docs/rest#users">REST API</a> or one of our other <a href="/docs">SDK guides</a>.</p>
+
+<h2 id="setting-a-session">Setting a Session</h2>
+
+<p>Once you have created a Restricted Session via the companion app or through the REST API, you can send the Session Token to the Arduino using push notifications, BLE, or some other appropriate method. After that, you can set it:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Parse</span><span class="p">.</span><span class="n">setSessionToken</span><span class="p">(</span><span class="s">"r:olqZkbv8fefVFNjWegyIXIggd"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>From then on, the device will act on behalf of the user.</p>
+
+<h2 id="security">Security</h2>
+
+<p>Parse uses ACLs to make sure objects can be accessed by users who are authorized with access. When creating objects, you can set the ACL field of the object to restrict access to a set of users. Read about this and more in the <a href="/docs/rest#users-security">REST API documentation</a>.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="push-notifications">Push Notifications</h1>
+
+<p>Using Push Notifications, you’ll be able to send realtime notifications to your Arduino. This can be triggered by changes in your data, custom code in Cloud Code, a companion mobile app, and much more.</p>
+
+<h2 id="installations">Installations</h2>
+
+<p>Every Parse application installed on a device registered for push notifications has an associated Installation object. The Installation object is where you store all the data needed to target push notifications. For example, you could send a connected thermostat a push to change the desired temperature.</p>
+
+<p>There are two ways to create an Installation for the Arduino. You can generate an installation ID (random lowercase UUID) elsewhere (e.g. phone), send that to your arduino during initial provisioning, then set the installation ID on the arduino:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// In this example, we associate this device with a pre-generated installation ID
+</span><span class="n">Parse</span><span class="p">.</span><span class="n">setInstallationId</span><span class="p">(</span><span class="s">"ab946c14-757a-4448-8b77-69704b01bb7b"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>The installation ID is a unique identifier for the device, so you should make sure to assign different installation IDs to different devices (i.e. your UUID generator has enough randomness). After you do the above, the arduino will automatically create an Installation object with this installation ID.</p>
+
+<p>If you do not pass in an installation ID, the<code class="highlighter-rouge">ParseClient</code> will automatically generate an installation ID for you, and create an Installation object with it upon the first request sent to Parse.</p>
+
+<p>You can retrieve your installation ID with the<code class="highlighter-rouge">getInstallationId</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">String</span> <span class="n">installationId</span> <span class="o">=</span> <span class="n">Parse</span><span class="p">.</span><span class="n">getInstallationId</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>The installation ID is persisted across reboots.</p>
+
+<p>The Installation class has several special fields that help you manage and target devices. The relevant ones for Arduino are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">channels</code>: An array of the channels to which a device is currently subscribed.</li>
+  <li><code class="highlighter-rouge">deviceType</code>: The type of device, “ios”, “android”, “winrt”, “winphone”, “dotnet”, or “embedded” (readonly).</li>
+  <li><code class="highlighter-rouge">installationId</code>: Universally Unique Identifier (UUID) for the device used by Parse. It must be unique across all of an app’s installations.(readonly).</li>
+  <li><code class="highlighter-rouge">appName</code>: The display name of the client application to which this installation belongs.</li>
+  <li><code class="highlighter-rouge">appVersion</code>: The version string of the client application to which this installation belongs.</li>
+  <li><code class="highlighter-rouge">parseVersion</code>: The version of the Parse SDK which this installation uses.</li>
+</ul>
+
+<h2 id="subscribing-to-pushes">Subscribing to Pushes</h2>
+
+<p>To subscribe to push notifications, make the following call in your<code class="highlighter-rouge">setup</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Parse</span><span class="p">.</span><span class="n">startPushService</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Then, in your <code class="highlighter-rouge">loop</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">Parse</span><span class="p">.</span><span class="n">pushAvailable</span><span class="p">())</span> <span class="p">{</span>
+	<span class="n">ParsePush</span> <span class="n">push</span> <span class="o">=</span> <span class="n">Parse</span><span class="p">.</span><span class="n">nextPush</span><span class="p">();</span>
+	<span class="c1">// Print whole JSON body
+</span>	<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">push</span><span class="p">.</span><span class="n">getJSONBody</span><span class="p">();</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"New push message size: "</span><span class="p">);</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"New push message content: "</span><span class="p">);</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+	<span class="c1">// Do something with the push
+</span>	<span class="c1">// IMPORTANT, close your push message
+</span>	<span class="n">push</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="sending-pushes">Sending Pushes</h2>
+
+<p>There are many ways to send a push notification. It’s possible to send from the Arduino SDK via a call to the REST API, but you’ll most likely be sending from another environment. <a href="/docs/rest#push-notifications">Read here for more information on how to send pushes</a>.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="analytics">Analytics</h1>
+
+<p>Some examples:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseTrackEvent</span> <span class="n">trackEvent</span><span class="p">;</span>
+<span class="n">trackEvent</span><span class="p">.</span><span class="n">setEventName</span><span class="p">(</span><span class="s">"ButtonPress"</span><span class="p">);</span>
+<span class="n">trackEvent</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+</code></pre>
+</div>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="cloud-functions">Cloud Functions</h1>
+
+<p>Cloud Functions allow you to run custom app logic in the Parse Cloud. This is especially useful for running complex app logic in the cloud so that you can reduce the memory footprint of your code on the IoT device. In a Cloud Function, you can query/save Parse data, send push notifications, and log analytics events.</p>
+
+<p>You write your Cloud Code in JavaScript using the Parse JavaScript SDK. We provide a command-line tool to help you deploy your Cloud Code. See our <a href="/docs/cloud_code_guide">Cloud Code guide</a> for details.</p>
+
+<p>For example, you define a Cloud Function as below.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Then you can invoke this Cloud Function from your device:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseCloudFunction</span> <span class="n">cloudFunction</span><span class="p">;</span>
+<span class="n">cloudFunction</span><span class="p">.</span><span class="n">setFunctionName</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+<span class="n">cloudFunction</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"value"</span><span class="p">,</span> <span class="s">"echo from hello"</span><span class="p">);</span>
+<span class="n">ParseResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">cloudFunction</span><span class="p">.</span><span class="n">send</span><span class="p">();</span>
+</code></pre>
+</div>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="sample-app">Sample App</h1>
+
+<p>We prepared a <a href="https://github.com/ParsePlatform/Anydevice">sample app</a> that demonstrates how to provision connected devices using a companion phone app such that connected devices can securely access user-specific data on the Parse Cloud. This sample app also demonstrates how to send push notifications between the phone app and connected devices.</p>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                    
+                    <h1 id="error-codes">Error Codes</h1>
+
+<p>The following is a list of all the error codes that can be returned by the Parse API. You may also refer to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">RFC2616</a> for a list of http error codes. Make sure to check the error message for more details.</p>
+
+<h2 id="api-issues">API Issues</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">UserInvalidLoginParams</code></td>
+      <td>101</td>
+      <td>Invalid login parameters. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ObjectNotFound</code></td>
+      <td>101</td>
+      <td>The specified object or session doesn’t exist or could not be found. Can also indicate that you do not have the necessary permissions to read or write this object. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidQuery</code></td>
+      <td>102</td>
+      <td>There is a problem with the parameters used to construct this query. This could be an invalid field name or an invalid field type for a specific constraint. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidClassName</code></td>
+      <td>103</td>
+      <td>Missing or invalid classname. Classnames are case-sensitive. They must start with a letter, and a-zA-Z0-9_ are the only valid characters.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingObjectId</code></td>
+      <td>104</td>
+      <td>An unspecified object id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidFieldName</code></td>
+      <td>105</td>
+      <td>An invalid field name. Keys are case-sensitive. They must start with a letter, and a-zA-Z0-9_ are the only valid characters. Some field names may be reserved. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidPointer</code></td>
+      <td>106</td>
+      <td>A malformed pointer was used. You would typically only see this if you have modified a client SDK.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidJSON</code></td>
+      <td>107</td>
+      <td>Badly formed JSON was received upstream. This either indicates you have done something unusual with modifying how things encode to JSON, or the network is failing badly. Can also indicate an invalid utf-8 string or use of multiple form encoded values. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CommandUnavailable</code></td>
+      <td>108</td>
+      <td>The feature you tried to access is only available internally for testing purposes.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NotInitialized</code></td>
+      <td>109</td>
+      <td>You must call Parse.initialize before using the Parse library. Check the Quick Start guide for your platform.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ObjectTooLarge</code></td>
+      <td>116</td>
+      <td>The object is too large. Parse Objectss have a max size of 128 kilobytes.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExceededConfigParamsError</code></td>
+      <td>116</td>
+      <td>You have reached the limit of 100 config parameters.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidLimitError</code></td>
+      <td>117</td>
+      <td>An invalid value was set for the limit. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidSkipError</code></td>
+      <td>118</td>
+      <td>An invalid value was set for skip. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">OperationForbidden</code></td>
+      <td>119</td>
+      <td>The operation isn’t allowed for clients due to class-level permissions. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CacheMiss</code></td>
+      <td>120</td>
+      <td>The result was not found in the cache.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidNestedKey</code></td>
+      <td>121</td>
+      <td>An invalid key was used in a nested JSONObject. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidACL</code></td>
+      <td>123</td>
+      <td>An invalid ACL was provided.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidEmailAddress</code></td>
+      <td>125</td>
+      <td>The email address was invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DuplicateValue</code></td>
+      <td>137</td>
+      <td>Unique field was given a value that is already taken.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidRoleName</code></td>
+      <td>139</td>
+      <td>Role’s name is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReservedValue</code></td>
+      <td>139</td>
+      <td>Field value is reserved.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExceededCollectionQuota</code></td>
+      <td>140</td>
+      <td>You have reached the quota on the number of classes in your app. Please delete some classes if you need to add a new class.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ScriptFailed</code></td>
+      <td>141</td>
+      <td>Cloud Code script failed. Usually points to a JavaScript error. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FunctionNotFound</code></td>
+      <td>141</td>
+      <td>Cloud function not found. Check that the specified Cloud function is present in your Cloud Code script and has been deployed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">JobNotFound</code></td>
+      <td>141</td>
+      <td>Background job not found. Check that the specified job is present in your Cloud Code script and has been deployed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SuccessErrorNotCalled</code></td>
+      <td>141</td>
+      <td>success/error was not called. A cloud function will return once response.success() or response.error() is called. A background job will similarly finish execution once status.success() or status.error() is called. If a function or job never reaches either of the success/error methods, this error will be returned. This may happen when a function does not handle an error response correctly, preventing code execution from reaching the success() method call.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MultupleSuccessErrorCalls</code></td>
+      <td>141</td>
+      <td>Can’t call success/error multiple times. A cloud function will return once response.success() or response.error() is called. A background job will similarly finish execution once status.success() or status.error() is called. If a function or job calls success() and/or error() more than once in a single execution path, this error will be returned.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ValidationFailed</code></td>
+      <td>142</td>
+      <td>Cloud Code validation failed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WebhookError</code></td>
+      <td>143</td>
+      <td>Webhook error.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidImageData</code></td>
+      <td>150</td>
+      <td>Invalid image data.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UnsavedFileError</code></td>
+      <td>151</td>
+      <td>An unsaved file.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidPushTimeError</code></td>
+      <td>152</td>
+      <td>An invalid push time was specified.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">HostingError</code></td>
+      <td>158</td>
+      <td>Hosting error.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidEventName</code></td>
+      <td>160</td>
+      <td>The provided analytics event name is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ClassNotEmpty</code></td>
+      <td>255</td>
+      <td>Class is not empty and cannot be dropped.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AppNameInvalid</code></td>
+      <td>256</td>
+      <td>App name is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingAPIKeyError</code></td>
+      <td>902</td>
+      <td>The request is missing an API key.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidAPIKeyError</code></td>
+      <td>903</td>
+      <td>The request is using an invalid API key.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="push-related-errors">Push related errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">IncorrectType</code></td>
+      <td>111</td>
+      <td>A field was set to an inconsistent type. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidChannelName</code></td>
+      <td>112</td>
+      <td>Invalid channel name. A channel name is either an empty string (the broadcast channel) or contains only a-zA-Z0-9_ characters and starts with a letter.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidSubscriptionType</code></td>
+      <td>113</td>
+      <td>Bad subscription type. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidDeviceToken</code></td>
+      <td>114</td>
+      <td>The provided device token is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushMisconfigured</code></td>
+      <td>115</td>
+      <td>Push is misconfigured in your app.  Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushWhereAndChannels</code></td>
+      <td>115</td>
+      <td>Can’t set channels for a query-targeted push. You can fix this by moving the channels into your push query constraints.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushWhereAndType</code></td>
+      <td>115</td>
+      <td>Can’t set device type for a query-targeted push. You can fix this by incorporating the device type constraints into your push query.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushMissingData</code></td>
+      <td>115</td>
+      <td>Push is missing a ‘data’ field.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushMissingChannels</code></td>
+      <td>115</td>
+      <td>Non-query push is missing a ‘channels’ field. Fix by passing a ‘channels’ or ‘query’ field.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ClientPushDisabled</code></td>
+      <td>115</td>
+      <td>Client-initiated push is not enabled. Check your Parse app’s push notification settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RestPushDisabled</code></td>
+      <td>115</td>
+      <td>REST-initiated push is not enabled. Check your Parse app’s push notification settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ClientPushWithURI</code></td>
+      <td>115</td>
+      <td>Client-initiated push cannot use the “uri” option.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PushQueryOrPayloadTooLarge</code></td>
+      <td>115</td>
+      <td>Your push query or data payload is too large. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidExpirationError</code></td>
+      <td>138</td>
+      <td>Invalid expiration value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingPushIdError</code></td>
+      <td>156</td>
+      <td>A push id is missing. Deprecated.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingDeviceTypeError</code></td>
+      <td>157</td>
+      <td>The device type field is missing. Deprecated.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="file-related-errors">File related errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidFileName</code></td>
+      <td>122</td>
+      <td>An invalid filename was used for Parse File. A valid file name contains only a-zA-Z0-9_. characters and is between 1 and 128 characters.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingContentType</code></td>
+      <td>126</td>
+      <td>Missing content type.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingContentLength</code></td>
+      <td>127</td>
+      <td>Missing content length.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidContentLength</code></td>
+      <td>128</td>
+      <td>Invalid content length.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FileTooLarge</code></td>
+      <td>129</td>
+      <td>File size exceeds maximum allowed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FileSaveError</code></td>
+      <td>130</td>
+      <td>Error saving a file.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FileDeleteError</code></td>
+      <td>131</td>
+      <td>File could not be deleted.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="installation-related-errors">Installation related errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidInstallationIdError</code></td>
+      <td>132</td>
+      <td>Invalid installation id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidDeviceTypeError</code></td>
+      <td>133</td>
+      <td>Invalid device type.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidChannelsArrayError</code></td>
+      <td>134</td>
+      <td>Invalid channels array value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MissingRequiredFieldError</code></td>
+      <td>135</td>
+      <td>Required field is missing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChangedImmutableFieldError</code></td>
+      <td>136</td>
+      <td>An immutable field was changed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="purchase-related-errors">Purchase related errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ReceiptMissing</code></td>
+      <td>143</td>
+      <td>Product purchase receipt is missing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidPurchaseReceipt</code></td>
+      <td>144</td>
+      <td>Product purchase receipt is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentDisabled</code></td>
+      <td>145</td>
+      <td>Payment is disabled on this device.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidProductIdentifier</code></td>
+      <td>146</td>
+      <td>The product identifier is invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProductNotFoundInAppStore</code></td>
+      <td>147</td>
+      <td>The product is not found in the App Store.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidServerResponse</code></td>
+      <td>148</td>
+      <td>The Apple server response is not valid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProductDownloadFilesystemError</code></td>
+      <td>149</td>
+      <td>The product fails to download due to file system error.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="user-related-errors">User related errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">UsernameMissing</code></td>
+      <td>200</td>
+      <td>The username is missing or empty.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PasswordMissing</code></td>
+      <td>201</td>
+      <td>The password is missing or empty.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UsernameTaken</code></td>
+      <td>202</td>
+      <td>The username has already been taken.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UserEmailTaken</code></td>
+      <td>203</td>
+      <td>Email has already been used.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UserEmailMissing</code></td>
+      <td>204</td>
+      <td>The email is missing, and must be specified.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UserWithEmailNotFound</code></td>
+      <td>205</td>
+      <td>A user with the specified email was not found.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SessionMissing</code></td>
+      <td>206</td>
+      <td>A user object without a valid session could not be altered.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MustCreateUserThroughSignup</code></td>
+      <td>207</td>
+      <td>A user can only be created through signup.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AccountAlreadyLinked</code></td>
+      <td>208</td>
+      <td>An account being linked is already linked to another user.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidSessionToken</code></td>
+      <td>209</td>
+      <td>The device’s session token is no longer valid. The application should ask the user to log in again.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="linked-services-errors">Linked services errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">LinkedIdMissing</code></td>
+      <td>250</td>
+      <td>A user cannot be linked to an account because that account’s id could not be found.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidLinkedSession</code></td>
+      <td>251</td>
+      <td>A user with a linked (e.g. Facebook or Twitter) account has an invalid session. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidGeneralAuthData</code></td>
+      <td>251</td>
+      <td>Invalid auth data value used.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BadAnonymousID</code></td>
+      <td>251</td>
+      <td>Anonymous id is not a valid lowercase UUID.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FacebookBadToken</code></td>
+      <td>251</td>
+      <td>The supplied Facebook session token is expired or invalid.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FacebookBadID</code></td>
+      <td>251</td>
+      <td>A user with a linked Facebook account has an invalid session.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FacebookWrongAppID</code></td>
+      <td>251</td>
+      <td>Unacceptable Facebook application id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TwitterVerificationFailed</code></td>
+      <td>251</td>
+      <td>Twitter credential verification failed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TwitterWrongID</code></td>
+      <td>251</td>
+      <td>Submitted Twitter id does not match the id associated with the submitted access token.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TwitterWrongScreenName</code></td>
+      <td>251</td>
+      <td>Submitted Twitter handle does not match the handle associated with the submitted access token.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TwitterConnectFailure</code></td>
+      <td>251</td>
+      <td>Twitter credentials could not be verified due to problems accessing the Twitter API.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UnsupportedService</code></td>
+      <td>252</td>
+      <td>A service being linked (e.g. Facebook or Twitter) is unsupported. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UsernameSigninDisabled</code></td>
+      <td>252</td>
+      <td>Authentication by username and password is not supported for this application. Check your Parse app’s authentication settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AnonymousSigninDisabled</code></td>
+      <td>252</td>
+      <td>Anonymous users are not supported for this application. Check your Parse app’s authentication settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FacebookSigninDisabled</code></td>
+      <td>252</td>
+      <td>Authentication by Facebook is not supported for this application. Check your Parse app’s authentication settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TwitterSigninDisabled</code></td>
+      <td>252</td>
+      <td>Authentication by Twitter is not supported for this application. Check your Parse app’s authentication settings.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InvalidAuthDataError</code></td>
+      <td>253</td>
+      <td>An invalid authData value was passed. Check error message for more details.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">LinkingNotSupportedError</code></td>
+      <td>999</td>
+      <td>Linking to an external account not supported yet with signup_or_login. Use update instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="client-only-errors">Client-only errors</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ConnectionFailed</code></td>
+      <td>100</td>
+      <td>The connection to the Parse servers failed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AggregateError</code></td>
+      <td>600</td>
+      <td>There were multiple errors. Aggregate errors have an “errors” property, which is an array of error objects with more detail about each error that occurred.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FileReadError </code></td>
+      <td>601</td>
+      <td>Unable to read input for a Parse File on the client.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">XDomainRequest</code></td>
+      <td>602</td>
+      <td>A real error code is unavailable because we had to use an XDomainRequest object to allow CORS requests in Internet Explorer, which strips the body from HTTP responses that have a non-2XX status code.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="operational-issues">Operational issues</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RequestTimeout</code></td>
+      <td>124</td>
+      <td>The request was slow and timed out. Typically this indicates that the request is too expensive to run. You may see this when a Cloud function did not finish before timing out, or when a <code class="highlighter-rouge">Parse.Cloud.httpRequest</code> connection times out.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InefficientQueryError</code></td>
+      <td>154</td>
+      <td>An inefficient query was rejected by the server. Refer to the Performance Guide and slow query log.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestLimitExceeded</code></td>
+      <td>155</td>
+      <td>This application has exceeded its request limit (legacy Parse.com apps only).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TemporaryRejectionError</code></td>
+      <td>159</td>
+      <td>An application’s requests are temporary rejected by the server (legacy Parse.com apps only).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DatabaseNotMigratedError</code></td>
+      <td>428</td>
+      <td>You should migrate your database as soon as possible (legacy Parse.com apps only).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="other-issues">Other issues</h2>
+
+<table class="docs_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">OtherCause</code></td>
+      <td>-1</td>
+      <td>An unknown error or an error unrelated to Parse occurred.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InternalServerError</code></td>
+      <td>1</td>
+      <td>Internal server error. No information available.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ServiceUnavailable</code></td>
+      <td>2</td>
+      <td>The service is currently unavailable.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ClientDisconnected</code></td>
+      <td>4</td>
+      <td>Connection failure.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                    
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/arduino">Edit this section.</a></span>
+	<hr/>
+</div>
+
+                  
+                </div>
+
+              </div>
+          		<!-- footer goes here -->
+            </div>
+          </div><!-- end content grid col -->
+        </div><!-- end .guide > .grid-container -->
+      </div><!-- /.content__wrapper -->
+    </div><!-- /.site__content -->
+  </div><!-- /.site__wrapper -->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+  <script src="/docs/assets/js/bundle.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: 'c7f5661ba53e2e3c1c3752696362209e',
+    indexName: 'parse',
+    inputSelector: '#algolia-doc-search',
+    algoliaOptions: { 'facetFilters': ["tags:arduino"] }, // android, arduino, cloudcode, dotnet, embedded_c, ios, js, macos, parse-server, php, rest, unity
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+</body>
+
+</html>

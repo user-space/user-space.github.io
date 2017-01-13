@@ -1,0 +1,66 @@
+PFConfig.h
+	typedef void(^PFConfigResultBlock)(PFConfig *_Nullable config, NSError *_Nullable error)
+PFConstants.h
+	typedef void (^PFBooleanResultBlock)(BOOL succeeded, NSError *_Nullable error)
+	typedef void (^PFIntegerResultBlock)(int number, NSError *_Nullable error)
+	typedef void (^PFArrayResultBlock)(NSArray *_Nullable objects, NSError *_Nullable error)
+	typedef void (^PFObjectResultBlock)(PFObject *_Nullable object,  NSError *_Nullable error)
+	typedef void (^PFSetResultBlock)(NSSet *_Nullable channels, NSError *_Nullable error)
+	typedef void (^PFUserResultBlock)(PFUser *_Nullable user, NSError *_Nullable error)
+	typedef void (^PFDataResultBlock)(NSData *_Nullable data, NSError *_Nullable error)
+	typedef void (^PFDataStreamResultBlock)(NSInputStream *_Nullable stream, NSError *_Nullable error)
+	typedef void (^PFFilePathResultBlock)(NSString *_Nullable filePath, NSError *_Nullable error)
+	typedef void (^PFStringResultBlock)(NSString *_Nullable string, NSError *_Nullable error)
+	typedef void (^PFIdResultBlock)(_Nullable id object, NSError *_Nullable error)
+	typedef void (^PFProgressBlock)(int percentDone)
+PFFile.h
+	+ (instancetype)new NS_UNAVAILABLE;
+PFGeoPoint.h
+	typedef void(^PFGeoPointResultBlock)(PFGeoPoint *_Nullable geoPoint, NSError *_Nullable error)
+PFPurchase.h
+	typedef void (^PFPurchaseProductObservationBlock)(SKPaymentTransaction *transaction)
+	typedef void (^PFPurchaseBuyProductResultBlock)(NSError *_Nullable error)
+	typedef void (^PFPurchaseDownloadAssetResultBlock)(NSString *_Nullable filePath, NSError *_Nullable error)
+PFSession.h
+	typedef void(^PFSessionResultBlock)(PFSession *_Nullable session, NSError *_Nullable error)
+PFUser.h
+	typedef void(^PFUserSessionUpgradeResultBlock)(NSError *_Nullable error)
+	typedef void(^PFUserLogoutResultBlock)(NSError *_Nullable error)
+ParseClientConfiguration.h
+	+ (instancetype)new NS_UNAVAILABLE;
+	- (instancetype)init NS_UNAVAILABLE;
+PFTwitterUtils.h
+	+ (void)logInWithTarget:(nullable id)target selector:(nullable SEL)selector;
+	+ (void)logInWithTwitterId:(NSString *)twitterId
+                screenName:(NSString *)screenName
+                 authToken:(NSString *)authToken
+           authTokenSecret:(NSString *)authTokenSecret
+                    target:(nullable id)target
+                  selector:(nullable SEL)selector;
+	+ (void)linkUser:(PFUser *)user target:(nullable id)target selector:(nullable SEL)selector;
+	+ (void)linkUser:(PFUser *)user
+       twitterId:(NSString *)twitterId
+      screenName:(NSString *)screenName
+       authToken:(NSString *)authToken
+ authTokenSecret:(NSString *)authTokenSecret
+          target:(nullable id)target
+        selector:(nullable SEL)selector;
+	+ (void)unlinkUserInBackground:(PFUser *)user target:(nullable id)target selector:(nullable SEL)selector;
+PFImageView.h
+	typedef void(^PFImageViewImageResultBlock)(UIImage *__nullable image,  NSError *__nullable error)
+PFLogInView.h
+	extern NSString *const PFLogInViewPasswordFieldAccessibilityIdentifier
+	extern NSString *const PFLogInViewLogInButtonAccessibilityIdentifier
+	extern NSString *const PFLogInViewSignUpButtonAccessibilityIdentifier
+	extern NSString *const PFLogInViewPasswordForgottenButtonAccessibilityIdentifier
+	extern NSString *const PFLogInViewTwitterButtonAccessibilityIdentifier
+	extern NSString *const PFLogInViewFacebookButtonAccessibilityIdentifier
+	extern NSString *const PFLogInViewDismissButtonAccessibilityIdentifier
+PFLogInView_Private.h
+	@interface PFLogInView (Private)
+PFSignUpView.h
+	extern NSString *const PFSignUpViewEmailFieldAccessibilityIdentifier
+	extern NSString *const PFSignUpViewPasswordFieldAccessibilityIdentifier
+	extern NSString *const PFSignUpViewAdditionalFieldAccessibilityIdentifier
+	extern NSString *const PFSignUpViewSignUpButtonAccessibilityIdentifier
+	extern NSString *const PFSignUpViewDismissButtonAccessibilityIdentifier

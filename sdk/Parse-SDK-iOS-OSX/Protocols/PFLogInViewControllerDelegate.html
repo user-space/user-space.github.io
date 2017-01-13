@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PFLogInViewControllerDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/PFLogInViewControllerDelegate" class="dashAnchor"></a>
+    <a title="PFLogInViewControllerDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Parse Docs</a></p>
+        <p class="header-right"><a href="https://github.com/ParsePlatform/Parse-SDK-iOS-OSX"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eparse%2Ecom%2Fdocs%2Fios%2Fapi%2Fdocsets%2FParse%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Parse Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PFLogInViewControllerDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/PFAnonymousUtils(Deprecated).html">PFAnonymousUtils(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFCloud(Deprecated).html">PFCloud(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFCloud(Synchronous).html">PFCloud(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFConfig(Synchronous).html">PFConfig(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFFile(Deprecated).html">PFFile(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFFile(Synchronous).html">PFFile(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Deprecated).html">PFObject(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Subclass).html">PFObject(Subclass)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFObject(Synchronous).html">PFObject(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFPush(Deprecated).html">PFPush(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFPush(Synchronous).html">PFPush(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFQuery(Deprecated).html">PFQuery(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFQuery(Synchronous).html">PFQuery(Synchronous)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFUser(Deprecated).html">PFUser(Deprecated)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/PFUser(Synchronous).html">PFUser(Synchronous)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/PFACL.html">PFACL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFAnalytics.html">PFAnalytics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFAnonymousUtils.html">PFAnonymousUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFCloud.html">PFCloud</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFCollectionViewCell.html">PFCollectionViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFConfig.html">PFConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFFacebookUtils.html">PFFacebookUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFFile.html">PFFile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFGeoPoint.html">PFGeoPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFImageView.html">PFImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFInstallation.html">PFInstallation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFLogInView.html">PFLogInView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFLogInViewController.html">PFLogInViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFNetworkActivityIndicatorManager.html">PFNetworkActivityIndicatorManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFObject.html">PFObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFProduct.html">PFProduct</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFProductTableViewController.html">PFProductTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPurchase.html">PFPurchase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPurchaseTableViewCell.html">PFPurchaseTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFPush.html">PFPush</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQuery.html">PFQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQueryCollectionViewController.html">PFQueryCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFQueryTableViewController.html">PFQueryTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFRelation.html">PFRelation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFRole.html">PFRole</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSession.html">PFSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSignUpView.html">PFSignUpView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFSignUpViewController.html">PFSignUpViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTableViewCell.html">PFTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTextField.html">PFTextField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFTwitterUtils.html">PFTwitterUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PFUser.html">PFUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PF_Twitter.html">PF_Twitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Parse.html">Parse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParseClientConfiguration.html">ParseClientConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInCancelNotification">PFLogInCancelNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInFailureNotification">PFLogInFailureNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInSuccessNotification">PFLogInSuccessNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFLogInViewUsernameFieldAccessibilityIdentifier">PFLogInViewUsernameFieldAccessibilityIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkDidReceiveURLResponseNotification">PFNetworkDidReceiveURLResponseNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLRequestUserInfoKey">PFNetworkNotificationURLRequestUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLResponseBodyUserInfoKey">PFNetworkNotificationURLResponseBodyUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkNotificationURLResponseUserInfoKey">PFNetworkNotificationURLResponseUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFNetworkWillSendURLRequestNotification">PFNetworkWillSendURLRequestNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFObjectDefaultPin">PFObjectDefaultPin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFParseErrorDomain">PFParseErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpCancelNotification">PFSignUpCancelNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpFailureNotification">PFSignUpFailureNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpSuccessNotification">PFSignUpSuccessNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@PFSignUpViewUsernameFieldAccessibilityIdentifier">PFSignUpViewUsernameFieldAccessibilityIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kPFDeviceType">kPFDeviceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/PFCachePolicy.html">PFCachePolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFErrorCode.html">PFErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFLogInFields.html">PFLogInFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFLogLevel.html">PFLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFPurchaseTableViewCellState.html">PFPurchaseTableViewCellState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFSignUpFields.html">PFSignUpFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PFTextFieldSeparatorStyle.html">PFTextFieldSeparatorStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PFLogInViewControllerDelegate.html">PFLogInViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFSignUpViewControllerDelegate.html">PFSignUpViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFSubclassing.html">PFSubclassing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PFUserAuthenticationDelegate.html">PFUserAuthenticationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ParseMutableClientConfiguration.html">ParseMutableClientConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:PFQuery.h@T@PFQueryArrayResultBlock">PFQueryArrayResultBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PFLogInViewControllerDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">PFLogInViewControllerDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>PFLogInViewControllerDelegate</code> protocol defines methods a delegate of a <code><a href="../Classes/PFLogInViewController.html">PFLogInViewController</a></code> should implement.
+All methods of this protocol are optional.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Customizing%20Behavior"></a>
+                <a name="//apple_ref/objc/Section/Customizing Behavior" class="dashAnchor"></a>
+                <a href="#/Customizing%20Behavior">
+                  <h3 class="section-name">Customizing Behavior</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:shouldBeginLogInWithUsername:password:"></a>
+                    <a name="//apple_ref/objc/Method/-logInViewController:shouldBeginLogInWithUsername:password:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:shouldBeginLogInWithUsername:password:">-logInViewController:shouldBeginLogInWithUsername:password:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent to the delegate to determine whether the log in request should be submitted to the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">logInViewController</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">PFLogInViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">logInController</span>
+    <span class="nf">shouldBeginLogInWithUsername</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
+                        <span class="nf">password</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logInController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The login view controller that is requesting the data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the username the user tries to log in with.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the password the user tries to log in with.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>BOOL</code> indicating whether the log in should proceed.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Responding%20to%20Actions"></a>
+                <a name="//apple_ref/objc/Section/Responding to Actions" class="dashAnchor"></a>
+                <a href="#/Responding%20to%20Actions">
+                  <h3 class="section-name">Responding to Actions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:didLogInUser:"></a>
+                    <a name="//apple_ref/objc/Method/-logInViewController:didLogInUser:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:didLogInUser:">-logInViewController:didLogInUser:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent to the delegate when a <code><a href="../Classes/PFUser.html">PFUser</a></code> is logged in.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">logInViewController</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">PFLogInViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">logInController</span>
+               <span class="nf">didLogInUser</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">PFUser</span> <span class="o">*</span><span class="p">)</span><span class="nv">user</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logInController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The login view controller where login finished.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>PFUser</code> object that is a result of the login.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:didFailToLogInWithError:"></a>
+                    <a name="//apple_ref/objc/Method/-logInViewController:didFailToLogInWithError:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewController:didFailToLogInWithError:">-logInViewController:didFailToLogInWithError:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent to the delegate when the log in attempt fails.</p>
+
+<p>If you implement this method, PFLoginViewController will not automatically show its default
+login failure alert view. Instead, you should show your custom alert view in your implementation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">logInViewController</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">PFLogInViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">logInController</span>
+    <span class="nf">didFailToLogInWithError</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logInController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The login view controller where login failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSError</code> object representing the error that occured.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewControllerDidCancelLogIn:"></a>
+                    <a name="//apple_ref/objc/Method/-logInViewControllerDidCancelLogIn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)PFLogInViewControllerDelegate(im)logInViewControllerDidCancelLogIn:">-logInViewControllerDidCancelLogIn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent to the delegate when the log in screen is cancelled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">logInViewControllerDidCancelLogIn</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n">PFLogInViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">logInController</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>logInController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The login view controller where login was cancelled.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright &copy; 2015 Parse. All rights reserved.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

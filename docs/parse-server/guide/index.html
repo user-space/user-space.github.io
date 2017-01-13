@@ -1,0 +1,2238 @@
+<!doctype html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Parse Server Guide | Parse</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://parse.com/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://parse.com/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://parse.com/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://parse.com/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://parse.com/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://parse.com/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://parse.com/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://parse.com/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://parse.com/apple-touch-icon-180x180.png">
+  <meta name="apple-mobile-web-app-title" content="Parse">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://parse.com/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#5298fc">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="application-name" content="Parse">
+
+  <meta name="theme-color" content="#5298fc">
+
+      <!-- CSS -->
+      <!-- build:css -->
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+      <link href="/docs/css/docs.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" rel="stylesheet" />
+      <!-- endbuild -->
+
+      <!--[if lte IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+      <![endif]-->
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  <!--[if lt IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
+  <![endif]-->
+  <!--[if IE 8]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" />
+  <![endif]-->
+  <!--[if lt IE 10]>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/ie89.css" />
+  <![endif]-->
+  <script>if(Function('/*@cc_on return document.documentMode===10@*/')()){document.documentElement.className+=' ie10';}</script>
+
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token" content="KxDoKysxiXDIRV8VXwDYlQStDGzjbGZ24y6ZgQLYAsE=">
+  <meta name="description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta name="keywords" content="backend, mobile, development, server, code">
+  <meta property="fb:app_id" content="361736430535656">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Parse">
+  <meta property="og:image" content="/docs/assets/images/social.jpg">
+  <meta property="og:description" content="Focus on creating unique &amp; engaging apps on any platform. We take care of everything else your app needs, from the core of your app to analytics and push notifications.">
+  <meta property="og:url" content="/parse-server/guide/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+  <body class="pure p_docs p_docs_show_guide user_logged_in" style="position: relative;">
+  <div class="site__wrapper">
+    <div class="site__content">
+
+      <aside class="site__menu">
+    <nav class="site__menu__nav">
+        <ul>
+            <li><a href="/migration">Migration Guide</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="http://blog.parse.com/">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="site__menu__socials">
+        <h4 class="h4">Stay Connected</h4>
+
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/parseit">
+                    <svg class="icon icon-fb"><use xlink:href="/docs/assets/symbols.svg#fb"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/parseit">
+                    <svg class="icon icon-twitter"><use xlink:href="/docs/assets/symbols.svg#twitter"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://parseplatform.github.io">
+                    <svg class="icon icon-github"><use xlink:href="/docs/assets/symbols.svg#github"></use></svg>
+                </a>
+            </li>
+            <li>
+                <a href="http://stackoverflow.com/questions/tagged/parse.com">
+                    <svg class="icon icon-stack-overflow"><use xlink:href="/docs/assets/symbols.svg#stack-overflow"></use></svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="site__menu__build-together">Let&rsquo;s build together.</p>
+    </div>
+</aside>
+
+      <div class="content__wrapper">
+        <header class="site__header site__header--white">
+    <div class="container">
+
+        <a href="/" class="header-logo">
+            <span class="hidden">Parse</span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            	 viewBox="0 0 152 60" style="enable-background:new 0 0 152 60;" xml:space="preserve">
+            <g>
+            	<path class="line one" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line two" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="line three" d="M23.072,39.678c-0.011,3.348-2.395,4.615-4.909,4.615c-2.851,0-4.541-1.701-4.541-4.357
+            		c0-2.964,2.031-4.667,5.35-4.725h13.611c6.428,0.079,10.137-5.391,10.137-9.953c0-4.598-3.485-9.598-9.622-9.842
+            		c-6.083-0.242-9.99,5.281-9.99,11.167v3.863"/>
+            	<path class="st1" d="M151.88,31.106c0-4.561-2.575-7.835-7.173-7.872c-5.665-0.037-9.197,4.12-9.197,10.484v0.11
+            		c0,6.033,3.863,9.601,9.601,9.601c1.839,0,4.083-0.405,5.739-1.177v-3.568c-1.839,0.956-3.752,1.398-5.408,1.398
+            		c-3.568,0-6.07-1.803-6.18-5.959h12.36C151.807,33.056,151.88,32.026,151.88,31.106z M148.312,31.07h-8.829
+            		c0.625-3.053,2.354-4.745,4.966-4.745c2.575,0,3.863,1.729,3.863,4.561V31.07z"/>
+            	<path class="st1" d="M125.725,34.712l0.405,0.147c2.869,1.03,3.531,1.655,3.531,2.906c0,1.471-0.993,2.428-3.458,2.428
+            		c-1.986,0-4.12-0.662-6.364-1.692v3.752c1.803,0.699,4.12,1.177,6.364,1.177c4.819,0,7.21-2.428,7.21-5.812
+            		c0-2.943-1.471-4.525-5.408-5.959l-0.405-0.147c-3.127-1.14-3.752-1.655-3.752-2.869c0-1.361,0.956-2.281,3.237-2.281
+            		c1.839,0,3.642,0.589,5.408,1.435v-3.531c-1.582-0.625-3.348-1.03-5.26-1.03c-4.598,0-7.1,2.575-7.1,5.886
+            		C120.134,31.695,121.679,33.24,125.725,34.712"/>
+            	<path class="st1" d="M110.863,29.892c1.288-2.023,3.09-3.016,5.26-3.016c0.773,0,1.508,0.11,2.17,0.331v-3.384
+            		c-0.625-0.258-1.361-0.405-2.134-0.405c-2.281,0-4.01,1.03-5.518,3.09l-0.258-2.869h-3.164v19.386h3.642V29.892z"/>
+            	<path class="st1" d="M96.481,23.197c-2.281,0-4.672,0.699-6.474,1.692v3.605c2.023-1.251,4.378-2.023,6.254-2.023
+            		c2.612,0,3.679,1.14,3.679,3.274v1.619c-5.334,0.147-8.461,1.03-10.116,2.685c-1.177,1.14-1.692,2.685-1.692,4.267
+            		c0,3.274,2.354,5.15,5.702,5.15c2.244,0,4.378-0.92,6.327-2.796l0.221,2.354h3.164V30.003
+            		C103.544,25.405,101.263,23.197,96.481,23.197z M99.938,37.728c-1.471,1.619-3.2,2.722-5.297,2.722
+            		c-1.729,0-2.833-0.883-2.833-2.428c0-2.281,1.876-3.642,8.13-3.826V37.728z"/>
+            	<path class="st1" d="M77.609,17.643h-8.571v25.383h3.826v-8.314h4.745c5.923,0,9.491-3.164,9.491-8.498V26.14
+            		C87.1,20.806,83.532,17.643,77.609,17.643z M83.311,26.214c0,3.421-1.986,5.04-5.444,5.04h-5.003V21.101h5.04
+            		c3.421,0,5.408,1.619,5.408,5.04V26.214z"/>
+            	<path class="st1" d="M27.838,2.192C12.204,2.192-0.12,14.589-0.12,30.15c0,15.597,12.323,27.958,27.958,27.958
+            		c15.634,0,27.958-12.36,27.958-27.958C55.795,14.589,43.472,2.192,27.838,2.192z M32.473,36.955H18.752
+            		c-1.986,0-3.164,1.214-3.164,3.017c0,1.582,1.067,2.722,2.612,2.722c1.766,0,2.796-1.214,2.906-3.016h4.01
+            		c-0.184,4.341-2.906,6.658-6.953,6.658c-3.789,0-6.585-2.575-6.585-6.401c0-3.973,2.98-6.769,7.394-6.769h13.611
+            		c4.598,0,8.093-3.348,8.093-7.909c0-4.598-3.127-7.799-7.578-7.799c-4.414,0-7.946,3.237-7.946,9.123v3.863h-4.046v-3.863
+            		c0-7.872,5.076-12.986,12.066-12.986c6.695,0,11.551,4.782,11.551,11.588C44.723,32.026,39.499,36.955,32.473,36.955z"/>
+            </g>
+            </svg>
+        </a>
+
+        <a href="javascript:;" class="header-hamburger" data-menu-trigger="toggle">
+            <span class="header-hamburger__wrap">
+                <span class="header-hamburger__line--top"></span>
+                <span class="header-hamburger__line--middle"></span>
+                <span class="header-hamburger__line--bottom"></span>
+
+                <span class="header-hamburger__line--arrow-top"></span>
+                <span class="header-hamburger__line--arrow-bottom"></span>
+            </span>
+        </a>
+
+        <ul class="header-nav">
+            <li><a href="https://parse.com/migration">Migration Guide</a></li>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="http://blog.parse.com">Blog</a></li>
+            <li><a href="https://parse.com/help">Help</a></li>
+        </ul>
+
+    </div><!-- container -->
+</header>
+
+        <aside class="hero hero--docs parse-server_docs_header">
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <p class="h1 h1--white" data-ignore-from-select>
+                <span>Parse Server <em>Guide</em></span>
+
+                <a href="/docs/" class="btn btn--back">
+                  <span class="hide-mobile">Browse all platforms</span>
+                  <span class="show-mobile">Browse</span>
+                </a>
+
+                <svg class="icon icon-parse-server"><use xlink:href="/docs/assets/symbols.svg#parse-server"></use></svg>
+
+              </p>
+            </div>
+          </div>
+        </aside><!-- .hero -->
+
+        <div class="guide" data-nav-waypoint>
+          <div id="mobile_toc" class="">
+          	<select></select>
+          </div>
+
+          <div class="grid-container">
+            <div class="col-md--6 col-lg--9">
+              <div class="guide_content">
+                <div id="toc">
+                  <div style="overflow-y: scroll; height: 100%;">
+                    <div class="top_links">
+
+                      <a href="https://github.com/ParsePlatform/Parse-Server#getting-started">Quickstart<i class="icon_minimize"></i></a>
+
+
+
+                      <!-- .algolia-search-wrapper -->
+                      <div class="algolia-search-wrapper">
+                        <input id="algolia-doc-search" class="parse-server_docs_docsearch" tabindex="0" type="text" placeholder="Search..." />
+                      </div><!-- .algolia-search-wrapper -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wysiwyg-content">
+
+
+                    <p>Parse Server is an open source version of the Parse backend that can be deployed to any infrastructure that can run Node.js. You can find the source on the <a href="https://github.com/ParsePlatform/parse-server">GitHub repo</a>.</p>
+
+<ul>
+  <li>Parse Server is not dependent on the hosted Parse backend.</li>
+  <li>Parse Server uses MongoDB directly, and is not dependent on the Parse hosted database.</li>
+  <li>You can migrate an existing app to your own infrastructure.</li>
+  <li>You can develop and test your app locally using Node.</li>
+</ul>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+  <li>Node 4.3</li>
+  <li>MongoDB version 2.6.X or 3.0.X</li>
+  <li>Python 2.x (For Windows users, 2.7.1 is the required version)</li>
+  <li>For deployment, an infrastructure provider like Heroku or AWS</li>
+</ul>
+
+<h3 id="compatibility-with-hosted-parse">Compatibility with hosted Parse</h3>
+
+<p>There are a few areas where Parse Server does not provide compatibility with the Parse hosted backend. If you’re migrating a hosted Parse.com app to Parse Server, please take some time to carefully read through the list of <a href="#compatibility-with-parsecom">compatibility issues</a>.</p>
+
+<h1 id="getting-started">Getting Started</h1>
+
+<p>The fastest and easiest way to get started is to run MongoDB and Parse Server locally. Use the bootstrap script to set up Parse Server in the current directory.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sh &lt;<span class="o">(</span>curl -fsSL https://raw.githubusercontent.com/parseplatform/parse-server/master/bootstrap.sh<span class="o">)</span>
+<span class="gp">$ </span>npm install -g mongodb-runner
+<span class="gp">$ </span>mongodb-runner start
+<span class="gp">$ </span>npm start
+</code></pre>
+</div>
+
+<p>You can use any arbitrary string as your application id and master key. These will be used by your clients to authenticate with the Parse Server.</p>
+
+<p>That’s it! You are now running a standalone version of Parse Server on your machine.</p>
+
+<h2 id="saving-your-first-object">Saving your first object</h2>
+
+<p>Now that you’re running Parse Server, it is time to save your first object. We’ll use the <a href="/docs/rest/guide">REST API</a>, but you can easily do the same using any of the <a href="/docs">Parse SDKs</a>. Run the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="se">\</span>
+-H <span class="s2">"X-Parse-Application-Id: APPLICATION_ID"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-d <span class="s1">'{"score":1337,"playerName":"Sean Plott","cheatMode":false}'</span> <span class="se">\</span>
+http://localhost:1337/parse/classes/GameScore
+</code></pre>
+</div>
+
+<p>You should get a response similar to this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"objectId"</span><span class="err">:</span> <span class="s2">"2ntvSpRGIK"</span><span class="p">,</span>
+  <span class="s2">"createdAt"</span><span class="err">:</span> <span class="s2">"2016-03-11T23:51:48.050Z"</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>You can now retrieve this object directly (make sure to replace <code class="highlighter-rouge">2ntvSpRGIK</code> with the actual <code class="highlighter-rouge">objectId</code> you received when the object was created):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET <span class="se">\</span>
+  -H <span class="s2">"X-Parse-Application-Id: APPLICATION_ID"</span> <span class="se">\</span>
+  http://localhost:1337/parse/classes/GameScore/2ntvSpRGIK
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">Response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ntvSpRGIK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"playerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sean Plott"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cheatMode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-11T23:51:48.050Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-11T23:51:48.050Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Keeping tracks of individual object ids is not ideal, however. In most cases you will want to run a query over the collection, like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ curl -X GET \
+  -H "X-Parse-Application-Id: APPLICATION_ID" \
+  http://localhost:1337/parse/classes/GameScore
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">matching</span><span class="w"> </span><span class="err">objects</span><span class="w"> </span><span class="err">within</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`results`</span><span class="w"> </span><span class="err">array:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ntvSpRGIK"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"playerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sean Plott"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cheatMode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-11T23:51:48.050Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-11T23:51:48.050Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+</div>
+
+<p>To learn more about using saving and querying objects on Parse Server, check out the <a href="/docs">documentation</a> for the SDK you will be using in your app.</p>
+
+<h2 id="connect-your-app-to-parse-server">Connect your app to Parse Server</h2>
+
+<p>Parse provides SDKs for all the major platforms. Refer to the rest of the Parse Server guide to <a href="#using-parse-sdks-with-parse-server">learn how to connect your app to Parse Server</a>.</p>
+
+<h2 id="running-parse-server-elsewhere">Running Parse Server elsewhere</h2>
+
+<p>Once you have a better understanding of how the project works, please refer to the <a href="#deploying-parse-server">Deploying Parse Server section</a> to learn more about additional ways of running Parse Server.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="database">Database</h1>
+
+<p>Parse Server uses <a href="https://www.mongodb.org/">MongoDB</a> as the database for your application. If you have not used MongoDB before, we highly recommend familiarizing yourself with it first before proceeding.</p>
+
+<p>The Mongo requirements for Parse Server are:</p>
+
+<ul>
+  <li>MongoDB version 2.6.X or 3.0.X</li>
+  <li>The <a href="https://docs.mongodb.org/manual/reference/parameters/##param.failIndexKeyTooLong">failIndexKeyTooLong</a> parameter must be set to <code class="highlighter-rouge">false</code>.</li>
+  <li>An SSL connection is recommended (but not required).</li>
+  <li>We strongly recommend that your MongoDB servers be hosted in the US-East region for minimal lantecy.</li>
+</ul>
+
+<p>If this is your first time setting up a production MongoDB instance, we recommend using either <a href="http://www.mLab.com">mLab</a> or <a href="https://objectrocket.com/">ObjectRocket</a>. These are database-as-a-service companies which provide fully managed MongoDB instances, and can help you scale up as needed.</p>
+
+<p>If you are migrating an existing Parse app to a MongoDB instance that isn’t backed by WiredTiger or RocksDB, a good rule of thumb is to assume you will need 10X the space you currently are using with Parse.</p>
+
+<p>When using MongoDB with your Parse app, there are some differences with the hosted Parse database:</p>
+
+<ul>
+  <li>You need to manage your indexes yourself. Hosted Parse automatically adds indexes based on the incoming query stream.</li>
+  <li>You need to size up your database as your data grows.</li>
+</ul>
+
+<p>If you are planning to run MongoDB on your own infrastructure, we highly recommend using the <a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks">RocksDB Storage Engine</a>.</p>
+
+<h3 id="why-do-i-need-to-set-failindexkeytoolongfalse">Why do I need to set failIndexKeyTooLong=false?</h3>
+
+<p>MongoDB only allows index keys that are 1024 bytes or smaller. If a write operation attempts to store a value greater than 1024 bytes in size to a field that has been indexed, it will fail with an error. Due to how Parse dynamically indexes collections based on query traffic, we inevitably have indexed some fields with values larger than 1024 bytes. To avoid random write errors, we configured <code class="highlighter-rouge">failIndexKeyTooLong=false</code> on our databases, and accept the write even if the field is indexed. A side effect of this is that data with fields larger than 1024 bytes will appear to be “missing” depending on which index is selected by the MongoDB query planner.</p>
+
+<p>Customers migrating their data only need to configure this parameter if they have indexed fields larger than 1024 bytes in size <em>and</em> they have collections larger than 1 million documents. For smaller apps, we will automatically clean up offending indexes during the migration. Larger apps should follow these steps as a best practice:</p>
+
+<ol>
+  <li>Configure <code class="highlighter-rouge">failIndexKeyTooLong=false</code> on the destination database</li>
+  <li>Migrate all data per the <a href="https://parse.com/migration">migration</a> guide.</li>
+  <li>Evaluate all existing indexes and drop indexes for fields with data larger than 1024 bytes. The number of fields and indexes will depend entirely on the nature of your application and its data.</li>
+  <li>Configure <code class="highlighter-rouge">failIndexKeyTooLong=true</code> on the database</li>
+</ol>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="usage">Usage</h1>
+
+<p>Parse Server is meant to be mounted on an <a href="http://expressjs.com/">Express</a> app. Express is a web framework for Node.js. The fastest way to get started is to clone the <a href="https://github.com/ParsePlatform/parse-server">Parse Server repo</a>, which at its root contains a sample Express app with the Parse API mounted.</p>
+
+<p>The constructor returns an API object that conforms to an <a href="http://expressjs.com/en/api.html##app.use">Express Middleware</a>. This object provides the REST endpoints for a Parse app. Create an instance like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="s1">'mongodb://your.mongo.uri'</span><span class="p">,</span>
+  <span class="na">cloud</span><span class="p">:</span> <span class="s1">'./cloud/main.js'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="s1">'myAppId'</span><span class="p">,</span>
+  <span class="na">fileKey</span><span class="p">:</span> <span class="s1">'myFileKey'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="s1">'mySecretMasterKey'</span><span class="p">,</span>
+  <span class="na">push</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="c1">// See the Push wiki page</span>
+  <span class="na">filesAdapter</span><span class="p">:</span> <span class="p">...,</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The parameters are as follows:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">databaseURI</code>: Connection string URI for your MongoDB.</li>
+  <li><code class="highlighter-rouge">cloud</code>: Path to your app’s Cloud Code.</li>
+  <li><code class="highlighter-rouge">appId</code>: A unique identifier for your app.</li>
+  <li><code class="highlighter-rouge">fileKey</code>: A key that specifies a prefix used for file storage. For migrated apps, this is necessary to provide access to files already hosted on Parse.</li>
+  <li><code class="highlighter-rouge">masterKey</code>: A key that overrides all permissions. Keep this secret.</li>
+  <li><code class="highlighter-rouge">clientKey</code>: The client key for your app. (optional)</li>
+  <li><code class="highlighter-rouge">restAPIKey</code>: The REST API key for your app. (optional)</li>
+  <li><code class="highlighter-rouge">javascriptKey</code>: The JavaScript key for your app. (optional)</li>
+  <li><code class="highlighter-rouge">dotNetKey</code>: The .NET key for your app. (optional)</li>
+  <li><code class="highlighter-rouge">push</code>: An object containing push configuration. See <a href="#push-notifications">Push</a></li>
+  <li><code class="highlighter-rouge">filesAdapter</code>: An object that implements the <a href="https://github.com/ParsePlatform/parse-server/blob/master/src/Adapters/Files/FilesAdapter.js">FilesAdapter</a> interface. For example, <a href="#configuring-file-adapters">the S3 files adapter</a></li>
+  <li><code class="highlighter-rouge">oauth</code>: Configure support for <a href="#oauth-and-3rd-party-authentication">3rd party authentication</a>.</li>
+</ul>
+
+<p>The Parse Server object was built to be passed directly into <code class="highlighter-rouge">app.use</code>, which will mount the Parse API at a specified path in your Express app:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ParseServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'parse-server'</span><span class="p">).</span><span class="nx">ParseServer</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span> <span class="p">...</span> <span class="p">});</span>
+
+<span class="c1">// Serve the Parse API at /parse URL prefix</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/parse'</span><span class="p">,</span> <span class="nx">api</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'parse-server-example running on port '</span> <span class="o">+</span> <span class="nx">port</span> <span class="o">+</span> <span class="s1">'.'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>And with that, you will have a Parse Server running on port 1337, serving the Parse API at <code class="highlighter-rouge">/parse</code>.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="keys">Keys</h1>
+
+<p>Parse Server does not require the use of client-side keys. This includes the client key, JavaScript key, .NET key, and REST API key. The Application ID is sufficient to secure your app.</p>
+
+<p>However, you have the option to specify any of these four keys upon initialization. Upon doing so, Parse Server will enforce that any clients passing a key matches. The behavior is consistent with hosted Parse.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="using-parse-sdks-with-parse-server">Using Parse SDKs with Parse Server</h1>
+
+<p>To use a Parse SDK with Parse Server, change the server URL to your Parse API URL (make sure you have the <a href="/#sdks">latest version of the SDKs</a>). For example, if you have Parse Server running locally mounted at /parse:</p>
+
+<p><strong>iOS / OS X / watchOS / tvOS</strong></p>
+
+<p><em>Swift</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">configuration</span> <span class="o">=</span> <span class="kt">ParseClientConfiguration</span> <span class="p">{</span>
+    <span class="nv">$0</span><span class="o">.</span><span class="n">applicationId</span> <span class="o">=</span> <span class="s">"YOUR_APP_ID"</span>
+    <span class="nv">$0</span><span class="o">.</span><span class="n">clientKey</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="nv">$0</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="s">"http://localhost:1337/parse"</span>
+<span class="p">}</span>
+<span class="kt">Parse</span><span class="o">.</span><span class="nf">initializeWithConfiguration</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p><em>Objective-C</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="n">Parse</span> <span class="nf">initializeWithConfiguration</span><span class="p">:[</span><span class="n">ParseClientConfiguration</span> <span class="nf">configurationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">ParseMutableClientConfiguration</span><span class="o">&gt;</span> <span class="n">configuration</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">configuration</span><span class="p">.</span><span class="n">applicationId</span> <span class="o">=</span> <span class="s">@"YOUR_APP_ID"</span><span class="err">;</span>
+   <span class="n">configuration</span><span class="p">.</span><span class="n">clientKey</span> <span class="o">=</span> <span class="s">@""</span><span class="err">;</span>
+   <span class="n">configuration</span><span class="p">.</span><span class="n">server</span> <span class="o">=</span> <span class="s">@"http://localhost:1337/parse"</span><span class="err">;</span>
+<span class="p">}]];</span>
+</code></pre>
+</div>
+
+<p><strong>Android</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Parse</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="k">new</span> <span class="n">Parse</span><span class="o">.</span><span class="na">Configuration</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">myContext</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">applicationId</span><span class="o">(</span><span class="s">"YOUR_APP_ID"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">clientKey</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">server</span><span class="o">(</span><span class="s">"http://localhost:1337/parse/"</span><span class="o">)</span> <span class="c1">// The trailing slash is important.</span>
+
+    <span class="o">...</span>
+
+    <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<p><strong>JavaScript</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="s2">"YOUR_APP_ID"</span><span class="p">);</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">serverURL</span> <span class="o">=</span> <span class="s1">'http://localhost:1337/parse'</span>
+</code></pre>
+</div>
+
+<p><strong>.NET</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ParseClient</span><span class="p">.</span><span class="nf">initialize</span><span class="p">(</span><span class="k">new</span> <span class="n">ParseClient</span><span class="p">.</span><span class="n">Configuration</span> <span class="p">{</span>
+    <span class="n">ApplicationId</span> <span class="p">=</span> <span class="s">"YOUR_APP_ID"</span><span class="p">,</span>
+    <span class="n">Server</span> <span class="p">=</span> <span class="s">"http://localhost:1337/parse/"</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="deploying-parse-server">Deploying Parse Server</h1>
+
+<p>The fastest and easiest way to start using Parse Server is to run MongoDB and Parse Server locally. Once you have a better understanding of how the project works, read on to learn how to deploy Parse Server to major infrastructure providers. If your provider is not listed here, please take a look at the <a href="https://github.com/ParsePlatform/parse-server/wiki##community-links">list of articles from the community</a> as someone may have already written a guide for it.</p>
+
+<h2 id="deploying-to-heroku-and-mlab">Deploying to Heroku and mLab</h2>
+
+<p>Heroku and mLab provide an easy way to deploy Parse Server, especially if you’re new to managing your own backend infrastructure.</p>
+
+<p>Here are the steps:</p>
+
+<ol>
+  <li>Create a repo for your Express app with the Parse Server middleware mounted (you can use our <a href="https://github.com/ParsePlatform/parse-server-example">sample project</a>, or start your own).</li>
+  <li>Create a Heroku account (if you don’t have one already) and use the Heroku Toolbelt to log in and prepare a new app in the same directory as your Express app. Take a look at Heroku’s <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs##introduction">Getting Started with Node.js guide</a> for more details.</li>
+  <li>Use the mLab addon: <code class="highlighter-rouge">heroku addons:create mongolab:sandbox</code> (or, you can create a Mongo instance yourself, either directly with mLab or your own box)</li>
+  <li>Use heroku config and note the URI provided by mLab under the var MONGOLAB_URI</li>
+  <li>Copy this URI and set it as a new config variable: heroku config:set <code class="highlighter-rouge">DATABASE_URI=mongodb://...</code></li>
+  <li>Deploy it: <code class="highlighter-rouge">git push heroku master</code></li>
+</ol>
+
+<p>You may also refer to the Heroku Dev Center article on <a href="https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku">Deploying a Parse Server to Heroku</a>.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="push-notifications">Push Notifications</h1>
+
+<p>Parse Server provides basic push notification functionality for iOS and Android. With this feature, you can:</p>
+
+<ul>
+  <li>Target installations by platform</li>
+  <li>Target installations by a <code class="highlighter-rouge">ParseQuery</code></li>
+  <li>Send push notifications to Android devices through <a href="https://developers.google.com/cloud-messaging/">Google Cloud Messaging (GCM)</a></li>
+  <li>Send push notifications to iOS devices through <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html">Apple Push Notification Service (APNS)</a></li>
+  <li>Use most of the sending options</li>
+</ul>
+
+<p>However, there are a few caveats:</p>
+
+<ul>
+  <li>Does not support super high throughput since it does not employ a job queue system</li>
+  <li>Client push is not supported. You can only use <code class="highlighter-rouge">masterKey</code> to send push notifications</li>
+  <li>Delivery reports are not supported</li>
+  <li>Scheduled push is not supported</li>
+</ul>
+
+<h2 id="api">API</h2>
+<p>We support most of the sending options similar to the hosted Parse.com service. Check the detailed doc <a href="/docs/rest/guide#push-notifications-sending-options">here</a>. Parse Server supports the following:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">channels</code> to target installations by channels</li>
+  <li><code class="highlighter-rouge">where</code> to target installations by <code class="highlighter-rouge">ParseQuery</code></li>
+  <li><code class="highlighter-rouge">alert</code> under <code class="highlighter-rouge">data</code> for notification message</li>
+  <li>number <code class="highlighter-rouge">badge</code> under <code class="highlighter-rouge">data</code> for iOS badge number</li>
+  <li><code class="highlighter-rouge">sound</code> under <code class="highlighter-rouge">data</code> for iOS sound</li>
+  <li><code class="highlighter-rouge">content-available</code> under <code class="highlighter-rouge">data</code> for iOS background job</li>
+  <li><code class="highlighter-rouge">category</code> under <code class="highlighter-rouge">data</code> for iOS category</li>
+  <li><code class="highlighter-rouge">title </code> under <code class="highlighter-rouge">data</code> for Android notification title</li>
+  <li><code class="highlighter-rouge">uri </code> under <code class="highlighter-rouge">data</code> for Android notification launched URI</li>
+  <li>custom data under <code class="highlighter-rouge">data</code> for ios and Android</li>
+</ul>
+
+<p>Here is the list of sending options we do not support yet:
+* <code class="highlighter-rouge">push_time</code> for scheduled push
+*  Increment <code class="highlighter-rouge">badge</code> under <code class="highlighter-rouge">data</code> for iOS badge number</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<h3 id="prepare-apns-and-gcm-credentials">1. Prepare APNS and GCM Credentials</h3>
+
+<p>You will need to obtain some credentials from GCM and APNS in order to send push notifications to iOS and Android devices.</p>
+
+<h4 id="apns-ios">APNS (iOS)</h4>
+
+<p>If you are setting up push notifications on iOS for the first time, follow the <a href="https://github.com/ParsePlatform/PushTutorial/blob/master/iOS/README.md#1-creating-the-ssl-certificate">Parse Push Notifications tutorial</a> to obtain a production Apple Push Certificate.  Parse has always guided users to export a PFX (<code class="highlighter-rouge">.p12</code>) file from Keychain Access, and we support that format in Parse Server as well.  Optionally, the module supports accepting the push certificate and key in <code class="highlighter-rouge">.pem</code> format.</p>
+
+<h4 id="gcm-android">GCM (Android)</h4>
+
+<p>To get your GCM sender ID, enable GCM for your Android project in the <a href="https://console.developers.google.com">Google Developer Console</a>. Take note of your project number. It should be a large integer like 123427208255. This project number is your GCM sender ID.</p>
+
+<p>To get your GCM API key, go to the <a href="https://console.developers.google.com/apis/credentials">Google developer credentials</a> page, and either create a new API key or reuse an existing one.</p>
+
+<p>By default, the hosted Parse service (parse.com) sends pushes to your Android app with its own GCM sender ID. With your Parse Server, this setup will no longer work. Instead, your Parse Server will send GCM pushes with its own GCM sender ID and API key.  You should register a GCM sender ID and update your app as soon as possible.  Until users update, you can continue sending push notifications through Parse.com.</p>
+
+<h3 id="configure-parse-server">2. Configure Parse Server</h3>
+
+<p>When initializing Parse Server, you should pass an additional push configuration. For example</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">cloud</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">push</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">android</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">senderId</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+      <span class="na">apiKey</span><span class="p">:</span> <span class="s1">'...'</span>
+    <span class="p">},</span>
+    <span class="na">ios</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">pfx</span><span class="p">:</span> <span class="s1">'/file/path/to/XXX.p12'</span><span class="p">,</span>
+      <span class="na">passphrase</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// optional password to your p12/PFX</span>
+      <span class="na">bundleId</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+      <span class="na">production</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The configuration format is</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">push</span><span class="err">:</span> <span class="p">{</span>
+  <span class="nl">android</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">senderId</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// The Sender ID of GCM</span>
+    <span class="nx">apiKey</span><span class="err">:</span> <span class="s1">''</span> <span class="c1">// The Server API Key of GCM</span>
+  <span class="p">},</span>
+  <span class="nx">ios</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nl">pfx</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// The filename of private key and certificate in PFX or PKCS12 format from disk  </span>
+    <span class="nx">passphrase</span><span class="err">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// optional password to your p12</span>
+    <span class="nx">cert</span><span class="err">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// If not using the .p12 format, the path to the certificate PEM to load from disk</span>
+    <span class="nx">key</span><span class="err">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// If not using the .p12 format, the path to the private key PEM to load from disk</span>
+    <span class="nx">bundleId</span><span class="err">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// The bundle identifier associate with your app</span>
+    <span class="nx">production</span><span class="err">:</span> <span class="kc">false</span> <span class="c1">// Specifies which environment to connect to: Production (if true) or Sandbox</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>For iOS, if you need to support both the dev and prod certificates, you can provide an array of configurations like</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">push</span><span class="err">:</span> <span class="p">{</span>
+  <span class="nl">ios</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">pfx</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// Dev PFX or P12</span>
+      <span class="na">bundleId</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+      <span class="na">production</span><span class="p">:</span> <span class="kc">false</span> <span class="c1">// Dev</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">pfx</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">// Prod PFX or P12</span>
+      <span class="na">bundleId</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+      <span class="na">production</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// Prod</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>If you have a list of certificates, Parse Server’s strategy on choosing them is trying to match <code class="highlighter-rouge">installations</code>’ <code class="highlighter-rouge">appIdentifier</code> with <code class="highlighter-rouge">bundleId</code> first. If it can find some valid certificates, it will use those certificates to establish the connection to APNS and send notifications. If it can not find, it will try to send the notifications with all certificates. Prod certificates first, then dev certificates.</p>
+
+<h3 id="configure-client-apps">3. Configure Client Apps</h3>
+
+<p>Configure an app which connects to Parse Server. We have provided a detailed <a href="#configuring-your-clients-to-receive-push-notifications">list of steps to configure your iOS and Android clients</a>.</p>
+
+<h3 id="send-push-notifications">4. Send Push Notifications</h3>
+
+<p>Currently Parse Server only supports sending push notifications by your <code class="highlighter-rouge">masterKey</code>. The easiest way to do that is to curl:</p>
+
+<pre><code class="language-curl">curl -X POST \
+  -H "X-Parse-Application-Id: you_app_id" \
+  -H "X-Parse-Master-Key: your_master_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "where": {
+          "deviceType": {
+            "$in": [
+              "ios",
+              "android"
+            ]
+          }
+        },
+        "data": {
+          "title": "The Shining",
+          "alert": "All work and no play makes Jack a dull boy."
+        }
+      }'\   http://your_server_address/parse/push
+</code></pre>
+
+<p>Push notifications can also be sent from cloud code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// With promises</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Push</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+  <span class="na">where</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">},</span> <span class="p">{</span> <span class="na">useMasterKey</span><span class="p">:</span> <span class="kc">true</span> <span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Push sent!</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// There was a problem :(</span>
+<span class="p">});</span>
+
+<span class="c1">// With Legacy Backbone callbacks</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Push</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+  <span class="na">where</span><span class="p">:</span> <span class="nx">query</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">alert</span><span class="p">:</span> <span class="s1">'Test'</span><span class="p">,</span>
+    <span class="na">badge</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">sound</span><span class="p">:</span> <span class="s1">'default'</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="na">useMasterKey</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Push sent!</span>
+  <span class="p">},</span>
+  <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// There was a problem :(</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>After sending this to your Parse Server, you should see the push notifications show up on your devices.</p>
+
+<p><strong>Note:</strong> The iOS simulator cannot receive push notifications. You must run iOS apps on an iOS device.</p>
+
+<p>In your Parse Server logs, you can see something similar to</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">GCM</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="p">{</span><span class="nt">"request"</span><span class="p">:{</span><span class="nt">"params"</span><span class="p">:{</span><span class="nt">"priority"</span><span class="p">:</span><span class="s2">"normal"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"time"</span><span class="p">:</span><span class="s2">"2016-02-10T03:21:59.065Z"</span><span class="p">,</span><span class="nt">"push_id"</span><span class="p">:</span><span class="s2">"NTDgWw7kp8"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:</span><span class="s2">"{\"alert\":\"All work and no play makes Jack a dull boy.\"}"</span><span class="p">}}},</span><span class="nt">"response"</span><span class="p">:{</span><span class="nt">"multicast_id"</span><span class="p">:</span><span class="mi">5318039027588186000</span><span class="p">,</span><span class="nt">"success"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">"failure"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"canonical_ids"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"results"</span><span class="p">:[{</span><span class="nt">"registration_id"</span><span class="p">:</span><span class="s2">"APA91bEdLpZnXT76vpkvkD7uWXEAgfrZgkiH_ybkzXqhaNcRw1KHOY0s9GUKNgneGxe2PqJ5Swk1-Vf852kpHAP0Mhoj5wd1MVXpRsRr_3KTQo_dkNd_5wcQ__yWnWLxbeM3kg_JziJK"</span><span class="p">,</span><span class="nt">"message_id"</span><span class="p">:</span><span class="s2">"0:1455074519347821%df0f8ea7f9fd7ecd"</span><span class="p">}]}}</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">APNS</span><span class="w"> </span><span class="err">Connected</span><span class="w">
+</span><span class="err">APNS</span><span class="w"> </span><span class="err">Notification</span><span class="w"> </span><span class="err">transmitted</span><span class="w"> </span><span class="err">to:</span><span class="mi">7</span><span class="err">a</span><span class="mi">7</span><span class="err">d</span><span class="mi">2864598</span><span class="err">e</span><span class="mi">1</span><span class="err">f</span><span class="mi">65</span><span class="err">e</span><span class="mi">6</span><span class="err">e</span><span class="mi">02135245</span><span class="err">b</span><span class="mi">7</span><span class="err">daf</span><span class="mi">8</span><span class="err">ea</span><span class="mi">510514</span><span class="err">e</span><span class="mi">6376</span><span class="err">f</span><span class="mi">072</span><span class="err">dc</span><span class="mi">29</span><span class="err">d</span><span class="mi">53</span><span class="err">facaa</span><span class="mi">41</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>These logs mean that the GCM and APNS connections are working.</p>
+
+<h2 id="push-adapter">Push Adapter</h2>
+
+<p>Parse Server provides a <code class="highlighter-rouge">PushAdapter</code> which abstracts the way we actually send push notifications. The default implementation is <code class="highlighter-rouge">ParsePushAdapter</code>, which uses GCM for Android push and APNS for iOS push. However, if you want to use other push providers, you can implement your own <code class="highlighter-rouge">PushAdapter</code>. Your adapter needs to implement <code class="highlighter-rouge">send(data, installations)</code>, which is used for sending data to the installations. You can use <code class="highlighter-rouge">ParsePushAdapter</code> as a reference. After you implement your <code class="highlighter-rouge">PushAdapter</code>, you can pass that instance to Parse Server like this</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">cloud</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="s1">'...'</span><span class="p">,</span>
+  <span class="na">push</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">adapter</span><span class="p">:</span> <span class="nx">your_adapter</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>By doing this, after Parse Server decodes the push API request and runs the installation query, your <code class="highlighter-rouge">PushAdapter</code>’s <code class="highlighter-rouge">send(data, installations)</code> will be called and is responsible for sending the notifications. If you provide your custom <code class="highlighter-rouge">PushAdapter</code>, the default <code class="highlighter-rouge">ParsePushAdapter</code> will be ignored.</p>
+
+<h2 id="future-improvements">Future Improvements</h2>
+
+<p>The current solution provides a good starting point for push notifications. We have a lot of ideas to improve the feature:</p>
+
+<ul>
+  <li>Support more platforms</li>
+  <li>Support more sending options</li>
+  <li>Support more push providers</li>
+  <li>Support scheduled pushes</li>
+  <li>Support delivery report and error handling</li>
+  <li>Support job queue and benchmarking</li>
+</ul>
+
+<p>If you’re interested in any of these features, don’t hesitate to jump in and send a PR to the repo. We would love to work with you!</p>
+
+<h2 id="notes">Notes</h2>
+
+<h3 id="silent-notifications">Silent Notifications</h3>
+
+<p>If you have migrated from Parse.com Push and you are seeing situations where silent notifications are failing to deliver, please ensure that your payload is setting the <code class="highlighter-rouge">content-available</code> attribute to Int(1) and not “1”. This value will be explicitly checked.</p>
+
+<h3 id="ppns">PPNS</h3>
+
+<ul>
+  <li><a href="/ParsePlatform/parse-server/wiki/PPNS-Protocol-Specification">PPNS Protocol Specification (for Parse IoT devices)</a></li>
+</ul>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h2 id="configuring-your-clients-to-receive-push-notifications">Configuring your clients to receive Push Notifications</h2>
+
+<p>The following will guide you through the necessary steps to configure your <a href="##ios-apps">iOS</a> and <a href="#android-apps">Android</a> client apps to receive push notifications from Parse Server. If you haven’t yet, you will first need to prepare your APNS and GCM credentials as documented in <a href="#prepare-apns-and-gcm-credentials">Step 1</a> of the Push Notifications Quick Start.</p>
+
+<h3 id="ios-apps">iOS Apps</h3>
+
+<p>First you will need to set up your app to use Parse Server. Go through the <a href="https://parse.com/apps/quickstart##parse_data/mobile/ios">Parse iOS QuickStart</a> first and come back here once your app is connected to Parse Server.</p>
+
+<h4 id="register-device-for-push-notifications">Register Device for Push Notifications</h4>
+
+<p>Open up your <code class="highlighter-rouge">AppDelegate.swift</code>, <code class="highlighter-rouge">AppDelegate.m</code>, or <code class="highlighter-rouge">AppDelegate.cs</code> file and make your app register for remote notifications by adding the following in your <code class="highlighter-rouge">application:didFinishLaunchingWithOptions:</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Swift</span>
+<span class="k">let</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">UIUserNotificationType</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="kt">Alert</span><span class="p">,</span> <span class="o">.</span><span class="kt">Badge</span><span class="p">,</span> <span class="o">.</span><span class="kt">Sound</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">settings</span> <span class="o">=</span> <span class="kt">UIUserNotificationSettings</span><span class="p">(</span><span class="nv">forTypes</span><span class="p">:</span> <span class="n">types</span><span class="p">,</span> <span class="nv">categories</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="n">application</span><span class="o">.</span><span class="nf">registerUserNotificationSettings</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">application</span><span class="o">.</span><span class="nf">registerForRemoteNotifications</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Objective-C
+</span><span class="n">UIUserNotificationType</span> <span class="n">userNotificationTypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">UIUserNotificationTypeAlert</span> <span class="o">|</span>
+                                                <span class="n">UIUserNotificationTypeBadge</span> <span class="o">|</span>
+                                                <span class="n">UIUserNotificationTypeSound</span><span class="p">);</span>
+<span class="n">UIUserNotificationSettings</span> <span class="o">*</span><span class="n">settings</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIUserNotificationSettings</span> <span class="nf">settingsForTypes</span><span class="p">:</span><span class="n">userNotificationTypes</span>
+                                                                         <span class="nf">categories</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">application</span> <span class="nf">registerUserNotificationSettings</span><span class="p">:</span><span class="n">settings</span><span class="p">];</span>
+<span class="p">[</span><span class="n">application</span> <span class="nf">registerForRemoteNotifications</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Xamarin
+</span><span class="n">UIUserNotificationType</span> <span class="n">notificationTypes</span> <span class="p">=</span> <span class="p">(</span><span class="n">UIUserNotificationType</span><span class="p">.</span><span class="n">Alert</span> <span class="p">|</span>
+                                            <span class="n">UIUserNotificationType</span><span class="p">.</span><span class="n">Badge</span> <span class="p">|</span>
+                                            <span class="n">UIUserNotificationType</span><span class="p">.</span><span class="n">Sound</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">settings</span> <span class="p">=</span> <span class="n">UIUserNotificationSettings</span><span class="p">.</span><span class="nf">GetSettingsForTypes</span><span class="p">(</span><span class="n">notificationTypes</span><span class="p">,</span>
+                                                              <span class="k">new</span> <span class="nf">NSSet</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="p">}));</span>
+<span class="n">UIApplication</span><span class="p">.</span><span class="n">SharedApplication</span><span class="p">.</span><span class="nf">RegisterUserNotificationSettings</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+<span class="n">UIApplication</span><span class="p">.</span><span class="n">SharedApplication</span><span class="p">.</span><span class="nf">RegisterForRemoteNotifications</span><span class="p">();</span>
+
+<span class="c1">// Handle Push Notifications
+</span><span class="n">ParsePush</span><span class="p">.</span><span class="n">ParsePushNotificationReceived</span> <span class="p">+=</span> <span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ParsePushNotificationEventArgs</span> <span class="n">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Process Push Notification payload here.
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Store the device token and handle the UI for notifications by adding the following to your main app delegate:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Swift</span>
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">installation</span> <span class="o">=</span> <span class="kt">PFInstallation</span><span class="o">.</span><span class="nf">currentInstallation</span><span class="p">()</span>
+    <span class="n">installation</span><span class="o">.</span><span class="nf">setDeviceTokenFromData</span><span class="p">(</span><span class="n">deviceToken</span><span class="p">)</span>
+    <span class="n">installation</span><span class="o">.</span><span class="nf">saveInBackground</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">error</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">3010</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Push notifications are not supported in the iOS Simulator."</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"application:didFailToRegisterForRemoteNotificationsWithError: %@"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didReceiveRemoteNotification</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSObject</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kt">PFPush</span><span class="o">.</span><span class="nf">handlePush</span><span class="p">(</span><span class="n">userInfo</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Objective-C
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didRegisterForRemoteNotificationsWithDeviceToken</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">deviceToken</span> <span class="p">{</span>
+  <span class="c1">// Store the deviceToken in the current installation and save it to Parse.
+</span>  <span class="n">PFInstallation</span> <span class="o">*</span><span class="n">currentInstallation</span> <span class="o">=</span> <span class="p">[</span><span class="n">PFInstallation</span> <span class="nf">currentInstallation</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">currentInstallation</span> <span class="nf">setDeviceTokenFromData</span><span class="p">:</span><span class="n">deviceToken</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">currentInstallation</span> <span class="nf">saveInBackground</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span> <span class="p">{</span>
+  <span class="p">[</span><span class="n">PFPush</span> <span class="nf">handlePush</span><span class="p">:</span><span class="n">userInfo</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Xamarin
+</span><span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">DidRegisterUserNotificationSettings</span><span class="p">(</span><span class="n">UIApplication</span> <span class="n">application</span><span class="p">,</span>
+    <span class="n">UIUserNotificationSettings</span> <span class="n">notificationSettings</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">application</span><span class="p">.</span><span class="nf">RegisterForRemoteNotifications</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">RegisteredForRemoteNotifications</span><span class="p">(</span><span class="n">UIApplication</span> <span class="n">application</span><span class="p">,</span>
+    <span class="n">NSData</span> <span class="n">deviceToken</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ParseInstallation</span> <span class="n">installation</span> <span class="p">=</span> <span class="n">ParseInstallation</span><span class="p">.</span><span class="n">CurrentInstallation</span><span class="p">;</span>
+  <span class="n">installation</span><span class="p">.</span><span class="nf">SetDeviceTokenFromData</span><span class="p">(</span><span class="n">deviceToken</span><span class="p">);</span>
+
+  <span class="n">installation</span><span class="p">.</span><span class="nf">SaveAsync</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">ReceivedRemoteNotification</span><span class="p">(</span><span class="n">UIApplication</span> <span class="n">application</span><span class="p">,</span>
+    <span class="n">NSDictionary</span> <span class="n">userInfo</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// We need this to fire userInfo into ParsePushNotificationReceived.
+</span>  <span class="n">ParsePush</span><span class="p">.</span><span class="nf">HandlePush</span><span class="p">(</span><span class="n">userInfo</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h5 id="compile-and-run">Compile and run!</h5>
+
+<p>If you configured your app correctly, installation objects will automatically be saved to Parse Server when you run your app. You can run this curl command to verify:</p>
+
+<pre><code class="language-curl">curl -X GET \
+  -H "X-Parse-Application-Id: YOUR_APP_ID" \
+  -H "X-Parse-Master-Key: YOUR_MASTER_KEY" \
+  http://your_parse_server:1337/parse/installations
+</code></pre>
+
+<h5 id="proceed-to-step-4httpsgithubcomparseplatformparse-serverwikipush4-send-push-notifications">Proceed to <a href="https://github.com/ParsePlatform/parse-server/wiki/Push#4-send-push-notifications">Step 4</a>.</h5>
+
+<h3 id="android-apps">Android apps</h3>
+
+<p>First you will need to set up your app to use Parse Server. Go through the <a href="https://parse.com/apps/quickstart##parse_data/mobile/android">Parse Android QuickStart</a> first and come back here once your app is connected to Parse Server.</p>
+
+<h4 id="configure-broadcast-receiver-and-permissions">Configure Broadcast Receiver and Permissions</h4>
+
+<p>Add the following service and broadcast receiver definitions to <code class="highlighter-rouge">AndroidManifest.xml</code> immediately before the <em>closing</em> <code class="highlighter-rouge">&lt;/application&gt;</code> tag:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">"com.parse.PushService"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;receiver</span> <span class="na">android:name=</span><span class="s">"com.parse.ParsePushBroadcastReceiver"</span>
+<span class="na">android:exported=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.parse.push.intent.RECEIVE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.parse.push.intent.DELETE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.parse.push.intent.OPEN"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/receiver&gt;</span>
+<span class="nt">&lt;receiver</span> <span class="na">android:name=</span><span class="s">"com.parse.GcmBroadcastReceiver"</span>
+<span class="na">android:permission=</span><span class="s">"com.google.android.c2dm.permission.SEND"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;intent-filter&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.google.android.c2dm.intent.RECEIVE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.google.android.c2dm.intent.REGISTRATION"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!--
+IMPORTANT: Change "com.parse.starter" to match your app's package name.
+--&gt;</span>
+<span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"com.parse.starter"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/receiver&gt;</span>
+
+<span class="c">&lt;!--
+IMPORTANT: Change "YOUR_SENDER_ID" to your GCM Sender Id.
+--&gt;</span>
+<span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"com.parse.push.gcm_sender_id"</span>
+  <span class="na">android:value=</span><span class="s">"id:YOUR_SENDER_ID"</span> <span class="nt">/&gt;</span>;
+</code></pre>
+</div>
+
+<p>Change the <code class="highlighter-rouge">android:name</code> attribute of <code class="highlighter-rouge">&lt;category&gt;</code> element above to match your application’s package name.</p>
+
+<p>Change “YOUR_SENDER_ID” to the GCM Sender Id you obtained back in Step 1. See our <a href="/docs/android/guide#push-notifications-setting-up-push">Android push guide</a> for more details on this attribute.</p>
+
+<p><strong>Migrating a hosted Parse app?</strong> Note that you cannot send GCM pushes to old versions of your app that do not contain the <code class="highlighter-rouge">com.parse.push.gcm_sender_id</code> attribute in your app manifest, since those versions of the app haven’t registered for push using your GCM sender ID.</p>
+
+<p>Also add the permissions below, typically immediately before the <em>opening</em> <code class="highlighter-rouge">&lt;application&gt;</code> tag:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.WAKE_LOCK"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.VIBRATE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"com.google.android.c2dm.permission.RECEIVE"</span> <span class="nt">/&gt;</span>
+<span class="c">&lt;!--
+GET_ACCOUNTS is only required for GCM on devices running Android lower than
+4.0.4. You may leave out this permission if you are targetting 4.0.4+.
+--&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.GET_ACCOUNTS"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!--
+IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+to match your app's package name + ".permission.C2D_MESSAGE".
+--&gt;</span>
+<span class="nt">&lt;permission</span> <span class="na">android:protectionLevel=</span><span class="s">"signature"</span>
+  <span class="na">android:name=</span><span class="s">"com.parse.starter.permission.C2D_MESSAGE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"com.parse.starter.permission.C2D_MESSAGE"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<p>Change the <code class="highlighter-rouge">android:name</code> attribute in the last two lines of the snippet above to match your application’s package name.</p>
+
+<h4 id="register-device-for-push-notifications-1">Register Device for Push Notifications</h4>
+
+<p>Create an <code class="highlighter-rouge">Installation</code> object by adding the following to the <code class="highlighter-rouge">onCreate</code> method of your <code class="highlighter-rouge">Application</code> class:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Native: Application.java</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="n">ParseInstallation</span><span class="o">.</span><span class="na">getCurrentInstallation</span><span class="o">().</span><span class="na">saveInBackground</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Xamarin: Application.cs
+</span>
+<span class="c1">// IMPORTANT: Change "parsexamarinpushsample" to match your namespace.
+</span><span class="na">[Application(Name = "parsexamarinpushsample.ParseApplication")]</span>
+<span class="k">class</span> <span class="nc">ParseApplication</span> <span class="p">:</span> <span class="n">Application</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>
+  <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnCreate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">base</span><span class="p">.</span><span class="nf">OnCreate</span><span class="p">();</span>
+
+    <span class="c1">// ...
+</span>
+    <span class="n">ParsePush</span><span class="p">.</span><span class="n">ParsePushNotificationReceived</span> <span class="p">+=</span> <span class="n">ParsePush</span><span class="p">.</span><span class="n">DefaultParsePushNotificationReceivedHandler</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h5 id="compile-and-run-1">Compile and run!</h5>
+
+<p>If you configured your app correctly, installation objects will automatically be saved to Parse Server when you run your app. You can run this curl command to verify:</p>
+
+<pre><code class="language-curl">curl -X GET \
+  -H "X-Parse-Application-Id: YOUR_APP_ID" \
+  -H "X-Parse-Master-Key: YOUR_MASTER_KEY" \
+  http://your_parse_server:1337/parse/installations
+</code></pre>
+
+<h5 id="proceed-to-step-4httpsgithubcomparseplatformparse-serverwikipush4-send-push-notifications-1">Proceed to <a href="https://github.com/ParsePlatform/parse-server/wiki/Push#4-send-push-notifications">Step 4</a>.</h5>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="configuring-file-adapters">Configuring File Adapters</h1>
+
+<p>Parse Server allows developers to choose from several options when hosting files:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">GridStoreAdapter</code>, which is backed by MongoDB;</li>
+  <li><code class="highlighter-rouge">S3Adapter</code>, which is backed by <a href="https://aws.amazon.com/s3/">Amazon S3</a>; or</li>
+  <li><code class="highlighter-rouge">GCSAdapter</code>, which is backed by <a href="https://cloud.google.com/storage/">Google Cloud Storage</a></li>
+</ul>
+
+<p><code class="highlighter-rouge">GridStoreAdapter</code> is used by default and requires no setup, but if you’re interested in using S3 or Google Cloud Storage, additional configuration information is available below.</p>
+
+<p>When using files on Parse, you will need to use the <code class="highlighter-rouge">publicServerURL</code> option in your Parse Server config. This is the URL that files will be accessed from, so it should be a URL that resolves to your Parse Server. Make sure to include your mount point in this URL.</p>
+
+<h2 id="configuring-s3adapter">Configuring <code class="highlighter-rouge">S3Adapter</code></h2>
+
+<p>If you’d like to use Amazon S3, follow these instructions to configure Parse Server to use <code class="highlighter-rouge">S3Adapter</code>.</p>
+
+<h3 id="set-up-your-bucket-and-permissions">Set up your bucket and permissions</h3>
+
+<p>First you will create a bucket in S3 to hold these files.</p>
+
+<ol>
+  <li>Log into your <a href="https://console.aws.amazon.com/">AWS account</a> or create a new one.</li>
+  <li>Head to the S3 service and choose <strong>Create Bucket</strong></li>
+  <li>Fill out a unique <strong>Bucket Name</strong> and click <strong>Create</strong>. The bucket name should not contain any period ‘.’ for <code class="highlighter-rouge">directAccess</code> to work. All other defaults are OK.</li>
+  <li>Now head to the Identity and Access Management (IAM) service.</li>
+  <li>Click the <strong>Users</strong> tab, then <strong>Create New User</strong>.</li>
+  <li>Fill out at least one user name and make sure <strong>Generate an access key for each user</strong> is selected before clicking <strong>Create</strong>.</li>
+  <li>Make sure to <strong>Download Credentials</strong> on the next screen.</li>
+  <li>Now select the <strong>Policies</strong> tab, then <strong>Create Policy</strong>.</li>
+  <li>Select <strong>Create Your Own Policy</strong>, fill out a <strong>Policy Name</strong>.</li>
+  <li>
+    <p>Copy the following config in <strong>Policy Document</strong>, changing <strong>BUCKET_NAME</strong> for the name of the bucket you created earlier. (note: this is a little more permissive than Parse Server needs, but it works for now)</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"s3:*"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"arn:aws:s3:::BUCKET_NAME"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"arn:aws:s3:::BUCKET_NAME/*"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
+    </div>
+  </li>
+  <li>Make sure to <strong>Validate Policy</strong> first, then click <strong>Create Policy</strong>.</li>
+  <li>Go back to the <strong>Users</strong> tab and select the user you created earlier.</li>
+  <li>In Permissions, select <strong>Attach Policy</strong> and find the policy we just created to attach it.</li>
+</ol>
+
+<h3 id="configuration-options">Configuration options</h3>
+
+<p>Writing to your Amazon S3 bucket from Parse Server is as simple as configuring and using the S3 files adapter.</p>
+
+<h4 id="using-environment-variables">Using environment variables</h4>
+
+<p>If you’re running a standalone Parse Server, you can use the following environment variables to configure the S3 adapter:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable Name</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PARSE_SERVER_FILES_ADAPTER</td>
+      <td>Set this variable to ‘./Files/S3Adapter.js’.</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>S3_ACCESS_KEY</td>
+      <td>The AWS access key for a user that has the required permissions.</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>S3_SECRET_KEY</td>
+      <td>The AWS secret key for the user.</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>S3_BUCKET</td>
+      <td>The name of your S3 bucket. Needs to be globally unique in all of S3.</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>S3_REGION</td>
+      <td>The AWS region to connect to.</td>
+      <td>Optional. Default: ‘us-east-1’</td>
+    </tr>
+    <tr>
+      <td>S3_BUCKET_PREFIX</td>
+      <td>Create all the files with the specified prefix added to the filename. Can be used to put all the files for an app in a folder with ‘folder/’.</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td>S3_DIRECT_ACCESS</td>
+      <td>Whether reads are going directly to S3 or proxied through your Parse Server. If set to true, files will be made publicly accessible, and reads will not be proxied.</td>
+      <td>Optional. Default: false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="passing-as-options">Passing as options</h4>
+
+<p>If you’re using Node.js/Express:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
+<span class="kd">var</span> <span class="nx">S3Adapter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'parse-server'</span><span class="p">).</span><span class="nx">S3Adapter</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="nx">databaseUri</span> <span class="o">||</span> <span class="s1">'mongodb://localhost:27017/dev'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">APP_ID</span> <span class="o">||</span> <span class="s1">'APPLICATION_ID'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MASTER_KEY</span> <span class="o">||</span> <span class="s1">'MASTER_KEY'</span><span class="p">,</span>
+  <span class="p">...</span>
+  <span class="na">filesAdapter</span><span class="p">:</span> <span class="k">new</span> <span class="nx">S3Adapter</span><span class="p">(</span>
+    <span class="s2">"S3_ACCESS_KEY"</span><span class="p">,</span>
+    <span class="s2">"S3_SECRET_KEY"</span><span class="p">,</span>
+    <span class="s2">"S3_BUCKET"</span><span class="p">,</span>
+    <span class="p">{</span><span class="na">directAccess</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+  <span class="p">),</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Don’t forget to change <strong>S3_ACCESS_KEY</strong>, <strong>S3_SECRET_KEY</strong> and <strong>S3_BUCKET</strong> to their correct value.</p>
+
+<h5 id="s3adapter-constructor-options">S3Adapter constructor options</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nx">S3Adapter</span><span class="p">(</span><span class="nx">accessKey</span><span class="p">,</span> <span class="nx">secretKey</span><span class="p">,</span> <span class="nx">bucket</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accessKey</td>
+      <td>The AWS access key for a user that has the required permissions</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>secretKey</td>
+      <td>The AWS secret key for the user</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>bucket</td>
+      <td>The name of your S3 bucket.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>options</td>
+      <td>JavaScript object (map) that can contain:</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>Key in <code class="highlighter-rouge">options</code>. Set the AWS region to connect to.</td>
+      <td>Optional. Default: ‘us-east-1’</td>
+    </tr>
+    <tr>
+      <td>bucketPrefix</td>
+      <td>Key in <code class="highlighter-rouge">options</code>. Set to create all the files with the specified prefix added to the filename. Can be used to put all the files for an app in a folder with ‘folder/’.</td>
+      <td>Optional. Default: ‘’</td>
+    </tr>
+    <tr>
+      <td>directAccess</td>
+      <td>Key in <code class="highlighter-rouge">options</code>. Controls whether reads are going directly to S3 or proxied through your Parse Server. If set to true, files will be made publicly accessible, and reads will not be proxied.</td>
+      <td>Optional. Default: false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="configuring-gcsadapter">Configuring <code class="highlighter-rouge">GCSAdapter</code></h2>
+
+<p>Unlike the S3 adapter, you must create a new Cloud Storage bucket, as this is not created automatically. See the Google Cloud guide on <a href="https://googlecloudplatform.github.io/gcloud-node/#/docs/master/guides/authentication">Authentication</a> for more details.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Starting 2.2.6, GCS Adapter is not provided by default by parse-server. To install run:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install --save parse-server-gcs-adapter
+</code></pre>
+</div>
+
+<h3 id="configuration-options-1">Configuration options</h3>
+
+<p>Writing to your Google Cloud Storage bucket from Parse Server is as simple as configuring and using the GCS files adapter.</p>
+
+<h4 id="using-environment-variables-1">Using environment variables</h4>
+
+<p>You can use Google Cloud Storage to host your static files by setting the following environment variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable Name</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PARSE_SERVER_FILES_ADAPTER</td>
+      <td>Set this variable to ‘parse-server-gcs-adapter’.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>GCP_PROJECT_ID</td>
+      <td>The project ID from the Google Developer’s Console.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>GCP_KEYFILE_PATH</td>
+      <td>Full path to the a .json, .pem, or .p12 key downloaded from the Google Developers Console.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>GCS_BUCKET</td>
+      <td>The name of your GCS bucket.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>GCS_BUCKET_PREFIX</td>
+      <td>Create all the files with the specified prefix added to the filename. Can be used to put all the files for an app in a folder with ‘folder/’.</td>
+      <td>Optional.</td>
+    </tr>
+    <tr>
+      <td>GCS_DIRECT_ACCESS</td>
+      <td>Whether reads are going directly to GCS or proxied through your Parse Server.</td>
+      <td>Optional. Default: false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="passing-as-options-1">Passing as options</h4>
+
+<p>If you’re using Node.js/Express:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
+<span class="kd">var</span> <span class="nx">GCSAdapter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'parse-server-gcs-adatper'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="nx">databaseUri</span> <span class="o">||</span> <span class="s1">'mongodb://localhost:27017/dev'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">APP_ID</span> <span class="o">||</span> <span class="s1">'APPLICATION_ID'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MASTER_KEY</span> <span class="o">||</span> <span class="s1">'MASTER_KEY'</span><span class="p">,</span>
+  <span class="p">...</span>
+  <span class="na">filesAdapter</span><span class="p">:</span> <span class="k">new</span> <span class="nx">GCSAdapter</span><span class="p">(</span>
+    <span class="s2">"GCP_PROJECT_ID"</span><span class="p">,</span>
+    <span class="s2">"GCP_KEYFILE_PATH"</span><span class="p">,</span>
+    <span class="s2">"GCS_BUCKET"</span><span class="p">,</span>
+    <span class="p">{</span><span class="na">directAccess</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+  <span class="p">),</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h5 id="gcsadapter-constructor-options">GCSAdapter constructor options</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nx">GCSAdapter</span><span class="p">(</span><span class="nx">projectId</span><span class="p">,</span> <span class="nx">keyfilePath</span><span class="p">,</span> <span class="nx">bucket</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>projectId</td>
+      <td>The project ID from the Google Developer’s Console.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>keyfilePath</td>
+      <td>Full path to the a .json, .pem, or .p12 key downloaded from the Google Developers Console.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>bucket</td>
+      <td>The name of your GCS bucket.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>options</td>
+      <td>JavaScript object (map) that can contain:</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bucketPrefix</td>
+      <td>Key in <code class="highlighter-rouge">options</code>. Set to create all the files with the specified prefix added to the filename. Can be used to put all the files for an app in a folder with ‘folder/’.</td>
+      <td>Optional. Default: ‘’</td>
+    </tr>
+    <tr>
+      <td>directAccess</td>
+      <td>Key in <code class="highlighter-rouge">options</code>. Controls whether reads are going directly to GCS or proxied through your Parse Server.</td>
+      <td>Optional. Default: false</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="configuring-cache-adapters">Configuring Cache Adapters</h1>
+
+<p>By default, parse-server provides an internal cache layer to speed up schema verifications, user, roles and sessions lookup.</p>
+
+<p>In some cases, in distributed environment, you may want to use a distributed cache like Redis.</p>
+
+<p>parse-server comes with an optional redis cache adapter.</p>
+
+<p>Those cache adapters can be cleaned at anytime internally, you should not use them to cache data and you should let parse-server manage their data lifecycle.</p>
+
+<h2 id="rediscacheadapter">RedisCacheAdapter</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">RedisCacheAdapter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'parse-server'</span><span class="p">).</span><span class="nx">RedisCacheAdapter</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">redisOptions</span> <span class="o">=</span> <span class="p">{</span><span class="na">url</span><span class="p">:</span> <span class="s1">'YOUR REDIS URL HERE'</span><span class="p">}</span>
+<span class="kd">var</span> <span class="nx">redisCache</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RedisCacheAdapter</span><span class="p">(</span><span class="nx">redisOptions</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="na">databaseURI</span><span class="p">:</span> <span class="nx">databaseUri</span> <span class="o">||</span> <span class="s1">'mongodb://localhost:27017/dev'</span><span class="p">,</span>
+  <span class="na">appId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">APP_ID</span> <span class="o">||</span> <span class="s1">'APPLICATION_ID'</span><span class="p">,</span>
+  <span class="na">masterKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MASTER_KEY</span> <span class="o">||</span> <span class="s1">'MASTER_KEY'</span><span class="p">,</span>
+  <span class="p">...</span>
+  <span class="na">cacheAdapter</span><span class="p">:</span> <span class="nx">cacheAdapter</span><span class="p">,</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">redisOptions</code> are passed directly to the redis.createClient method. For more informations, refer to the <a href="https://www.npmjs.com/package/redis#rediscreateclient">redis.createClient</a> documentation.</p>
+
+<p>Note that at the moment, only passing a single argument is supported.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="live-queries">Live Queries</h1>
+
+<p><code class="highlighter-rouge">Parse.Query</code> is one of the key concepts for Parse. It allows you to retrieve <code class="highlighter-rouge">Parse.Object</code>s by specifying some conditions, making it easy to build apps such as a dashboard, a todo list or even some strategy games. However, <code class="highlighter-rouge">Parse.Query</code> is based on a pull model, which is not suitable for apps that need real-time support.</p>
+
+<p>Suppose you are building an app that allows multiple users to edit the same file at the same time. <code class="highlighter-rouge">Parse.Query</code> would not be an ideal tool since you can not know when to query from the server to get the updates.</p>
+
+<p>To solve this problem, we introduce <strong>Parse LiveQuery</strong>. This tool allows you to subscribe to a <code class="highlighter-rouge">Parse.Query</code> you are interested in. Once subscribed, the server will notify clients whenever a <code class="highlighter-rouge">Parse.Object</code> that matches the <code class="highlighter-rouge">Parse.Query</code> is created or updated, in real-time.</p>
+
+<p>Parse LiveQuery contains two parts, the LiveQuery server and the LiveQuery clients. In order to use live queries, you need to set up both of them.</p>
+
+<h2 id="server-setup">Server Setup</h2>
+
+<p>The LiveQuery server should work with a Parse Server. The easiest way to setup the LiveQuery server is to make it run with the Parse Server in the same process. When you initialize the Parse Server, you need to define which <code class="highlighter-rouge">Parse.Object</code> classes you want to enable LiveQuery like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="p">...,</span>
+  <span class="na">liveQuery</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">classNames</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Test'</span><span class="p">,</span> <span class="s1">'TestAgain'</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>After that, you need to initialize a LiveQuery server like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Initialize a LiveQuery server instance, app is the express app of your Parse Server</span>
+<span class="kd">let</span> <span class="nx">httpServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">).</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="nx">httpServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">parseLiveQueryServer</span> <span class="o">=</span> <span class="nx">ParseServer</span><span class="p">.</span><span class="nx">createLiveQueryServer</span><span class="p">(</span><span class="nx">httpServer</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">ws</code> protocol URL of the LiveQuery server is the hostname and port which the <code class="highlighter-rouge">httpServer</code> is listening to. For example, if the <code class="highlighter-rouge">httpSever</code> is listening to <code class="highlighter-rouge">localhost:8080</code>, the <code class="highlighter-rouge">ws</code> protocol of the LiveQuery server is <code class="highlighter-rouge">ws://localhost:8080/</code>. We will allow you to customize the path of <code class="highlighter-rouge">ws</code> protocol URL of the LiveQuery server later, currently it is fixed and you can not set path.</p>
+
+<h2 id="client-setup">Client Setup</h2>
+
+<p>We provide JavaScript and iOS LiveQuery Clients for now. Lets use the JavaScript client as an example. In order to use LiveQuery, you need to initialize a <code class="highlighter-rouge">Parse.Query</code> object and subscribe to it.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s1">'People'</span><span class="p">);</span>
+<span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Mengyan'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>After you get the <code class="highlighter-rouge">subscription</code>, you can use it to receive the updates of the related <code class="highlighter-rouge">Parse.Object</code>. For example, if someone creates a <code class="highlighter-rouge">People</code> object whose <code class="highlighter-rouge">name</code> field is <code class="highlighter-rouge">Mengyan</code>, then you can get the <code class="highlighter-rouge">People</code> object like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">subscription</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'create'</span><span class="p">,</span> <span class="p">(</span><span class="nx">people</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">people</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">));</span> <span class="c1">// This should output Mengyan</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>After that, if someone updates this <code class="highlighter-rouge">People</code> object like changing its score to 100, then you can get the <code class="highlighter-rouge">People</code> object like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">subscription</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'update'</span><span class="p">,</span> <span class="p">(</span><span class="nx">people</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">people</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'score'</span><span class="p">));</span> <span class="c1">// This should output 100</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>If you are done with the LiveQuery, you can simply unsubscribe the <code class="highlighter-rouge">subscription</code> to finish receiving events</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">subscription</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<h2 id="events">Events</h2>
+
+<p>We support five types of event:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">create</code></li>
+  <li><code class="highlighter-rouge">enter</code></li>
+  <li><code class="highlighter-rouge">update</code></li>
+  <li><code class="highlighter-rouge">leave</code></li>
+  <li><code class="highlighter-rouge">delete</code></li>
+</ul>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>You can check the <a href="https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification">LiveQuery protocol specification</a> to learn more about each event type.</p>
+
+<p>For more details about the JavaScript LiveQuery Client SDK, check out the <a href="https://github.com/ParsePlatform/Parse-SDK-JS">open source code</a> and the <a href="/docs/js/guide#live-queries">Live Query section in the JavaScript Guide</a>.</p>
+
+<p>For the iOS LiveQuery Client SDK, check out the <a href="https://github.com/ParsePlatform/Parse-SDK-iOS-OSX">open source code</a> and the <a href="/docs/ios/guide#live-queries">Live Query section in the iOS Guide</a>.</p>
+
+<h2 id="livequery-protocol">LiveQuery Protocol</h2>
+
+<p>The LiveQuery Protocol is the key to the Parse LiveQuery. The clients and server communicate through WebSocket using this protocol. Clients can follow the protocol to connect to the LiveQuery server, subscribe/unsubscribe a <code class="highlighter-rouge">Parse.Query</code> and get updates from the LiveQuery server.</p>
+
+<p>The LiveQuery protocol is a simple protocol that encapsulates messages in JSON strings and runs over a WebSocket connection. You can find the specification in the For the specification, check out the <a href="https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification">Parse Server wiki page</a>.</p>
+
+<h2 id="livequery-server">LiveQuery Server</h2>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>The full configuration of the LiveQuery server should look like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">appId</span><span class="p">:</span> <span class="s1">'myAppId'</span><span class="p">,</span>
+  <span class="nx">masterKey</span><span class="err">:</span> <span class="s1">'myMasterKey'</span><span class="p">,</span>
+  <span class="nx">keyPairs</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"restAPIKey"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"javascriptKey"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"clientKey"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"windowsKey"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"masterKey"</span><span class="err">:</span> <span class="s2">""</span>
+  <span class="p">},</span>
+  <span class="nx">serverURL</span><span class="err">:</span> <span class="s1">'serverURL'</span><span class="p">,</span>
+  <span class="nx">websocketTimeout</span><span class="err">:</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nx">cacheTimeout</span><span class="err">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">600</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nx">logLevel</span><span class="err">:</span> <span class="s1">'VERBOSE'</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Options</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">appId</code> - Required. This string should match the <code class="highlighter-rouge">appId</code> in use by your Parse Server. If you deploy the LiveQuery server alongside Parse Server, the LiveQuery server will try to use the same <code class="highlighter-rouge">appId</code>.</li>
+  <li><code class="highlighter-rouge">masterKey</code> - Required. This string should match the <code class="highlighter-rouge">masterKey</code> in use by your Parse Server. If you deploy the LiveQuery server alongside Parse Server, the LiveQuery server will try to use the same <code class="highlighter-rouge">masterKey</code>.</li>
+  <li><code class="highlighter-rouge">serverURL</code> - Required. This string should match the <code class="highlighter-rouge">serverURL</code> in use by your Parse Server. If you deploy the LiveQuery server alongside Parse Server, the LiveQuery server will try to use the same <code class="highlighter-rouge">serverURL</code>.</li>
+  <li><code class="highlighter-rouge">keyPairs</code> - Optional. A JSON object that serves as a whitelist of keys. It is used for validating clients when they try to connect to the LiveQuery server. Check the following Security section and our protocol specification for details.</li>
+  <li><code class="highlighter-rouge">websocketTimeout</code> - Optional. Number of milliseconds between ping/pong frames. The WebSocket server sends ping/pong frames to the clients to keep the WebSocket alive. This value defines the interval of the ping/pong frame from the server to clients. Defaults to 10 * 1000 ms (10 s).</li>
+  <li><code class="highlighter-rouge">cacheTimeout</code> - Optional. Number in milliseconds. When clients provide the <code class="highlighter-rouge">sessionToken</code> to the LiveQuery server, the LiveQuery server will try to fetch its <code class="highlighter-rouge">ParseUser</code>’s objectId from parse server and store it in the cache. The value defines the duration of the cache. Check the following Security section and our protocol specification for details. Defaults to 30 * 24 * 60 * 60 * 1000 ms (~30 days).</li>
+  <li><code class="highlighter-rouge">logLevel</code> - Optional. This string defines the log level of the LiveQuery server. We support <code class="highlighter-rouge">VERBOSE</code>, <code class="highlighter-rouge">INFO</code>, <code class="highlighter-rouge">ERROR</code>, <code class="highlighter-rouge">NONE</code>. Defaults to <code class="highlighter-rouge">INFO</code>.</li>
+</ul>
+
+<h3 id="basic-architecture">Basic Architecture</h3>
+
+<p><img src="/docs/assets/images/lq_local.png" alt="" /></p>
+
+<p>The LiveQuery server is a separate server from Parse Server. As shown in the picture, it mainly contains four components at the runtime.</p>
+
+<ul>
+  <li><strong>The Publisher</strong>. It is responsible for publishing the update of a <code class="highlighter-rouge">Parse.Object</code>. When a <code class="highlighter-rouge">Parse.Object</code> changes, it will publish a message to the subscribers. The message contains the original <code class="highlighter-rouge">Parse.Object</code> and the new <code class="highlighter-rouge">Parse.Object</code>. The Publisher is inside the Parse Server at the runtime.</li>
+  <li><strong>The Subscriber</strong>. It is responsible for receiving the messages which are sent from the Publisher. After it gets the messages, it can pass them to the LiveQuery component for processing.</li>
+  <li><strong>The WebSocketServer</strong>. It is responsible for maintaining the WebSocket connections with clients. It can pass the subscribe/unsubscribe messages from clients to the LiveQuery component. When the LiveQuery component finds a <code class="highlighter-rouge">Parse.Object</code> fulfills a <code class="highlighter-rouge">Parse.Query</code>, it will get the event message from LiveQuery component and send it to the clients.</li>
+  <li><strong>The LiveQuery</strong>. It is the key component of the LiveQuery Server. It maintains the subscription status of clients. After it gets the <code class="highlighter-rouge">Parse.Object</code> updates from the Subscriber, it can do the query matching and generate the event messages for clients.</li>
+</ul>
+
+<h3 id="scalability">Scalability</h3>
+
+<p>Based on your usage, different components of the LiveQuery server may become the bottleneck. If you app has high throughput, the Publisher/Subscriber may have problems. If you subscribe to many complex <code class="highlighter-rouge">Parse.Query</code>s, the LiveQuery component may cause issues. If you need to maintain lots of clients, the WebSocketServer may be the bottleneck. Thus, we highly recommend you to do the load testing for your app if you want to use LiveQuery server in production.</p>
+
+<p>In general, our suggestion to make the LiveQuery server scalable is to separate the Parse Server with the LiveQuery server and add more LiveQuery server instances based on your need. To help you do this, we use Redis to implement a Publisher and Subscriber. If you want to use that, the only thing you need to do is to provide the Redis server address when you initialize the Parse Server and LiveQuery server like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ParseServer</span><span class="p">({</span>
+  <span class="p">...,</span>
+  <span class="na">liveQuery</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">classNames</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Test'</span><span class="p">,</span> <span class="s1">'TestAgain'</span><span class="p">],</span>
+    <span class="na">redisURL</span><span class="p">:</span> <span class="s1">'redis://localhost:6379'</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="p">...</span>
+
+<span class="kd">let</span> <span class="nx">httpServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">).</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="nx">httpServer</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">parseLiveQueryServer</span> <span class="o">=</span> <span class="nx">ParseServer</span><span class="p">.</span><span class="nx">createLiveQueryServer</span><span class="p">(</span><span class="nx">httpServer</span><span class="p">,</span>  <span class="p">{</span>
+  <span class="p">...,</span>
+  <span class="na">redisURL</span><span class="p">:</span> <span class="s1">'redis://localhost:6379'</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>The architecture of the whole LiveQuery system after you use Redis should be like this:</p>
+
+<p><img src="/docs/assets/images/lq_multiple.png" alt="" /></p>
+
+<p>For example, if you use Heroku to deploy your Live Query server, after you setup the Redis with the LiveQuery server, you can simply add more dynos to make your app more scalable like this:</p>
+
+<p><img src="/docs/assets/images/lq_heroku.png" alt="" /></p>
+
+<h3 id="security">Security</h3>
+
+<p>The LiveQuery server provides two ways to secure your app. The first one is key matching. If you provide key pairs when you initialize the LiveQuery server, when clients try to connect to LiveQuery server, they have to provide the necessary key pairs. Otherwise, the connection will be refused.</p>
+
+<p>The second one is ACL. For what is ACL, you can check the definition <a href="http://blog.parse.com/learn/engineering/parse-security-iii-are-you-on-the-list/">here</a>. When clients try to connect and subscribe to the LiveQuery server, they can provide their <code class="highlighter-rouge">sessionToken</code>. If you give your <code class="highlighter-rouge">Parse.Object</code> proper ACL, when the LiveQuery server get the updates of the <code class="highlighter-rouge">Parse.Object</code>, it will try to match <code class="highlighter-rouge">Parse.Object</code>’s ACL with the <code class="highlighter-rouge">sessionToken</code> of clients or their subscriptions. The event will be only sent to clients whose <code class="highlighter-rouge">sessionToken</code> matches the <code class="highlighter-rouge">Parse.Object</code>’s ACL.</p>
+
+<h2 id="livequery-clients">LiveQuery Clients</h2>
+
+<p>The JavaScript LiveQuery client is provided as part of the Parse JavaScript SDK as of version 1.8.0. A separate LiveQuery client library is available for iOS / OS X applications. An Android client is coming soon.</p>
+
+<ul>
+  <li><a href="https://github.com/ParsePlatform/Parse-SDK-JS">Parse JavaScript SDK</a></li>
+  <li><a href="https://github.com/ParsePlatform/ParseLiveQuery-iOS-OSX">Parse LiveQuery iOS / OS X</a></li>
+  <li>Parse LiveQuery Android - <em>soon!</em></li>
+</ul>
+
+<h2 id="livequery-with-nginx">LiveQuery With NGINX</h2>
+
+<p>Please refer to the <a href="https://www.nginx.com/blog/websocket-nginx/">NGINX documentation</a> in order to allow a proper handling of the LiveQuery server that relies on web sockets</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="oauth-and-3rd-party-authentication">OAuth and 3rd Party Authentication</h1>
+
+<p>Parse Server supports 3rd party authentication with</p>
+
+<ul>
+  <li>Twitter</li>
+  <li>Meetup</li>
+  <li>LinkedIn</li>
+  <li>Google</li>
+  <li>Instagram</li>
+  <li>Facebook</li>
+</ul>
+
+<p>Configuration options for these 3rd-party modules is done with the <code class="highlighter-rouge">oauth</code> option passed to Parse Server:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">oauth</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nl">twitter</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nl">consumer_key</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+     <span class="nx">consumer_secret</span><span class="err">:</span> <span class="s2">""</span> <span class="c1">// REQUIRED</span>
+   <span class="p">},</span>
+   <span class="nx">facebook</span><span class="err">:</span> <span class="p">{</span>
+     <span class="nl">appIds</span><span class="p">:</span> <span class="s2">"FACEBOOK APP ID"</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="custom-authentication">Custom authentication</h2>
+
+<p>It is possible to leverage the OAuth support with any 3rd party authentication that you bring in.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+
+  <span class="nl">oauth</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nl">my_custom_auth</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nl">module</span><span class="p">:</span> <span class="s2">"PATH_TO_MODULE"</span> <span class="c1">// OR object,</span>
+     <span class="nl">option1</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+     <span class="nx">option2</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>On this module, you need to implement and export those two functions <code class="highlighter-rouge">validateAuthData(authData, options) {} </code> and <code class="highlighter-rouge">validateAppId(appIds, authData) {}</code>.</p>
+
+<p>For more information about custom auth please see the examples:</p>
+
+<ul>
+  <li><a href="https://github.com/ParsePlatform/parse-server/blob/master/src/authDataManager/facebook.js">Facebook OAuth</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/blob/master/src/authDataManager/twitter.js">Twitter OAuth</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/blob/master/src/authDataManager/instagram.js">Instagram OAuth</a></li>
+</ul>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="compatibility-with-parsecom">Compatibility with parse.com</h1>
+
+<p>There are a few areas where Parse Server does not provide compatibility with the Parse hosted backend.</p>
+
+<h2 id="analytics">Analytics</h2>
+
+<p>Parse Analytics is not supported. We recommend sending analytics to another similar service like Mixpanel or Google Analytics.</p>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>By default, only an application ID is needed to authenticate with Parse Server. The base configuration that comes with the one-click deploy options does not require authenticating with any other types of keys. Therefore, specifying client keys on Android or iOS is not needed.</p>
+
+<h2 id="client-class-creation">Client Class Creation</h2>
+
+<p>Hosted Parse applications can turn off client class creation in their settings. Automatic creation of classes by the client is always allowed in Parse Server.</p>
+
+<h2 id="cloud-code">Cloud Code</h2>
+
+<p>You will likely need to make several changes to your Cloud Code to port it to Parse Server.</p>
+
+<h3 id="no-current-user">No current user</h3>
+
+<p>Each Cloud Code request is now handled by the same instance of Parse Server, therefore there is no longer a concept of a “current user” constrained to each Cloud Code request. If your code uses <code class="highlighter-rouge">Parse.User.current()</code>, you should use <code class="highlighter-rouge">request.user</code> instead. If your Cloud function relies on queries and other operations being performed within the scope of the user making the Cloud Code request, you will need to pass the user’s <code class="highlighter-rouge">sessionToken</code> as a parameter to the operation in question.</p>
+
+<p>Consider an messaging app where every <code class="highlighter-rouge">Message</code> object is set up with an ACL that only provides read-access to a limited set of users, say the author of the message and the recipient. To get all the messages sent to the current user you may have a Cloud function similar to this one:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Parse.com Cloud Code</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'getMessagesForUser'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">User</span><span class="p">.</span><span class="nx">current</span><span class="p">();</span>
+
+  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s1">'Messages'</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s1">'recipient'</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">messages</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>If this function is ported over to Parse Server without any modifications, you will first notice that your function is failing to run because <code class="highlighter-rouge">Parse.User.current()</code> is not recognized. If you replace <code class="highlighter-rouge">Parse.User.current()</code> with <code class="highlighter-rouge">request.user</code>, the function will run successfully but you may still find that it is not returning any messages at all. That is because <code class="highlighter-rouge">query.find()</code> is no longer running within the scope of <code class="highlighter-rouge">request.user</code> and therefore it will only return publicly-readable objects.</p>
+
+<p>To make queries and writes as a specific user within Cloud Code, you need to pass the user’s <code class="highlighter-rouge">sessionToken</code> as an option. The session token for the authenticated user making the request is available in <code class="highlighter-rouge">request.user.getSessionToken()</code>.</p>
+
+<p>The ported Cloud function would now look like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// Parse Server Cloud Code</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'getMessagesForUser'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span> <span class="c1">// request.user replaces Parse.User.current()</span>
+  <span class="kd">var</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getSessionToken</span><span class="p">();</span> <span class="c1">// get session token from request.user</span>
+
+  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s1">'Messages'</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">equalTo</span><span class="p">(</span><span class="s1">'recipient'</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="na">sessionToken</span><span class="p">:</span> <span class="nx">token</span> <span class="p">})</span> <span class="c1">// pass the session token to find()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">messages</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="master-key-must-be-passed-explicitly">Master key must be passed explicitly</h3>
+
+<p><code class="highlighter-rouge">Parse.Cloud.useMasterKey()</code> is not available in Parse Server Cloud Code. Instead, pass <code class="highlighter-rouge">useMasterKey: true</code> as an option to any operation that requires the use of the master key to bypass ACLs and/or CLPs.</p>
+
+<p>Consider you want to write a Cloud function that returns the total count of messages sent by all of your users. Since the objects in our <code class="highlighter-rouge">Message</code> class are using ACLs to restrict read access, you will need to use the master key to get the total count:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'getTotalMessageCount'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// Parse.Cloud.useMasterKey() &lt;-- no longer available!</span>
+
+  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parse</span><span class="p">.</span><span class="nx">Query</span><span class="p">(</span><span class="s1">'Messages'</span><span class="p">);</span>
+  <span class="nx">query</span><span class="p">.</span><span class="nx">count</span><span class="p">({</span> <span class="na">useMasterKey</span><span class="p">:</span> <span class="kc">true</span> <span class="p">})</span> <span class="c1">// count() will use the master key to bypass ACLs</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="minimum-javascript-sdk-version">Minimum JavaScript SDK version</h3>
+
+<p>Parse Server also uses at least version <a href="https://github.com/ParsePlatform/Parse-SDK-JS/releases">1.7.0</a> of the Parse SDK, which has some breaking changes from the previous versions. If your Parse.com Cloud Code uses a previous version of the SDK, you may need to update your cloud code. You can look up which version of the JavaScript SDK your Parse.com Cloud Code is using by running the following command inside your Cloud Code folder:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ parse jssdk
+Current JavaScript SDK version is 1.7.0
+</code></pre>
+</div>
+
+<h3 id="network-requests">Network requests</h3>
+
+<p>As with Parse Cloud Code, you can use <code class="highlighter-rouge">Parse.Cloud.httpRequest</code> to make network requests on Parse Server. It’s worth noting that in Parse Server you can use any npm module, therefore you may also install the <a href="https://www.npmjs.com/package/request">“request” module</a> and use that directly instead.</p>
+
+<h3 id="cloud-modules">Cloud Modules</h3>
+
+<p>Native Cloud Code modules are not available in Parse Server, so you will need to use a replacement:</p>
+
+<ul>
+  <li>
+    <p><strong>App Links</strong>:
+Use the <a href="https://github.com/parse-server-modules/applinks-metatag">applinks-metatag</a> module.</p>
+  </li>
+  <li>
+    <p><strong>Buffer</strong>:
+This is included natively with Node. Remove any <code class="highlighter-rouge">require('buffer')</code> calls.</p>
+  </li>
+  <li>
+    <p><strong>Mailgun</strong>:
+Use the official npm module: <a href="https://www.npmjs.com/package/mailgun-js">mailgun-js</a>.</p>
+  </li>
+  <li>
+    <p><strong>Mandrill</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/mandrill-api">mandrill-api</a>.</p>
+  </li>
+  <li>
+    <p><strong>Moment</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/moment">moment</a>.</p>
+  </li>
+  <li>
+    <p><strong>Parse Image</strong>:
+We recommend using another image manipulation library, like the <a href="https://www.npmjs.com/package/imagemagick">imagemagick wrapper module</a>. Alternatively, consider using a cloud-based image manipulation and management platform, such as <a href="https://www.npmjs.com/package/cloudinary">Cloudinary</a>.</p>
+  </li>
+  <li>
+    <p><strong>SendGrid</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/sendgrid">sendgrid</a>.</p>
+  </li>
+  <li>
+    <p><strong>Stripe</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/stripe">stripe</a>.</p>
+  </li>
+  <li>
+    <p><strong>Twilio</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/twilio">twilio</a>.</p>
+  </li>
+  <li>
+    <p><strong>Underscore</strong>:
+Use the official npm module, <a href="https://www.npmjs.com/package/underscore">underscore</a>.</p>
+  </li>
+</ul>
+
+<h2 id="dashboard">Dashboard</h2>
+
+<p>Parse has provided a separate <a href="http://blog.parse.com/announcements/introducing-the-parse-server-dashboard/">Parse Dashboard project</a> which can be used to manage all of your Parse Server applications.</p>
+
+<h3 id="class-level-permissions">Class Level Permissions</h3>
+
+<p>Class-level permissions are supported in Parse Server, but they have always been configured using the dashboard on Parse.com. It is possible to modify these permissions without the dashboard. You’ll see the format for class-level permissions in the SCHEMA collection when you migrate your database. There is also a <code class="highlighter-rouge">setPermissions</code> method on the <code class="highlighter-rouge">Schema</code> class, which you can see used in the unit-tests in <code class="highlighter-rouge">Schema.spec.js</code>.</p>
+
+<h3 id="parse-config">Parse Config</h3>
+
+<p>Parse Config is available in Parse Server and can be configured from your <a href="https://github.com/ParsePlatform/parse-dashboard">Parse Dashboard</a>.</p>
+
+<h3 id="push-notification-console">Push Notification Console</h3>
+
+<p>You can now <a href="http://blog.parse.com/announcements/push-and-config-come-to-the-parse-dashboard/">send push notifications using Parse Dashboard</a>.</p>
+
+<h2 id="files">Files</h2>
+
+<p>Parse Files in hosted Parse applications were limited to 10 MB. The default storage layer in Parse Server, GridStore, can handle files up to 16 MB. To store larger files, we suggest using <a href="#configuring-S3Adapter">Amazon’s Simple Storage Service (S3)</a>.</p>
+
+<h2 id="in-app-purchases">In-App Purchases</h2>
+
+<p>iOS in-app purchase verification through Parse is not supported.</p>
+
+<h2 id="jobs">Jobs</h2>
+
+<p>There is no background job functionality in Parse Server. If you have scheduled jobs, port them over to a self-hosted solution using a wide variety of open source job queue projects. A popular one is <a href="https://github.com/Automattic/kue">kue</a>. Alternatively, if your jobs are simple, you could use a cron job.</p>
+
+<h2 id="push-notifications">Push Notifications</h2>
+
+<p>Parse Server implements basic transactional pushes to iOS and Android devices using channels or queries. Check out the <a href="#push-notifications">Push Guide</a> for the details.</p>
+
+<h3 id="client-push">Client Push</h3>
+
+<p>Hosted Parse applications could disable a security setting in order to allow clients to send push notifications. Parse Server does not allow clients to send push notifications as the <code class="highlighter-rouge">masterKey</code> must be used. Use Cloud Code or the REST API to send push notifications.</p>
+
+<h3 id="android-exporting-gcm-registration-ids">Android: Exporting GCM Registration IDs</h3>
+
+<p>Parse supports sending pushes to Android devices via Google Cloud Messaging (GCM). By default, the GCM registration IDs (stored in the <code class="highlighter-rouge">deviceToken</code> field) for your app are associated with Parse’s GCM sender ID, which won’t work after Parse is retired. You may want to take these actions to have your app register with a different GCM sender ID, which will make the registration IDs in the <code class="highlighter-rouge">deviceToken</code> field exportable to other push providers:</p>
+
+<ul>
+  <li>Enable GCM for your Android project in the <a href="https://console.developers.google.com">Google Developer Console</a>. Take note of your project number (it should be a large integer like <code class="highlighter-rouge">123427208255</code>). This is also known as your GCM sender ID.</li>
+  <li>Add the <code class="highlighter-rouge">com.parse.push.gcm_sender_id</code> metadata attribute to your app manifest so that Parse registers for push with your GCM sender ID. For instance, if your GCM sender ID is <code class="highlighter-rouge">123427208255</code>, then you should add a metadata attribute named <code class="highlighter-rouge">com.parse.push.gcm_sender_id</code> with the value <code class="highlighter-rouge">id:123427208255</code> (note that the “id:” prefix is required).  This attribute requires Android SDK 1.8.0 or higher. See our <a href="/docs/android/guide#push-notifications-setting-up-push">Android push guide</a> for more details on this attribute.</li>
+  <li>Parse will now register for GCM with both its GCM sender ID and your GCM sender ID on app startup. You can use the resulting GCM registration IDs (stored in the <code class="highlighter-rouge">deviceToken</code> field of ParseInstallation) with other GCM push providers.</li>
+</ul>
+
+<h3 id="parse-iot-devices">Parse IoT Devices</h3>
+
+<p>Push notification support for the Parse IoT SDKs is provided through the Parse Push Notification Service (PPNS). PPNS is a push notification service for Android and IoT devices maintained by Parse. This service will be retired on January 28, 2017. <a href="https://github.com/ParsePlatform/parse-server/wiki/PPNS-Protocol-Specification">This page</a> documents the PPNS protocol for users that wish to create their own PPNS-compatible server for use with their Parse IoT devices.</p>
+
+<h2 id="schema">Schema</h2>
+
+<p>Schema validation is built in. Retrieving the schema via API is available.</p>
+
+<h2 id="session-features">Session Features</h2>
+
+<p>Parse Server requires the use of <a href="http://blog.parse.com/announcements/announcing-new-enhanced-sessions/">revocable sessions</a>. If your app is still using legacy sessions, follow this <a href="https://parse.com/tutorials/session-migration-tutorial">migration guide</a>.</p>
+
+<h2 id="single-app-aware">Single app aware</h2>
+
+<p>Parse Server only supports single app instances. There is ongoing work to make Parse Server multi-app aware. However, if you intend to run many different apps with different datastores, you currently would need to instantiate separate instances.</p>
+
+<h2 id="social-login">Social Login</h2>
+
+<p>Facebook, Twitter, and Anonymous logins are supported out of the box. Support for additional platforms may be configured via the <a href="#oauth"><code class="highlighter-rouge">oauth</code> configuration option</a>.</p>
+
+<h2 id="webhooks">Webhooks</h2>
+
+<p><a href="http://blog.parse.com/announcements/introducing-cloud-code-webhooks/">Cloud Code Webhooks</a> are not supported.</p>
+
+<h2 id="welcome-emails-and-email-verification">Welcome Emails and Email Verification</h2>
+
+<p>This is not supported out of the box. But, you can use a <code class="highlighter-rouge">beforeSave</code> to send out emails using a provider like Mailgun and add logic for verification. <a href="https://github.com/ParsePlatform/parse-server/issues/275">Subscribe to this issue</a> to be notified if email verification support is added to Parse Server.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="using-mongodb--rocksdb">Using MongoDB + RocksDB</h1>
+
+<ul>
+  <li><a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks#mongorocks-what-and-why">MongoRocks: What and Why?</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks#example-provisioning-on-ubuntu-and-aws">Provisioning</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks#installation">Installation</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks#backups">Backups</a></li>
+  <li><a href="https://github.com/ParsePlatform/parse-server/wiki/MongoRocks#migrating-existing-data-to-mongorocks">Migrating Existing Data to MongoRocks</a></li>
+</ul>
+
+<h2 id="mongorocks-what-and-why">MongoRocks: What and Why?</h2>
+
+<p><strong>Quick Version</strong></p>
+
+<p>Parse has been using MongoDB on RocksDB (MongoRocks) for application data since <a href="http://blog.parse.com/announcements/mongodb-rocksdb-parse/">April, 2015</a>. If you are migrating your Parse app(s) to your own MongoDB infrastructure, we recommend using MongoRocks to take advantage of the increased performance, greater efficiency, and powerful backup capabilities offered by the RocksDB storage engine.</p>
+
+<p><strong>Long Version</strong></p>
+
+<p>In version 3.0, MongoDB introduced the storage engine API to allow users an alternative to the default memory mapped (MMAP) storage engine used by earlier versions of MongoDB. In 2015, Facebook developed a RocksDB implementation of the storage engine API, MongoRocks, which is used by Parse for all customer data. RocksDB is an embeddable persistent key-value store developed by Facebook. It uses a <a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree">Log-structured Merge Tree</a> (LSM) for storage and is designed for high write throughput and storage efficiency.</p>
+
+<h3 id="improved-performance-and-efficiency">Improved Performance and Efficiency</h3>
+
+<p>When Parse switched from MMAP to MongoRocks, we discovered the following benefits in our <a href="http://blog.parse.com/learn/engineering/mongodb-rocksdb-writing-so-fast-it-makes-your-head-spin/">benchmarking</a>:</p>
+
+<ul>
+  <li>50x increase in write performance</li>
+  <li>90% reduction in storage size</li>
+  <li>significantly reduced latency on concurrent workloads due to reduced lock contention</li>
+</ul>
+
+<h3 id="simple-and-efficient-hot-backups">Simple and efficient hot backups</h3>
+
+<p>In addition to performance gains, a major advantage of MongoRocks (and RocksDB in general) is very efficient backups that do not require downtime. As detailed in this <a href="http://blog.parse.com/learn/engineering/strata-open-source-library-for-efficient-mongodb-backups/">blog post</a>, RocksDB backups can be taken on a live DB without interrupting service. RocksDB also supports incremental backups, reducing the I/O, network, and storage costs of doing backups and allowing backups to run more frequently. At Parse, we reduced DB infrastructure costs by more than 20% by using MongoRocks, the Strata backup tool, and Amazon S3 in place of MMAP and EBS Snapshots.</p>
+
+<h3 id="are-there-any-reasons-not-to-use-mongorocks">Are there any reasons not to use MongoRocks?</h3>
+
+<p>Generally speaking, MongoRocks was suitable for running all app workloads at Parse. However, there are some workloads for which LSM are not ideal, and for which better performance may be achieved with other storage engines like MMAP or WiredTiger, such as:</p>
+
+<ul>
+  <li>Applications with high number of in-place updates or deletes. For example, a very busy work queue or heap.</li>
+  <li>Applications with queries that scan many documents <em>and</em> fit entirely in memory.</li>
+</ul>
+
+<p>It’s difficult to make precise statements about performance for any given workload without data. When in doubt, run your own benchmarks. You can use the <a href="https://github.com/ParsePlatform/flashback">flashback</a> toolset to record and replay benchmarks based on live traffic.</p>
+
+<h2 id="example-provisioning-on-ubuntu-and-aws">Example: Provisioning on Ubuntu and AWS</h2>
+
+<p>There are hundreds of ways to build out your infrastructure. For illustration we use an AWS and Ubuntu configuration similar to that used by Parse. You will need a set of AWS access keys and the AWS CLI.</p>
+
+<h3 id="choosing-hardware">Choosing Hardware</h3>
+
+<p>At Parse, we use AWS i2.* (i/o optimized) class instances with ephemeral storage for running MongoRocks. Prior to this, when we used the MMAP storage engine, we used r3.* (memory optimized) instances with EBS PIOPS storage. Why the change?</p>
+
+<ul>
+  <li>RocksDB is designed to take full advantage of SSD storage. We also experienced large bursts of I/O for some workloads, and provisioning enough IOPS with EBS to support this was expensive. The ephemeral SSDs provided by the i2 class were ideal in our case.</li>
+  <li>MongoRocks uses significantly more CPU than MMAP due to compression. CPU was never a major factor in MMAP.</li>
+  <li>Memory is less critical in MongoRocks. Memory is everything in MMAP.</li>
+  <li>EBS snapshots were critical to our backup strategy with MMAP. With MongoRocks, we had incremental backups with strata, so snapshots were not needed.</li>
+</ul>
+
+<p>If you’re not sure about your workload requirements, we recommend running on the i2 class instances. You can always change this later depending on your production experience.</p>
+
+<p>Below is a general guide for instance sizing based on your existing Parse request traffic:</p>
+
+<ul>
+  <li>&lt; 100 requests/sec: i2.xlarge</li>
+  <li>100-500 requests/sec: i2.2xlarge</li>
+  <li>500+ requests/sec: i2.4xlarge</li>
+</ul>
+
+<p>This guide will use i2.2xlarge as an example.</p>
+
+<h3 id="provisioning">Provisioning</h3>
+
+<p>We recommend you run MongoDB in replica set mode, with at least three nodes for availablity. Each node should run in a separate Availability Zone.</p>
+
+<p>There are dozens of ways to provision hosts in AWS. For reference, we use the AWS CLI below, but the inputs can be easily translated to your tool of choice.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">SECURITY_GROUP</span><span class="o">=</span>&lt;my security group ID&gt;
+<span class="gp">$ </span><span class="nv">US_EAST_1A_SUBNET</span><span class="o">=</span>&lt;subnet id <span class="k">for </span>us-east-1a&gt;
+<span class="gp">$ </span><span class="nv">US_EAST_1C_SUBNET</span><span class="o">=</span>&lt;subnet id <span class="k">for </span>us-east-1c&gt;
+<span class="gp">$ </span><span class="nv">US_EAST_1D_SUBNET</span><span class="o">=</span>&lt;subnet id <span class="k">for </span>us-east-1d&gt;
+<span class="gp">$ </span>aws ec2 run-instances —image-id ami-fce3c696 --instance-type i2.2xlarge --key-name chef3 --block-device-mappings <span class="s1">'[{"DeviceName": "/dev/sdb", "VirtualName": "ephemeral0"},{"DeviceName": "/dev/sdc", "VirtualName": "ephemeral1"}]'</span> --security-group-ids <span class="k">${</span><span class="nv">SECURITY_GROUP</span><span class="k">}</span> --subnet-id <span class="k">${</span><span class="nv">US_EAST_1A_SUBNET</span><span class="k">}</span> --associate-public-ip-address
+<span class="gp">$ </span>aws ec2 run-instances —image-id ami-fce3c696 --instance-type i2.2xlarge --key-name chef3 --block-device-mappings <span class="s1">'[{"DeviceName": "/dev/sdb", "VirtualName": "ephemeral0"},{"DeviceName": "/dev/sdc", "VirtualName": "ephemeral1"}]'</span> --security-group-ids <span class="k">${</span><span class="nv">SECURITY_GROUP</span><span class="k">}</span> --subnet-id <span class="k">${</span><span class="nv">US_EAST_1D_SUBNET</span><span class="k">}</span> --associate-public-ip-address
+<span class="gp">$ </span>aws ec2 run-instances —image-id ami-fce3c696 --instance-type i2.2xlarge --key-name chef3 --block-device-mappings <span class="s1">'[{"DeviceName": "/dev/sdb", "VirtualName": "ephemeral0"},{"DeviceName": "/dev/sdc", "VirtualName": "ephemeral1"}]'</span> --security-group-ids <span class="k">${</span><span class="nv">SECURITY_GROUP</span><span class="k">}</span> --subnet-id <span class="k">${</span><span class="nv">US_EAST_1D_SUBNET</span><span class="k">}</span> --associate-public-ip-address
+</code></pre>
+</div>
+
+<h3 id="configuring-storage">Configuring Storage</h3>
+
+<p>The i2.2xlarge and larger instances have multiple ephemeral volumes that should be striped together to produce your data volume. On each host, use <strong>mdadm</strong> to create the raid volume:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install mdadm
+<span class="gp">$ </span>sudo mdadm —create /dev/md0 --level<span class="o">=</span>stripe /dev/xvdb /dev/xvdc
+<span class="gp">$ </span>sudo mkfs -t ext4 /dev/md0
+<span class="gp">$ </span>sudo mkdir -p /var/lib/mongodb
+<span class="gp">$ </span>sudo mount /dev/md0 /var/lib/mongodb
+</code></pre>
+</div>
+
+<h2 id="installation">Installation</h2>
+
+<p>To use MongoRocks, you will need to use a special build of MongoDB that has the storage engine compiled in. At Parse, we run an internally built version, as a pre-packaged version of MongoRocks did not exist when we initially migrated. For new installations, we recommend that you use the Percona builds located <a href="https://www.percona.com/downloads/percona-server-mongodb/LATEST/">here</a>. These builds are 100% feature compatible with the official MongoDB releases, but have been compiled to include the RocksDB storage engine. We have tested the Percona builds with the Parse migration utility and the strata backup software, and verified that both work and are suitable for running Parse apps in production.</p>
+
+<h3 id="ubuntu-installation">Ubuntu installation</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -s -O https://www.percona.com/downloads/percona-server-mongodb/percona-server-mongodb-3.0.8-1.2/binary/debian/trusty/x86_64/percona-server-mongodb-3.0.8-1.2-r97f91ef-trusty-x86_64-bundle.tar
+<span class="gp">$ </span>tar -xf percona-server-mongodb-3.0.8-1.2-r97f91ef-trusty-x86_64-bundle.tar
+<span class="gp">$ </span>sudo dpkg -i percona-server-mongodb-<span class="k">*</span>
+</code></pre>
+</div>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Configuring MongoDB to use the RocksDB storage engine is a matter of setting a few flags in the mongodb.conf file. For complete documentation of all MongoDB configuration options, visit the MongoDB reference page for <a href="https://docs.mongodb.org/v3.0/reference/configuration-options/">Configuration File Options</a>.</p>
+
+<p>First, set the storage engine parameter to instruct MongoDB to use the RocksDB storage engine.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>storage:
+  dbPath: /var/lib/mongodb
+  journal:
+    enabled: true
+  engine: rocksdb
+</code></pre>
+</div>
+
+<p>Next, some additional parameters.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># RockDB tuning parameters
+# Yield if it's been at least this many milliseconds since we last yielded.
+setParameter = internalQueryExecYieldPeriodMS=1000
+# Yield after this many "should yield?" checks.
+setParameter = internalQueryExecYieldIterations=100000
+</code></pre>
+</div>
+
+<p>The adjustments to the internalQueryExecYield* options reduce the frequency that MongoDB yields for writers. Since RocksDB has document level locking, frequent yielding is not necessary.</p>
+
+<h3 id="startup">Startup</h3>
+
+<p>When starting MongoRocks on a host for the very first time, your storage directory (e.g. /var/lib/mongodb) should be empty. If you have existing data from other storage engines (i.e. MMAP or WiredTiger), you should back up and remove those data files, as the storage formats are not compatible.</p>
+
+<h2 id="backups">Backups</h2>
+
+<h3 id="installing-strata">Installing strata</h3>
+
+<p>Strata is written in go. It requires go 1.4 or later to compile. You can use apt or yum to install go, but these packages are frequently out of date on common distributions. To install a more recent version of go:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sudo tar xzf - -C /usr/local
+<span class="gp">$ </span>sudo mkdir /go
+<span class="gp">$ </span>sudo chmod 0777 /go
+</code></pre>
+</div>
+
+<p>You will need to add go to your <em>PATH</em> environment variable and set GOPATH. On ubuntu, this is as simple as:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> -e <span class="s1">'export PATH="/usr/local/go/bin:${PATH}:" \nexport GOPATH=/go'</span> | sudo tee /etc/profile.d/gopath.sh
+</code></pre>
+</div>
+
+<p>After logging in again, you can test that go is installed by running</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>go version
+go version go1.5.3 linux/amd64
+</code></pre>
+</div>
+
+<h3 id="installing-strata-1">Installing strata</h3>
+
+<p>With go installed, compiling and installing strata is simply a matter of using <code class="highlighter-rouge">go install</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>go get github.com/facebookgo/rocks-strata/strata/cmd/mongo/lreplica_s3storage_driver/strata
+<span class="gp">$ </span>go install github.com/facebookgo/rocks-strata/strata/cmd/mongo/lreplica_s3storage_driver/strata
+</code></pre>
+</div>
+
+<p>This installs the strata binary to <code class="highlighter-rouge">$GOPATH/bin/strata</code></p>
+
+<h3 id="configuring-backups">Configuring backups</h3>
+
+<p>At Parse, we deployed strata using a simple distributed cron on all backup nodes. You can find a sample cron and and schedule <a href="https://github.com/facebookgo/rocks-strata/blob/master/examples/backup/run.sh">here</a> in the rocks-strata repository.</p>
+
+<p>At a high level, the three things you want to do regularly when running backups with strata are:</p>
+
+<ol>
+  <li>Run <code class="highlighter-rouge">strata backup</code> to create the actual backup. This stores the data files and backup metadata in S3, identified by a unique replica ID. Each host must have its own replica ID. For example, if your RS is named “mydata” and your host name is “db1”, you might use “mydata-db1” as your replica ID.</li>
+  <li>Run <code class="highlighter-rouge">strata delete</code> to prune metadata for backups older than a certain date. The retention period that you specify is dependent on your needs.</li>
+  <li>Run <code class="highlighter-rouge">strata gc</code> to delete data files that are orphaned by <code class="highlighter-rouge">strata delete</code>.</li>
+</ol>
+
+<h3 id="displaying-backups">Displaying backups</h3>
+
+<p>You can view backup metadata at any time with <code class="highlighter-rouge">strata show backups</code>:</p>
+
+<p>For example, to see all backups for node <em>db1</em> in replica set <em>mydb</em>, you would run something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>strata --bucket<span class="o">=</span>mybucket --bucket-prefix<span class="o">=</span>mongo-rocks show backups --replica-id<span class="o">=</span>mydb-db1
+
+ID   data                      num files   size <span class="o">(</span>GB<span class="o">)</span>   incremental files   incremental size   duration
+0    2015-09-02 21:11:20 UTC   4           0.000005    4                   0.000005           187.929573ms
+</code></pre>
+</div>
+
+<p>More documentation on strata, including how to restore backups, can be found <a href="https://github.com/facebookgo/rocks-strata">here</a>.</p>
+
+<h2 id="migrating-existing-data-to-mongorocks">Migrating Existing Data to MongoRocks</h2>
+
+<h3 id="moving-your-parse-app-for-the-first-time">Moving your Parse app for the first time</h3>
+
+<p>If your data is still hosted on Parse, then your job is really easy. Just follow the steps in our <a href="https://parse.com/migration#database">migration guide</a> to move your data to your new MongoRocks replica set. We highly recommend that you take steps to secure your MongoDB installation with authentication and encryption. For a list of best security practices, see the <a href="https://docs.mongodb.org/manual/administration/security-checklist/">MongoDB Security Checklist</a>.</p>
+
+<h3 id="upgrading-an-existing-replica-set-to-mongorocks">Upgrading an existing replica set to MongoRocks</h3>
+
+<p>The data files used by MMAP, WiredTiger, and RocksDB are not compatible. In other words, you cannot start MongoRocks using existing MMAP or Wiredtiger data. To change storage formats, you must do one of the following:</p>
+
+<ol>
+  <li>Do a logical export and import using <a href="https://docs.mongodb.org/v3.0/reference/program/mongodump/">mongodump</a> and <a href="https://docs.mongodb.org/manual/reference/program/mongorestore/">mongorestore</a>.</li>
+  <li>Perform an initial sync of data using replication</li>
+</ol>
+
+<p>Option 2 is the easiest, as you can bring a new, empty node online and add it to the replica set without incurring downtime. This approach usually works fine until your data size is in the hundreds of gigabytes. To do so:</p>
+
+<ol>
+  <li>Provision a new node configured for RocksDB, following the above steps.</li>
+  <li>Add the node to your replica set using <a href="https://docs.mongodb.org/v3.0/reference/method/rs.add/">rs.add()</a></li>
+  <li>Wait for initial sync. Note that your data sync must complete before the oplog window expires. Depending on the size of your data, you may need to <a href="https://docs.mongodb.org/v3.0/tutorial/change-oplog-size/">resize your oplog</a></li>
+</ol>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+
+                    <h1 id="running-parse-server-for-development">Running Parse Server for development</h1>
+
+<p>Normally, when you run a standalone Parse Server, the <a href="https://www.npmjs.com/package/parse-server">latest release that has been pushed to npm</a> will be used. This is great if you are interested in just running Parse Server, but if you are developing a new feature or fixing a bug you will want to use the latest code on your development environment.</p>
+
+<p>First, you will need to clone this repo if you haven’t done so yet.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/ParsePlatform/parse-server.git
+</code></pre>
+</div>
+
+<p>You can then link the parse-server module to the cloned repo and run <code class="highlighter-rouge">npm install</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm link parse-server path/to/cloned/repo
+npm install
+</code></pre>
+</div>
+
+<p>You can now start Parse Server using <code class="highlighter-rouge">npm start</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm start -- --appId APPLICATION_ID --masterKey MASTER_KEY --serverURL http://localhost:1337/parse
+</code></pre>
+</div>
+
+<h1 id="contributing">Contributing</h1>
+
+<p>We really want Parse to be yours, to see it grow and thrive in the open source community. Please see the <a href="https://github.com/ParsePlatform/parse-server/blob/master/CONTRIBUTING.md">Contributing to Parse Server notes</a>.</p>
+
+
+
+
+<div class="helpful">
+	<span>Want to contribute to this doc? <a href="https://github.com/parseplatform/docs/tree/gh-pages/_includes/parse-server">Edit this section.</a></span>
+	<hr/>
+</div>
+
+
+                </div>
+
+              </div>
+          		<!-- footer goes here -->
+            </div>
+          </div><!-- end content grid col -->
+        </div><!-- end .guide > .grid-container -->
+      </div><!-- /.content__wrapper -->
+    </div><!-- /.site__content -->
+  </div><!-- /.site__wrapper -->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+  <script src="/docs/assets/js/bundle.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: 'c7f5661ba53e2e3c1c3752696362209e',
+    indexName: 'parse',
+    inputSelector: '#algolia-doc-search',
+    algoliaOptions: { 'facetFilters': ["tags:parse-server"] }, // android, arduino, cloudcode, dotnet, embedded_c, ios, js, macos, parse-server, php, rest, unity
+    debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+</body>
+
+</html>
