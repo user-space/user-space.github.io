@@ -29,7 +29,7 @@ var SideBar = ({actions}) =>
         </div>
         <ul className="nav">
             <li>
-                <Link to="/home">
+                <Link to="/">
                     <i className="material-icons">home</i>
                     <p>Home</p>
                 </Link>

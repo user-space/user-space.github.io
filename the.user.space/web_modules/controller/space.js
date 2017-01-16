@@ -23,7 +23,7 @@ export default (action$,store) =>
         }))
         .catch(error => Observable.of({
             type: space.LIST_FAIL,
-            payload: error.xhr.response,
+            payload: error,
             error: true
         })),
 
