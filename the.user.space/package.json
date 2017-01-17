@@ -8,8 +8,8 @@
     "static": "node src/static.js",
     "hot": "node src/hot.js",
     "dev": "webpack-dev-server --progress --colors",
-    "build": "webpack --progress --colors",
-    "sw-precache": "sw-precache --config=sw-precache-config.js --verbose"
+    "build": "npm run sw && webpack --progress --colors",
+    "sw": "sw-precache --config=sw-precache-config.js --verbose"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "base64url": "^2.0.0",
     "jws": "^3.1.4",
     "parse": "sebasjm/Parse-SDK-JS#dist",
+    "sw-toolbox": "^3.4.0",
     "userspace-sdk-js": "0.0.4"
   }
 }
