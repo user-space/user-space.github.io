@@ -13,7 +13,6 @@ export default (action$, store) => {
         .do((action) => {
             localStorage.clear();
             window.location = "/";
-            console.log("ok");
             return action;
           })
         .ignoreElements(),

@@ -9,13 +9,12 @@ import { App, Landing, Home, NewApp, Applications, Spaces } from 'view'
 const routes = [{
     component : withRouter(App),
     childRoutes: [
-        { path : "/home", component : Home },
         { path : "/apps", component : Applications },
         { path : "/spaces", component : Spaces },
         { path : "/new-app", component : NewApp },
-    ]},{
-        path : '/',
-        indexRoute : { component : Landing },
+    ],
+    path : '/',
+    indexRoute : { component : Home },
     }]
 
 export default (store) => () =>
