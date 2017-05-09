@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+<meta name="theme-color" content="#273553" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>The User Space</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href='stylesheets/open-sans:400-700.css' media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen"> -->
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="/assets/fonts/material-roboto-slab.css" />
+	<link rel="stylesheet" href="/assets/fonts/font-awesome.min.css" />
+    <link rel="manifest" href="/manifest.json">
+	<!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+
+    <!-- Start of userspace Zendesk Widget script -->
+    <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","userspace.zendesk.com");
+    /*]]>*/</script>
+    <!-- End of userspace Zendesk Widget script -->
+
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+    0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+    mixpanel.init("20266389740bd82b39dc02f553a75deb");</script><!-- end Mixpanel -->
+        <!-- end Mixpanel -->
+        <style media="screen" >
+        .video-container {
+          position:relative;
+          padding-bottom:56.25%;
+          padding-top:30px;
+          height:0;
+          overflow:hidden;
+          }
+
+        .video-container iframe, .video-container object, .video-container embed {
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          }
+          .c5 {
+            text-align: left;
+            font-weight: bold;
+          }
+          .c4 {
+            text-align: justify;
+          }
+          .c2 {
+            text-align: justify;
+          }
+        </style>
+  </head>
+  <body>
+      <div id="react-view">
+        <div class="landing-page">
+            <nav class="navbar navbar-danger navbar-transparent navbar-absolute">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="https://user.space" class="navbar-brand">
+                          <img src="/assets/img/userspace-negative.png" style="height: 150px">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="page-header header-filter" data-parallax="active" style='background-image: url(/assets/img/background.jpg); height: auto; min-height: 300px' >
+                <div class="container">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+
+            <div class="main main-raised">
+                <div class="container">
+                    <div class="section text-center">
+                        <div class="row">
+                          <ul class="nav nav-pills nav-pills-rose">
+                            <li class="active"><a href="https://about.user.space/terms.html" data-toggle="tab">Terms of Service</a></li>
+                            <li><a href="https://about.user.space/privacy.html" data-toggle="tab">Privacy Policy</a></li>
+                            <li><a href="https://about.user.space/use.html" data-toggle="tab">Acceptable Use Policy</a></li>
+                          </ul>
+                            <div class="col-md-10 col-md-offset-1">
+                                <h2 class="title">Terms of Service</h2>
+                                <h5 class="description">
+
+                                    <p class="c4"><span >
+                                      The following terms and conditions govern all use of the User.Space website (the &ldquo;Website&rdquo;) owned by UserSpace Inc. and all content, services and support packages. The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, procedures that may be published from time to time on this Website by UserSpace Inc. (collectively, the &ldquo;Agreement&rdquo;).
+                                    </span></p>
+                                    <p class="c4"><span class="c0">
+                                      Please read this Agreement carefully before accessing or using the Website. By accessing or using any part of the Website, you agree to be bound by the terms and conditions of this agreement. If you do not agree to all the terms and conditions of this Agreement, then you may not access the Website or use any services. If these terms and conditions are considered an offer by UserSpace Inc., acceptance is expressly limited to these terms. The Website is available only to individuals who are at least 13 years old.
+                                    </span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0 start" start="1">
+                                      <li class="c5"><span class="c3">
+                                  Ownership</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">Ownership, copyright and title of any software that is developed by UserSpace Inc.. shall at all times remain with UserSpace Inc. The client shall not acquire directly, indirectly or by implication any title, copyright or ownership in the software or any parts thereof. We do not claim any ownership rights to the information that you submit to the UserSpace Inc application itself, your data is yours.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="2">
+                                      <li class="c5"><span class="c3">
+                                  Your Account and Site</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">If you create an account on the Website, you are responsible for maintaining the security of your account, and you are fully responsible for all activities that occur under the account and any other actions taken in connection with the account. You must immediately notify UserSpace Inc. of any unauthorized use of your account or any other breaches of security. UserSpace Inc. will not be liable for any acts or omissions by You, including any damages of any kind incurred as a result of such acts or omissions.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="3">
+                                      <li class="c5"><span class="c3">
+
+                                  Payment and Renewal</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">By selecting a subscription, you agree to pay UserSpace Inc. the annual subscription fees indicated for that service. Subscription fees are not refundable except when the client is not satisfied with the subscription and informs UserSpace Inc. within the first 45 days of the subscription. The subscription fee will be specified on your invoice. Unless you notify UserSpace Inc. before the end of the applicable subscription period that you want to cancel the subscription will renew automatically. UserSpace Inc. reserves the right to adjust the rate at renewal time. You authorize us to collect the then-applicable annual subscription fee using any credit card or other payment mechanism we have on record for you.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="4">
+                                      <li class="c5"><span class="c3">
+
+                                  Paid Support</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">If you have purchased a support subscription for User.Space, you are entitled to next business day email responses to technical inquiries. The number of inquiries is not limited.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="5">
+                                      <li class="c5"><span class="c3">
+
+                                  Reference</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">UserSpace Inc. shall be entitled to use the name and logo of your organization publicly as a reference in relation to the marketing and distribution of its products and/or services.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="6">
+                                      <li class="c5"><span class="c3">
+
+                                  UserSpace Newsletter</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">By creating an account on User.Space you give us permission to add your email address to the UserSpace newsletter. You can unsubscribe at any time by using the link at the bottom of the newsletter.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="7">
+                                      <li class="c5"><span class="c3">
+
+                                  Responsibility of Website Visitors</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">UserSpace Inc. has not reviewed, and cannot review, all of the material, including computer software, posted to the Website, and cannot therefore be responsible for that material&rsquo;s content, use or effects. By operating the Website, UserSpace Inc. does not represent or imply that it endorses the material there posted, or that it believes such material to be accurate, useful or non-harmful. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. The Website may contain content that is offensive, indecent, or otherwise objectionable, as well as content containing technical inaccuracies, typographical mistakes, and other errors. The Website may also contain material that violates the privacy or publicity rights, or infringes the intellectual property and other proprietary rights, of third parties, or the downloading, copying or use of which is subject to additional terms and conditions, stated or unstated. UserSpace Inc. disclaims any responsibility for any harm resulting from the use by visitors of the Website, or from any downloading by those visitors of content there posted.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="8">
+                                      <li class="c5"><span class="c3">
+
+                                  Content Posted on Other Websites</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">We have not reviewed, and cannot review, all of the material, including computer software, made available through the websites and webpages to which this website links, and that link to this website. UserSpace Inc. does not have any control over those non-UserSpace Inc. websites and webpages, and is not responsible for their contents or their use. By linking to a non-UserSpace Inc. website or webpage, UserSpace Inc. does not represent or imply that it endorses such website or webpage. You are responsible for taking precautions as necessary to protect yourself and your computer systems from viruses, worms, Trojan horses, and other harmful or destructive content. UserSpace Inc. disclaims any responsibility for any harm resulting from your use of non-UserSpace Inc. websites and webpages.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="9">
+                                      <li class="c5"><span class="c3">
+
+                                  Copyright Infringement and DMCA Policy</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">As UserSpace Inc. asks others to respect its intellectual property rights, it respects the intellectual property rights of others. If you believe that material located on or linked to by UserSpace Inc. violates your copyright, you are encouraged to notify UserSpace Inc. in accordance with our DMCA policy. If you feel your intellectual property rights are being violated by a User.Space user, please email support@user.space stating a description of and a url to the content you believe is yours, and proof of your intellectual property. We will review your claim and take whatever action we deem appropriate, including removal of the challenged content from the website.</span></p>
+                                    <p class="c4 c8"><span class="c0"></span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="10">
+                                      <li class="c5"><span class="c3">
+
+                                  Intellectual Property</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">This Agreement does not transfer from UserSpace Inc. to you any UserSpace Inc. or third party intellectual property, and all right, title and interest in and to such property will remain (as between the parties) solely with UserSpace Inc.. UserSpace, the UserSpace logo, and all other trademarks, service marks, graphics and logos used in connection with UserSpace, or the Website are trademarks or registered trademarks of UserSpace Inc. or UserSpace Inc.&rsquo;s licensors. All other trademarks, service marks, graphics and logos used in connection with the Website may be the trademarks of other third parties. Your use of the Website grants you no right or license to reproduce or otherwise use any UserSpace Inc. or third-party trademarks.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="11">
+                                      <li class="c5"><span class="c3">
+
+                                  Changes</span></li>
+                                    </ol>
+                                    <p class="c12"><span class="c0">UserSpace Inc. reserves the right, at its sole discretion, to modify or replace any part of this Agreement. It is your responsibility to check this Agreement periodically for changes. Your continued use of or access to the Website following the posting of any changes to this Agreement constitutes acceptance of those changes. UserSpace Inc. may also, in the future, offer new services and/or features through the Website (including, the release of new tools and resources). Such new features and/or services shall be subject to the terms and conditions of this Agreement. UserSpace Inc. may also, in the future, remove features at any time without warning.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="12">
+                                      <li class="c5"><span class="c3">
+
+                                  General Representation</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">You represent and warrant that (i) your use of the Website will be in strict accordance with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the United States or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="13">
+                                      <li class="c5"><span class="c3">
+
+                                  Termination</span></li>
+                                    </ol>
+                                    <p class="c12"><span class="c0">UserSpace Inc. may terminate your access to all or any part of the Website at any time, with or without cause, with or without notice, effective immediately. If you wish to terminate this Agreement or your UserSpace Inc. account (if you have one), you may simply discontinue using the Website. All provisions of this Agreement which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability. The termination of the subscription can happen with a written notice at any time by both the client and UserSpace Inc.. If a termination happens in the first 45 days of the subscription there is no charge and any paid fees will be refunded to the client. Should the client fail to pay all or any part of the fees on the due date UserSpace Inc. may terminate the subscription. When the client terminates the subscription after the first 45 days they will forfeit the subscription fee. When UserSpace Inc. terminates the subscription after the first 45 days the client will receive a prorated refund.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="14">
+                                      <li class="c5"><span class="c3">
+
+                                  Limitation of Liability</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">In no event will UserSpace Inc., or its suppliers or licensors, be liable with respect to any subject matter of this agreement under any contract, negligence, strict liability or other legal or equitable theory for: (i) any special, incidental or consequential damages; (ii) the cost of procurement for substitute products or services; (iii) for interruption of use or loss or corruption of data; or (iv) for any amounts that exceed the fees paid by you to UserSpace Inc. under this agreement during the twelve (12) month period prior to the cause of action. UserSpace Inc. shall have no liability for any failure or delay due to matters beyond their reasonable control. The foregoing shall not apply to the extent prohibited by applicable law.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="15">
+                                      <li class="c5"><span class="c3">
+                                  Indemnification</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">You agree to indemnify and hold harmless UserSpace Inc., its contractors, and its licensors, and their respective directors, officers, employees and agents from and against any and all claims and expenses, including attorneys&rsquo; fees, arising out of your use of this Agreement, including but not limited to your violation of this Agreement.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="16">
+                                      <li class="c5"><span class="c3">
+                                  Disclaimer of Warranty</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">The Website is provided &ldquo;as is&rdquo;. UserSpace Inc. and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither UserSpace Inc. nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk. UserSpace Inc. makes no warranty, express or implied, with regard to the services provided, all such warranties are hereby excluded by UserSpace Inc. and waived by the client. In no event will UserSpace Inc. be liable to the client or any other individual or entity connected with the client for any claim, loss of revenue profits, sales, business, data, code, service, information exclusivity or damage of any kind of nature, arising out of or in connection with the subscription. In any event, UserSpace Inc.&#39;s maximum liability to the client shall be limited to the amounts actually paid to UserSpace Inc. during the previous twelve (12) month subscription term.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="17">
+                                      <li class="c5"><span class="c3">
+                                  Partial Invalidity</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">If any provision of this document is held by a court of competent jurisdiction to be invalid, void, or unenforceable, the remaining provisions shall nevertheless continue in full force without being impaired or invalidated in any way.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="18">
+                                      <li class="c5"><span class="c3">
+                                  Failure to Enforce</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">The failure of either party to enforce at any time, or for any period of time, the provisions hereof shall not be construed to be a waiver of such provisions or of the right of such party to enforce each and every such provision.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="19">
+                                      <li class="c5"><span class="c3">
+                                  Dispute Resolution</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">The parties will engage in good faith negotiations to resolve the dispute for a period of ten (10) business days after written notice of the dispute or issue is provided by one party to the other. Within such ten (10) business days, representatives from each party will engage in negotiations to resolve the dispute, and such individuals will meet in person, via videoconference or via telephone and attempt to informally resolve the dispute or issues. If those persons are unable to resolve the dispute within such ten (10) business days, then unless the parties have mutually agreed to extend the negotiation period, a party may exercise its rights available to such party under this agreement or otherwise.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="20">
+                                      <li class="c5"><span class="c3">
+                                  Arbitration</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">Any dispute, controversy or claim arising out of or relating to this Agreement, including the formation, interpretation, breach or termination thereof, including whether the claims asserted are arbitrable, which has not been resolved via the process laid out in Dispute resolution will then be referred to and finally determined by arbitration in accordance with the Arbitration Rules of the Netherlands Arbitration Institute. The arbitral tribunal shall be composed of one arbitrator. The place of arbitration shall be Buenos Aires, Argentina. The arbitral procedure shall be conducted in the Spanish language. Judgment upon the award rendered by the arbitrator(s) may be entered in any court having jurisdiction thereof.</span></p>
+                                    <ol class="c1 lst-kix_cdt1iygh2grg-0" start="21">
+                                      <li class="c5"><span class="c3">Governing law</span></li>
+                                    </ol>
+                                    <p class="c4"><span class="c0">This agreement shall be governed by and interpreted in accordance with the laws of the Argentine.</span></p>
+                                  </h5>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h2 class="title">Subscription Terms</h2>
+                                <h5 class="description">
+                                  <p class="c2">
+                                    <span class="c0">
+                                      BY CHECKING THE &ldquo;I ACCEPT&quot; BOX IN THE PURCHASE FLOW, YOU AND ANY ENTITY THAT YOU REPRESENT (&ldquo;CUSTOMER&rdquo;) ARE UNCONDITIONALLY CONSENTING TO BE BOUND BY AND ARE BECOMING A PARTY TO THESE USERSPACE SUBSCRIPTION TERMS (&ldquo;AGREEMENT&rdquo;) AS OF THE DATE OF CUSTOMER&#39;S FIRST DOWNLOAD OF THE LICENSED MATERIALS (THE &quot;EFFECTIVE DATE&quot;). CUSTOMER&rsquo;S CONTINUED USE OF THE SOFTWARE OR ANY LICENSED MATERIALS PROVIDED BY USERSPACE INC. (&ldquo;USERSPACE&rdquo;) SHALL ALSO CONSTITUTE ASSENT TO THE TERMS OF THIS AGREEMENT. IF CUSTOMER DOES NOT UNCONDITIONALLY AGREE TO ALL OF THE TERMS OF THIS AGREEMENT, CLICK THE &quot;CANCEL&quot; BUTTON AND THE DOWNLOAD AND INSTALLATION PROCESS WILL NOT CONTINUE. IF THESE TERMS ARE CONSIDERED AN OFFER, ACCEPTANCE IS EXPRESSLY LIMITED TO THESE TERMS. IF YOU ARE EXECUTING THIS AGREEMENT ON BEHALF OF AN ORGANIZATION, YOU REPRESENT THAT YOU HAVE AUTHORITY TO DO SO.
+                                    </span>
+                                  </p>
+
+                                  <div class="c5">
+                                    <span class="c6">1. LICENSE AND SUPPORT</span>
+                                  </div>
+                                  <p class="c2"><span class="c0">1.1 Subject to the terms and conditions of this Agreement, UserSpace hereby grants to Customer and its Affiliates (as defined below) a limited, non-exclusive, non-transferable, non-sublicensable license for Customer&rsquo;s and its Affiliates&rsquo; employees and contractors to (1) internally (a) use, reproduce, modify, prepare derivative works based upon, and display the code of UserSpace Enterprise Edition (as described at https://about.user.space/features/products) at the tier level selected by Customer (or set forth on a Quote (as defined below), if applicable with the specifications generally promulgated by UserSpace from time to time (the &ldquo;Software&rdquo;), excluding Options for the Enterprise Edition unless listed on the Quote, solely (i) for its internal use in connection with the development of Customer&rsquo;s and/or its Affiliates&rsquo; own software, and (ii) by the number of internal users for which Customer has paid UserSpace; and (b) use the documentation, training materials or other materials supplied by UserSpace (the &ldquo;Other UserSpace Materials&rdquo;); and (2) modify the Software and publish patches to the Software, solely by the number of internal users for which Customer has paid UserSpace. Notwithstanding anything to the contrary, Customer agrees that UserSpace and/or its licensors (as applicable) retain all right, title and interest in and to all Software incorporated in such modifications and/or patches, and all such Software may only be used, copied, modified, displayed, distributed, or otherwise exploited in full compliance with this Agreement, and with a valid UserSpace Enterprise Edition subscription for the correct number of User seats. The Software and Other UserSpace Materials are collectively referred to herein as the &ldquo;Licensed Materials.&rdquo; &ldquo;Affiliate&rdquo; means any entity(ies) controlling, controlled by, and/or under common control with a party hereto, where &ldquo;control&rdquo; means the ownership of more than 50% of the voting securities in such entity. &quot;User&quot; means each individual end-user (person or machine) of Customer and/or its Affiliates (including, without limitation, employees, agents or consultants thereof) with access to the Licensed Materials hereunder.
+                                  </span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">1.2 Subject to the terms hereof, UserSpace will provide reasonable support to Customer for the Licensed Materials as set forth at https://about.user.space/pricing/, for the support plan selected and paid for by Customer. Notwithstanding anything to the contrary, in the event that Customer does not reasonably comply with written specifications or instructions from UserSpace&rsquo;s service engineers regarding any support issue or request (including without limitation, failure to make backups of Customer&rsquo;s Licensed Materials) (each, a &ldquo;Support Issue&rdquo;), UserSpace may terminate its support obligations to Customer with respect to such Support Issue upon fifteen (15) days&rsquo; written notice if Customer does not cure such noncompliance within the notice period.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">1.2.1 UserSpace will use reasonable commercial efforts to respond to support questions by email during the next business day at the latest. The number of support questions is not limited.</span></p>
+                                  <div class="c5" id="h.oikywf2d0wmx"><span class="c6">2. RESTRICTIONS AND RESPONSIBILITIES</span></div>
+                                  <p class="c2"><span class="c0">2.1 Except as expressly authorized in Section 1.1, Customer will not, and will not permit any third party to: use the Licensed Materials for any purpose other than as specifically authorized in Section 1, or in such a manner that would enable any unlicensed person to access the Licensed Materials; use the Licensed Materials or any other UserSpace software for timesharing or service bureau purposes or for any purpose other than its and its Affiliates&rsquo; own internal use (including without limitation, sublicensing, distributing, selling, reselling any of the foregoing); except as expressly permitted herein; use the Licensed Materials in connection with any high risk or strict liability activity (including, without limitation, space travel, firefighting, police operations, power plant operation, military operations, rescue operations, hospital and medical operations or the like); use the Licensed Materials or software other than in accordance with this Agreement and in compliance with all applicable laws and regulations (including but not limited to any privacy laws, and laws and regulations concerning intellectual property, consumer and child protection, obscenity or defamation); or use the Licensed Materials in any manner that (1) is harmful, fraudulent, deceptive, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, or libelous (including without limitation, accessing any computer, computer system, network, software, or data without authorization, breaching the security of another user or system, and/or attempting to circumvent any User authentication or security process), (2) impersonates any person or entity, including without limitation any employee or representative of UserSpace, or (3) contains a virus, trojan horse, worm, time bomb, unsolicited bulk, commercial, or &ldquo;spam&rdquo; message, or other harmful computer code, file, or program (including without limitation, password guessing programs, decoders, password gatherers, keystroke loggers, cracking tools, packet sniffers, and/or encryption circumvention programs).</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">2.2 Customer will cooperate with UserSpace in connection with the performance of this Agreement by making available such personnel and information as may be reasonably required, and taking such other actions as UserSpace may reasonably request. Customer will also cooperate with UserSpace in establishing a password or other procedures for verifying that only designated employees of Customer have access to any administrative functions of the Licensed Materials. Customer shall maintain during the term of this Agreement and through the end of the third year after the date on which the final payment is made under this Agreement, books, records, contracts and accounts relating to the payments due UserSpace under this Agreement (collectively, the &ldquo;Customer Records&rdquo;). UserSpace may, at its sole expense, upon 30 days&rsquo; prior written notice to Customer and during Customer&rsquo;s normal business hours and subject to industry-standard confidentiality obligations, hire an independent third party auditor to audit the Customer Records only to verify the amounts payable under this Agreement. If an audit reveals underpayment, then Customer shall promptly pay the deficiency to UserSpace plus late fees pursuant to Section 5.2. UserSpace shall bear the cost of an audit unless the audit reveals underpayment by more than 5% for the audited period, in which case Customer shall promptly pay Customer for the reasonable costs of the audit.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">2.3 Customer will be responsible for maintaining the security of Customer&rsquo;s account, passwords (including but not limited to administrative and User passwords) and files, and for all uses of Customer account with or without Customer&rsquo;s knowledge or consent.</span></p>
+                                  <div class="c5" id="h.o9w8wb3whgmj"><span class="c6">3. CONFIDENTIALITY</span></div>
+                                  <p class="c2"><span class="c0">3.1 Each party (the &ldquo;Receiving Party&rdquo;) understands that the other party (the &ldquo;Disclosing Party&rdquo;) has disclosed or may disclose information relating to the Disclosing Party&rsquo;s technology or business (hereinafter referred to as &ldquo;Proprietary Information&rdquo; of the Disclosing Party). Without limiting the foregoing, the Licensed Materials are UserSpace Proprietary Information.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">3.2 The Receiving Party agrees: (i) not to divulge to any third person any such Proprietary Information, (i) to give access to such Proprietary Information solely to those employees with a need to have access thereto for purposes of this Agreement, and (iii) to take the same security precautions to protect against disclosure or unauthorized use of such Proprietary Information that the party takes with its own proprietary information, but in no event will a party apply less than reasonable precautions to protect such Proprietary Information. The Disclosing Party agrees that the foregoing will not apply with respect to any information that the Receiving Party can document (a) is or becomes generally available to the public without any action by, or involvement of, the Receiving Party, or (b) was in its possession or known by it prior to receipt from the Disclosing Party, or (c) was rightfully disclosed to it without restriction by a third party, or (d) was independently developed without use of any Proprietary Information of the Disclosing Party. Nothing in this Agreement will prevent the Receiving Party from disclosing Proprietary Information pursuant to any judicial or governmental order, provided that the Receiving Party gives the Disclosing Party reasonable prior notice of such disclosure to contest such order. In any event, UserSpace may collect data with respect to and report on the aggregate response rate and other aggregate measures of the Licensed Materials&rsquo; performance and Customer&rsquo;s usage of the Licensed Materials; provided that UserSpace will not identify Customer as the source of any such data without Customer&rsquo;s prior written consent.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">3.3 Each party acknowledges and agrees that the other may suffer irreparable damage in the event of a breach of the terms of Sections 1.1, 2.1 or 3.2 of this Agreement and that such party will be entitled to seek injunctive relief (without the necessity of posting a bond) in the event of any such breach.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">3.4 Both parties will have the right to disclose the existence but not the terms and conditions of this Agreement, unless such disclosure is approved in writing by both Parties prior to such disclosure, or is included in a filing required to be made by a party with a governmental authority (provided such party will use reasonable efforts to obtain confidential treatment or a protective order) or is made on a confidential basis as reasonably necessary to potential investors or acquirers.</span></p>
+                                  <div class="c5" id="h.gz1ccyj4p2e4"><span class="c6">4. INTELLECTUAL PROPERTY RIGHTS</span></div>
+                                  <p class="c2"><span class="c0">4.1 Except as expressly set forth herein, UserSpace alone (and its licensors, where applicable) will retain all intellectual property rights relating to the Licensed Materials and any suggestions, ideas, enhancement requests, feedback, code, or other recommendations provided by Customer, it&rsquo;s Affiliates or any third party relating to the Licensed Materials, which are hereby assigned to UserSpace. This Agreement is not a sale and does not convey to Customer any rights of ownership in or related to the Licensed Materials, or any intellectual property rights.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">4.2 Customer shall not remove, alter or obscure any of UserSpace&rsquo;s (or its licensors&rsquo;) copyright notices, proprietary legends, trademark or service mark attributions, patent markings or other indicia of UserSpace&rsquo;s (or its licensors&rsquo;) ownership or contribution from the Licensed Materials. Additionally, Customer agrees to reproduce and include UserSpace&rsquo;s (and its licensors&rsquo;) proprietary and copyright notices on any copies of the Licensed Materials, or on any portion thereof, including reproduction of the copyright notice. Notwithstanding anything to the contrary herein, certain components of the Licensed Materials, including without limitation, any component of the Licensed Materials distributed by UserSpace as part of the UserSpace Community Edition (as described at https://about.user.space/features/#community), are licensed by third parties pursuant to the terms of certain third party licenses described in such source code annotations.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">4.3 Customer and its licensors shall (and Customer hereby represents and warrants that they do) have and retain all right, title and interest (including, without limitation, sole ownership of) all software, information, content and data provided by or on behalf of Customer or made available or otherwise distributed through use of the Licensed Materials (&ldquo;Content&rdquo;) and the intellectual property rights with respect to that Content. If UserSpace receives any notice or claim that any Content, or Customer&rsquo;s activities hereunder (including without limitation, with respect to any Content), infringes or violates the rights of a third party or any applicable law or regulation (a &ldquo;Claim&rdquo;), Customer will indemnify, defend and hold UserSpace harmless from all liability, damages, settlements, attorney fees and other costs and expenses in connection with any such Claim, as incurred. The immediately foregoing indemnity obligations are expressly conditioned on UserSpace providing Customer with prompt notice of, and reasonable cooperation and sole control over the defense and/or settlement of the applicable Claim. Subject to the foregoing, UserSpace may participate in the defense and/or settlement of any applicable Claim with counsel of its choosing at its own expense.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">4.4 UserSpace will defend, indemnify and hold Customer harmless from liability and other amounts paid or payable to unaffiliated third parties resulting from (i) the infringement or violation of any intellectual property or proprietary rights by the Licensed Materials or (ii) the violation of applicable law or regulation by UserSpace in performance of its obligations hereunder, provided UserSpace is promptly notified of any and all threats, claims and proceedings related thereto and given reasonable assistance and the opportunity to assume sole control over defense and settlement thereof. Subject to the foregoing, Customer may participate in the defense and/or settlement of any claim that is indemnifiable by UserSpace with counsel of its choosing at its own expense. The foregoing obligations do not apply with respect to portions or components of the Licensed Materials (i) not created by UserSpace, (ii) that are modified after delivery by UserSpace, (iii) combined with other products, processes or materials where the alleged infringement relates to such combination, (iv) where Customer continues allegedly infringing activity after being notified thereof or after being informed of modifications that would have avoided the alleged infringement, or (v) where Customer&rsquo;s use of the Licensed Materials is not strictly in accordance with this Agreement and all related documentation.</span></p>
+                                  <div class="c5" id="h.7bmkoocdojbu"><span class="c6">5. PAYMENT OF FEES</span></div>
+                                  <p class="c2"><span class="c0">5.1 Unless and until UserSpace and Customer have executed a quote document specifically referencing this Agreement with respect to amounts due on account of the Licensed Materials (a &ldquo;Quote&rdquo;, which is hereby incorporated by reference, if applicable), and unless Customer&rsquo;s subscription to (and payment with respect to) the Licensed Materials has been made on Customer&rsquo;s behalf by a reseller, Customer will pay UserSpace the applicable fees as set forth at https://about.user.space/products/ (the &ldquo;Pricing&rdquo;) for the Licensed Materials selected and/or used by Customer (the &ldquo;Fees&rdquo;) without any right of set-off or deduction. On each anniversary of the Effective Date, UserSpace will invoice Customer (or its reseller, if applicable) with respect to any and all additional Customer Users of the Licensed Materials beyond those for whom Customer has pre-paid, as of such date (and for whom the Fees due pursuant to such invoice will be the entire per-year User fee set forth in the Quote or Pricing (as applicable) with respect to the year just ended, and the entire per-year User fee set forth in the Quote or Pricing (as applicable) with respect to all subsequent years, unless otherwise agreed in writing by both parties (collectively, a &ldquo;True-Up&rdquo;)). For Customers that have pre-paid all Fees for multi-year subscriptions for Licensed Materials pursuant to a Quote, on each anniversary of the Effective Date during the term of this Agreement, (i) a new license key will be provided, and (ii) a True-Up will be conducted. All additional Users purchased shall be co-terminated through the end of the original Subscription period.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">5.2 All payments will be made in accordance with the payment schedule and the method of payment set forth in the Pricing. If not otherwise specified, (a) UserSpace will invoice Customer with respect to Fees up-front, for each term of the Customer&#39;s subscription (as applicable), and (b) payments will be due within thirty (30) days of Customer&#39;s receipt of correct invoice. Except as expressly set forth in this Agreement, all Fees paid and/or due hereunder (including any prepaid amounts) are non-refundable, including without limitation if this Agreement is terminated in accordance with Section 6 below. If Customer terminates this Agreement pursuant to Section 6.2 within 45 calendar days from receipt of the initial invoice for the Licensed Materials, UserSpace will refund all Fees paid hereunder.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">5.3 Any unpaid fees are subject to a finance charge of one percent (1.0%) per month, or the maximum permitted by law, whichever is lower, plus all expenses of collection, including reasonable attorneys&rsquo; fees. Fees under this Agreement are exclusive of all taxes, including national, state or provincial and local use, sales, value-added, property and similar taxes, if any. Customer agrees to pay such taxes (excluding US taxes based on UserSpace&#39;s net income) unless Customer has provided UserSpace with a valid exemption certificate. In the case of any withholding requirements, Customer will pay any required withholding itself and will not reduce the amount paid to UserSpace on account thereof.</span></p>
+                                  <div class="c5" id="h.ltiaosfzinso"><span class="c6">6. TERMINATION</span></div>
+                                  <p class="c2"><span class="c0">6.1 This Agreement shall continue until terminated in accordance with this Section 6. Either party may terminate this Agreement upon 15 days&rsquo; written notice to the other party hereto in the event that Customer has no then-current subscription and license key with respect to the Licensed Materials.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">6.2 Customer may terminate this Agreement at any time upon written notice to UserSpace. Either party may terminate this Agreement immediately upon 15 days&rsquo; written notice to the other party in the event of any material breach of this Agreement (including without limitation, any breach of Section 2.2 and/or failure to pay any amounts when due hereunder) by such party where such material breach is not cured during such notice period.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">6.3 Either party may terminate this Agreement, without notice, (i) upon the institution by or against the other party of insolvency, receivership or bankruptcy proceedings (provided such proceedings are not dismissed within one hundred twenty (120) days of such institution), (ii) upon the other party&#39;s making an assignment for the benefit of creditors, or (iii) upon the other party&#39;s dissolution or ceasing to do business without a successor.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2"><span class="c0">6.4 Customer&rsquo;s rights to the Licensed Materials, and any licenses granted hereunder, shall terminate upon any termination of this Agreement. In the event that Customer terminates this Agreement pursuant to the second sentence of Section 6.2 above, UserSpace will refund to Customer a pro-rated portion of pre-paid Fees for Services not actually received by Customer as of the date of such termination. The following Sections will survive any termination of this Agreement: 2 through 6 (except for Section 4.3), and 8 through 11.</span></p>
+                                  <div class="c5" id="h.w3hqa5tcbid6"><span class="c6">7. WARRANTY; CUSTOMER SOFTWARE SECURITY</span></div>
+                                  <p class="c2"><span class="c0">UserSpace represents and warrants that (i) it has all rights and licenses necessary for it to perform its obligations hereunder, and (ii) it will not knowingly include, in any UserSpace software released to the public and provided to Customer hereunder, any computer code or other computer instructions, devices or techniques, including without limitation those known as disabling devices, trojans, or time bombs, that are intentionally designed to disrupt, disable, harm, infect, defraud, damage, or otherwise impede in any manner, the operation of a network, computer program or computer system or any component thereof, including its security or user data. If, at any time, UserSpace fails to comply with the warranty in this Section, Customer may promptly notify UserSpace in writing of any such noncompliance. UserSpace will, within thirty (30) days of receipt of such written notification, either correct the noncompliance or provide Customer with a plan for correcting the noncompliance. If the noncompliance is not corrected or if a reasonably acceptable plan for correcting them is not established during such period, Customer may terminate this Agreement as its sole and exclusive remedy for such noncompliance.</span></p>
+                                  <div class="c5" id="h.aumyz6jhrzl9"><span class="c6">8. WARRANTY DISCLAIMER</span></div>
+                                  <p class="c2"><span class="c0">THE LICENSED MATERIALS, SOFTWARE AND USERSPACE PROPRIETARY INFORMATION AND ANYTHING PROVIDED IN CONNECTION WITH THIS AGREEMENT ARE PROVIDED &quot;AS-IS,&quot; WITHOUT ANY WARRANTIES OF ANY KIND. USERSPACE AND ITS LICENSORS HEREBY DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</span></p>
+                                  <div class="c5" id="h.yyi9vky01na0"><span class="c6">9. LIMITATION OF LIABILITY</span></div>
+                                  <p class="c2"><span class="c0">EXCEPT WITH RESPECT TO BREACH(ES) OF SECTION 1.1 AND/OR 2.1, IN NO EVENT WILL EITHER PARTY OR THEIR LICENSORS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OF THE LICENSED MATERIALS OR ANYTHING PROVIDED IN CONNECTION WITH THIS AGREEMENT, ANY DELAY OR INABILITY TO USE THE LICENSED MATERIALS OR ANYTHING PROVIDED IN CONNECTION WITH THIS AGREEMENT OR OTHERWISE ARISING FROM THIS AGREEMENT, INCLUDING WITHOUT LIMITATION, LOSS OF REVENUE OR ANTICIPATED PROFITS OR LOST BUSINESS OR LOST SALES, WHETHER BASED IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR OTHERWISE, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. EXCEPT WITH RESPECT TO BREACH(ES) OF SECTION 1.1 AND/OR 2.1, THE TOTAL LIABILITY OF EACH PARTY AND ITS LICENSORS, WHETHER BASED IN CONTRACT, TORT (INCLUDING NEGLIGENCE OR STRICT LIABILITY), OR OTHERWISE, WILL NOT EXCEED, IN THE AGGREGATE, THE GREATER OF (i) ONE THOUSAND DOLLARS ($1,000), OR (ii) THE FEES PAID TO USERSPACE HEREUNDER IN ONE YEAR PERIOD ENDING ON THE DATE THAT A CLAIM OR DEMAND IS FIRST ASSERTED. THE FOREGOING LIMITATIONS WILL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.</span></p>
+                                  <div class="c5" id="h.1ystarez5pgh"><span class="c6">10. U.S. GOVERNMENT MATTERS</span></div>
+                                  <p class="c2"><span class="c0">Notwithstanding anything else, Customer may not provide to any person or export or re-export or allow the export or re-export of the Licensed Materials or any software or anything related thereto or any direct product thereof (collectively &ldquo;Controlled Subject Matter&rdquo;), in violation of any restrictions, laws or regulations of the United States Department of Commerce, the United States Department of Treasury Office of Foreign Assets Control, or any other United States or foreign agency or authority. Without limiting the foregoing Customer acknowledges and agrees that the Controlled Subject Matter will not be used or transferred or otherwise exported or re-exported to countries as to which the United States maintains an embargo (collectively, &ldquo;Embargoed Countries&rdquo;), or to or by a national or resident thereof, or any person or entity on the U.S. Department of Treasury&rsquo;s List of Specially Designated Nationals or the U.S. Department of Commerce&rsquo;s Table of Denial Orders (collectively, &ldquo;Designated Nationals&rdquo;). The lists of Embargoed Countries and Designated Nationals are subject to change without notice. Use of the Licensed Materials is representation and warranty that the User is not located in, under the control of, or a national or resident of an Embargoed Country or Designated National. The Controlled Subject Matter may use or include encryption technology that is subject to licensing requirements under the U.S. Export Administration Regulations. As defined in FAR section 2.101, any software and documentation provided by UserSpace are &ldquo;commercial items&rdquo; and according to DFAR section 252.2277014(a)(1) and (5) are deemed to be &ldquo;commercial computer software&rdquo; and &ldquo;commercial computer software documentation.&rdquo; Consistent with DFAR section 227.7202 and FAR section 12.212, any use modification, reproduction, release, performance, display, or disclosure of such commercial software or commercial software documentation by the U.S. Government will be governed solely by the terms of this Agreement and will be prohibited except to the extent expressly permitted by the terms of this Agreement.</span></p>
+                                  <div class="c5" id="h.rsddw3afjqpe"><span class="c6">11. MISCELLANEOUS</span></div>
+                                  <p class="c2"><span class="c0">If any provision of this Agreement is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that this Agreement will otherwise remain in full force and effect and enforceable. This Agreement is not assignable, transferable or sublicensable by either party without the other party&rsquo;s prior written consent, not to be unreasonably withheld or delayed; provided that either party may transfer and/or assign this Agreement to a successor in the event of a sale of all or substantially all of its business or assets to which this Agreement relates. Both parties agree that this Agreement is the complete and exclusive statement of the mutual understanding of the parties and supersedes and cancels all previous written and oral agreements, communications and other understandings relating to the subject matter of this Agreement, and that all waivers and modifications must be in a writing signed or otherwise agreed to by each party, except as otherwise provided herein. No agency, partnership, joint venture, or employment is created as a result of this Agreement and neither party has any authority of any kind to bind the other in any respect whatsoever. In any action or proceeding to enforce rights under this Agreement, the prevailing party will be entitled to recover costs and attorney&rsquo;s fees. All notices under this Agreement will be in writing and will be deemed to have been duly given when received, if personally delivered; when receipt is electronically confirmed, if transmitted by facsimile or e-mail; and upon receipt, if sent by certified or registered mail (return receipt requested), postage prepaid. UserSpace will not be liable for any loss resulting from a cause over which it does not have direct control. This Agreement will be governed by the laws of the State of California, U.S.A. without regard to its conflict of laws provisions. The federal and state courts sitting in San Francisco County, California, U.S.A. will have proper and exclusive jurisdiction and venue with respect to any disputes arising from or related to the subject matter of this Agreement.</span></p>
+                                  <p class="c2 c8"><span class="c0"></span></p>
+                                  <p class="c2 c8"><span class="c14"></span></p>
+                                </h5>
+
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+            <footer class="footer">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="https://user.space">
+                                    User Space
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/us.html">
+                                   About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/terms.html">
+                                   Terms
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/privacy.html">
+                                   Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/use.html">
+                                   Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://my.user.space">
+                                   My User Space
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright pull-right">
+                        &copy; 2017, made by User Space
+                    </div>
+                </div>
+            </footer>
+        </div>
+      </div>
+
+      <script>
+        if(false && 'serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(function(registration) {
+                  console.log('Service Worker Registered');
+            });
+          navigator.serviceWorker.ready.then(function(registration) {
+             console.log('Service Worker Ready');
+          });
+        }
+      </script>
+  </body>
+</html>
