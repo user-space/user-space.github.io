@@ -482,6 +482,7 @@
              console.log('Service Worker Ready');
           });
         }
+        mixpanel.track("home page", {"url": window.location.href});
       </script>
   </body>
 </html>
