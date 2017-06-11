@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <meta name="theme-color" content="#273553"/>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>The User Space</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/material-roboto-slab.css"/>
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css"/>
+    <link rel="manifest" href="/manifest.json">
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/material-kit.css" rel="stylesheet"/>
+
+    <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+        0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+        for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+    mixpanel.init("20266389740bd82b39dc02f553a75deb");</script>
+</head>
+<body>
+<div id="react-view">
+    <div class="landing-page">
+        <nav class="navbar navbar-danger navbar-transparent navbar-absolute">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="https://user.space" class="navbar-brand">
+                        <img src="../assets/img/userspace-negative.png" style="height: 150px">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navigation-example">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/" rel="noopener" class="btn btn-rose btn-round">
+                                <i class="material-icons">book</i>Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="page-header-doc header-filter" data-parallax="active" style='background-image: url(/assets/img/background.jpg); height: 260px'>
+        </div>
+
+        <div class="main main-raised">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="title text-center">Web Technology</h2>
+                    </div>
+                    <a class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1 text-center" href="#angular">
+                        <h4>Angular</h4>
+                        <div class="text-center col-xs-12">
+                            <img src="https://angular.io/resources/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular" class="text-center"
+                                 style="max-height: 110px">
+                        </div>
+                    </a>
+                    <a class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1 text-center" href="#vue">
+                        <h4>Vue</h4>
+                        <div class="text-center">
+                            <img src="https://vuejs.org/images/logo.png" alt="Vue.js" class="text-center" style="max-height: 110px">
+                        </div>
+                    </a>
+                    <a class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1 text-center" href="#react">
+                        <h4>React.js</h4>
+                        <div class="text-center">
+                            <img src="https://cdn.worldvectorlogo.com/logos/react.svg" alt="React.js" class="text-center" style="max-height: 110px">
+                        </div>
+                    </a>
+                    <a class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1 text-center" href="#javascript">
+                        <h4>Javascript</h4>
+                        <div class="text-center">
+                            <img src="http://bigwawa.eu/Media/Default/images/js.png" alt="Javiscript" class="text-center" style="max-height: 110px">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="cd-section" id="angular">
+
+                <div class="angular" id="angular-1">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-10 col-md-offset-1">
+                                <br>
+                                <div class="card card-plain card-blog">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="category text-info">Angular</h2>
+                                            <h3 class="card-title">
+                                                <div>Getting Started</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            </p>
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            <h3 class="card-title">
+                                                <div>Login</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Here is how you integrate https://user.space with your single page application. First you need to solve the
+                                                login part and you can do that by copy-pasting the next lines at the start of your application. With this you
+                                                will be sure that the user has a valid session.
+                                            <pre><code class="javascript hljs">
+try {
+    //1. get new token or previous one
+    var token = (window.location.search.match(/[\?&]token=([a-zA-Z0-9\.-\_]+)[#&]?/) || []).pop() || localStorage.id_token
+    if (!token) throw Error('no token')
+    var payload = JSON.parse(atob(token.split('.')[1]))
+    //2. get payload and check it didnt expired
+    if (payload.exp < Math.round(Date.now() / 1000)) throw Error('token expired')
+} catch (ex) {
+    delete localStorage.id_token
+    //error. redirect to the login page if we dont have a valid token
+    window.location = `https://gateway.user.space/sign/${btoa(window.location.origin + window.location.pathname)}`
+}
+//3. save token
+localStorage.id_token = token
+ </code></pre>
+                                            </p>
+                                            <h3 class="card-title">
+                                                <div>DB API</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+
+                                            <a href="#pablo" class="btn btn-primary pull-right">
+                                                <i class="material-icons">help</i> More Information
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="cd-section" id="react">
+
+                <div class="angular" id="react-1">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-10 col-md-offset-1">
+                                <br>
+                                <div class="card card-plain card-blog">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="category text-info">React.js</h2>
+                                            <h3 class="card-title">
+                                                <div>Getting Started</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            </p>
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            <h3 class="card-title">
+                                                <div>Login</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            </p>
+                                            <h3 class="card-title">
+                                                <div>DB API</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+
+                                            <a href="#pablo" class="btn btn-primary pull-right">
+                                                <i class="material-icons">help</i> More Information
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="cd-section" id="javascript">
+
+                <div class="angular" id="javascript-1">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-10 col-md-offset-1">
+                                <br>
+                                <div class="card card-plain card-blog">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="category text-info">Javascript</h2>
+                                            <h3 class="card-title">
+                                                <div>Getting Started</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            </p>
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            <h3 class="card-title">
+                                                <div>Login</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            </p>
+                                            <h3 class="card-title">
+                                                <div>DB API</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+
+                                            <a href="#pablo" class="btn btn-primary pull-right">
+                                                <i class="material-icons">help</i> More Information
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="cd-section" id="vue">
+
+                <div class="angular" id="vue-1">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-10 col-md-offset-1">
+                                <br>
+                                <div class="card card-plain card-blog">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 class="category text-info">Vue.js</h2>
+                                            <h3 class="card-title">
+                                                <div>Getting Started</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            </p>
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            <h3 class="card-title">
+                                                <div>Login</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+                                            </p>
+                                            <h3 class="card-title">
+                                                <div>DB API</div>
+                                            </h3>
+                                            <p class="card-description">
+                                                Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional
+                                                boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model
+                                                disruption is only part of the story — and…
+                                            <pre><code class="language-bash hljs" data-lang="bash">npm install -g cordova ionic</code></pre>
+
+                                            <a href="#pablo" class="btn btn-primary pull-right">
+                                                <i class="material-icons">help</i> More Information
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="https://user.space">
+                                    User Space
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/us.html">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/terms.html">
+                                    Terms
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://about.user.space/privacy.html">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://my.user.space">
+                                    My User Space
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright pull-right">
+                        &copy; 2017, made by User Space
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        if (false && 'serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
+                .then(function (registration) {
+                    console.log('Service Worker Registered');
+                });
+            navigator.serviceWorker.ready.then(function (registration) {
+                console.log('Service Worker Ready');
+            });
+        }
+        mixpanel.track("web doc page", {"url": window.location.href});
+    </script>
+</div>
+</body>
+</html>

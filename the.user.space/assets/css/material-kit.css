@@ -4625,6 +4625,15 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   padding: 80px 0;
 }
 
+.page-header-doc {
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: 250px;
+}
 .page-header {
   height: 100vh;
   background-position: center center;
@@ -4632,7 +4641,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   margin: 0;
   padding: 0;
   border: 0;
-  min-height: 600px;
+  min-height: 250px;
 }
 .page-header .carousel .carousel-indicators {
   bottom: 60px;
