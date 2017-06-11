@@ -47,9 +47,26 @@
           width:100%;
           height:100%;
           }
+          .gradient {
+            min-height: 50px;
+          }
+          .gradient.top {
+            background: white; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(black, #e5e5e5); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(black, #e5e5e5); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(black, #e5e5e5); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(black, #e5e5e5); /* Standard syntax */
+          }
+          .gradient.bottom {
+            background: white; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(#e5e5e5, black); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#e5e5e5, black); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#e5e5e5, black); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#e5e5e5, black); /* Standard syntax */
+          }
         </style>
   </head>
-  <body>
+  <body style="background-color: black">
       <div id="react-view">
         <div class="landing-page">
             <nav class="navbar navbar-danger navbar-transparent navbar-absolute">
@@ -62,7 +79,7 @@
                     <div class="collapse navbar-collapse" id="navigation-example">
                         <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="/docs/" target="_blank" rel="noopener" class="btn btn-rose btn-round">
+                            <a id="link-doc-top-nav" href="/docs/" target="_blank" rel="noopener" class="btn btn-rose btn-round mixpanel-tracked" mp-info="doc-top-nav">
                                 <i class="material-icons">book</i>Documentation</a>
                             </li>
                         </ul>
@@ -79,15 +96,15 @@
                             <h4>Transform a single page application into a full stack one with no effort. Forget about configuring databases and servers, focus in your awesome application.</h4>
                             <br />
                             <div class="row">
-                            <a href="https://github.com/userspace/todomvc/commit/2462b7019e91692ff9846203905e55c0708d4887" target="_blank" rel="noopener" class="btn btn-success btn-raised btn-lg">
+                            <a href="https://github.com/userspace/todomvc/commit/2462b7019e91692ff9846203905e55c0708d4887" target="_blank" rel="noopener" class="btn btn-success btn-raised btn-lg mixpanel-tracked" mp-info="check-start-button">
                                 <i class="fa fa-sign-in"></i> check how easy it is to get started
                             </a>
                           </div>
                         </div>
                       <div class="col-md-12">
                           			<div class="row">
-                          				<div class="col-md-8 col-md-offset-2 text-center">
-                          					<h2 class="title">Check this full stack apps, all open source</h2>
+                          				<div class="col-md-10 col-md-offset-1 text-center">
+                          					<h2 class="title">Start right now cloning one of this <strong class="text-warning">Open Source</strong> apps</h2>
                           				</div>
                           			</div>
 
@@ -95,7 +112,7 @@
 
                           				<div class="col-md-4">
                           					<div class="card card-blog">
-                        							<a href="https://userspace.github.io/meetupjs-ar.github.io/calendario.html"><div class="card-image">
+                        							<a href="https://userspace.github.io/meetupjs-ar.github.io/calendario.html" class="mixpanel-tracked" mp-info="example-1"><div class="card-image">
                         								<img src="assets/img/examples/calendar.png">
                         							</div></a>
                           						<div class="content">
@@ -111,7 +128,7 @@
 
                           				<div class="col-md-4">
                           					<div class="card card-raised card-blog">
-                        							<a href="https://userspace.github.io/spent"><div class="card-image">
+                        							<a id="link-example-2" href="https://userspace.github.io/spent" class="mixpanel-tracked" mp-info="example-2"><div class="card-image">
                         								<img src="assets/img/examples/spent.png">
                         							</div></a>
                           						<div class="content">
@@ -128,7 +145,7 @@
 
                           				<div class="col-md-4">
                           					<div class="card card-raised card-blog">
-                        							<a href="https://userspace.github.io/todomvc/examples/angularjs/"><div class="card-image">
+                        							<a id="link-example-3" href="https://userspace.github.io/todomvc/examples/angularjs/" class="mixpanel-tracked" mp-info="example-3"><div class="card-image">
                         								<img src="assets/img/examples/todolist.png">
                         							</div></a>
                           						<div class="content">
@@ -146,7 +163,7 @@
                                   <div class="row">
                                   <div class="col-md-4 col-md-offset-2" >
                           					<div class="card card-raised card-blog">
-                        							<a href="https://play.google.com/store/apps/details?id=space.user.game.dungeon"><div class="card-image">
+                        							<a id="link-example-4" href="https://play.google.com/store/apps/details?id=space.user.game.dungeon" class="mixpanel-tracked" mp-info="example-4"><div class="card-image">
                         								<img src="assets/img/examples/pixeldungeon.png">
                         							</div></a>
                           						<div class="content">
@@ -164,7 +181,7 @@
 
                                 <div class="col-md-4">
                                   <div class="card card-raised card-blog">
-                                    <a href="https://my.user.space/app.html"><div class="card-image">
+                                    <a id="link-example-5" href="https://my.user.space/app.html" class="mixpanel-tracked" mp-info="example-5"><div class="card-image">
                                       <img src="assets/img/examples/myuserspace.png">
                                     </div></a>
                                     <div class="content">
@@ -182,8 +199,7 @@
 
                           	</div>
 
-
-                            <a class="btn btn-danger btn-raised btn-lg" >
+                            <a id="link-login" class="btn btn-danger btn-raised btn-lg mixpanel-tracked" mp-info="login">
                                 <i class="fa fa-sign-in"></i> Login and get your space!
                             </a>
                         </div>
@@ -193,7 +209,226 @@
 
             <div class="main main-raised">
                 <div class="container">
-                    <div class="section text-center">
+                  <div class="section text-center">
+                    <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h2 class="title">We are making a new community</h2>
+                        <h5 class="description">Together we can build a new relationship between users and devs for greater good</h5>
+                    </div>
+                </div>
+
+
+                      <div class="row">
+                      <div class="col-md-4">
+                        <div class="card card-blog">
+            								<div class="card-image">
+            										<img class="img" src="assets/img/people/sad-user.png" style="width: 200px;">
+            								</div>
+
+            								<div class="content">
+            									<h6 class="category text-info">Bob: the user</h6>
+            									<h4 class="card-title">
+            										He needs that app that you can build
+            									</h4>
+            									<p class="card-description">
+                                Bob likes technology, has a wereable and test new mobiles apps everyday.
+                                He spend to much time with his notebook and his mobile, and think that every information-related problem can be solved with a new app.
+            									</p>
+            								</div>
+            							</div>
+
+                      </div>
+                      <div class="col-md-4">
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="card card-blog">
+                        <div class="card-image">
+                            <img class="img" src="assets/img/people/sad-dev.png" style="width: 200px;">
+                        </div>
+                        <div class="content">
+                          <h6 class="category text-info">Alice: the dev</h6>
+                          <h4 class="card-title">
+                            She can build that app you need
+                          </h4>
+                          <p class="card-description">
+                            Alice like building apps for fun and learn. She had learn html, css and javascript after high-school and did her first app (a todo list) with few things she read about a new web technology.
+                          </p>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <h1 class="title">The current deadlock</h1>
+                            </div>
+                            <div class="row">
+                        				<div class="col-md-3 col-md-offset-3">
+                    		           	<div class="info info-horizontal">
+                            						<div class="icon icon-info">
+                            							<i class="material-icons">sentiment_neutral</i>
+                            						</div>
+                            						<div class="description">
+                            							<h4 class="info-title">Bob wont pay anything before using a solution</h4>
+                            							<p>He even hate apps with ads</p>
+                            						</div>
+                      		        	</div>
+
+                  		        </div>
+
+                        				<div class="col-md-3">
+                        					<div class="info info-horizontal">
+                        						<div class="icon icon-success">
+                        							<i class="material-icons">sentiment_neutral</i>
+                        						</div>
+                        						<div class="description">
+                        							<h4 class="info-title">Alice wont pay for a backend</h4>
+                        							<p>She doesnt have a credit card</p>
+                        						</div>
+                        					</div>
+                        				</div>
+                            </div>
+                            <div class="row">
+                        				<div class="col-md-3 ">
+                    		           	<div class="info info-horizontal">
+                            						<div class="icon icon-info">
+                            							<i class="material-icons">sentiment_very_dissatisfied</i>
+                            						</div>
+                            						<div class="description">
+                            							<h4 class="info-title">Bob needs a To Do List</h4>
+                            							<p>He needs this app to save the world</p>
+                            						</div>
+                      		        	</div>
+
+                  		        </div>
+                              <div class="col-md-4 col-md-offset-1" style="margin-top: 120px">
+                                  <div class="description">
+                                    <img src="/assets/img/userspace-positive.png" style="height: 200px">
+                                    <h4 class="info-title">Solve this using the user space</h4>
+                                    <p>The user space (like the Bob have) has resources available to use with apps (like the Alice did). UserSpace its like your mobile or laptop for running apps but in the cloud</p>
+                                  </div>
+                              </div>
+
+                        				<div class="col-md-3 ">
+                        					<div class="info info-horizontal">
+                        						<div class="icon icon-success">
+                        							<i class="material-icons">sentiment_very_dissatisfied</i>
+                        						</div>
+                        						<div class="description">
+                        							<h4 class="info-title">Alice needs a easy way to store information</h4>
+                        							<p>She is willing to tests new tech through some tutorial</p>
+                        						</div>
+                        					</div>
+                        				</div>
+                            </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                            <div class="info info-horizontal">
+                                <div class="icon icon-info">
+                                  <i class="material-icons">sentiment_satisfied</i>
+                                </div>
+                                <div class="description">
+                                  <h4 class="info-title">Bob rents a piece of cloud with UserSpace (think DropBox)</h4>
+                                  <p>Starting with a free tier, Bob add resources (like storage) to the UserSpace for running any apps that he has</p>
+                                </div>
+                            </div>
+
+                      </div>
+
+                        <div class="col-md-3">
+                          <div class="info info-horizontal">
+                            <div class="icon icon-success">
+                              <i class="material-icons">sentiment_satisfied</i>
+                            </div>
+                            <div class="description">
+                              <h4 class="info-title">Alice use UserSpace like a backend as a service (think Firebase)</h4>
+                              <p>She just need to call public API of well known OpenSource projects like Parse</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="info info-horizontal">
+                                <div class="icon icon-info">
+                                  <i class="material-icons">sentiment_very_satisfied</i>
+                                </div>
+                                <div class="description">
+                                  <h4 class="info-title">Bob use his UserSpace with Alice's apps</h4>
+                                  <p>Any time Bob goes to Alice single webpage application he authenticate into UserSpace</p>
+                                </div>
+                            </div>
+
+                      </div>
+
+                        <div class="col-md-3">
+                          <div class="info info-horizontal">
+                            <div class="icon icon-success">
+                              <i class="material-icons">sentiment_very_satisfied</i>
+                            </div>
+                            <div class="description">
+                              <h4 class="info-title">UserSpace shares Bob's fee with Alice</h4>
+                              <p>This way, Alice receive a reward for her work and Bob can try multiple apps an use the best fit for him</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                      <div class="col-md-4">
+                        <div class="card card-blog">
+            								<div class="card-image">
+            										<img class="img" src="assets/img/people/happy-dev.png" style="width: 250px;">
+            								</div>
+
+            								<div class="content">
+            									<h6 class="category text-info">Alice: ninja level</h6>
+            									<h4 class="card-title">
+            										She can build full stack apps without headache
+            									</h4>
+                              <p class="card-description">
+                                <a href="#" target="_blank" rel="noopener" class="btn btn-success btn-raised btn-md mixpanel-tracked" mp-info="want to build">
+                                    <i class="fa fa-sign-in"></i> I want to Build
+                                </a>
+                              </p>
+            								</div>
+            							</div>
+
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="card card-blog">
+                        <div class="card-image">
+                            <img class="img" src="assets/img/people/happy-user.png" style="width: 200px;">
+                        </div>
+                        <div class="content">
+                          <h6 class="category text-info">Bob: app taster</h6>
+                          <h4 class="card-title">
+                            He can reach out a new set of free apps
+                          </h4>
+                          <p class="card-description">
+                            <a href="#" target="_blank" rel="noopener" class="btn btn-success btn-raised btn-md mixpanel-tracked" mp-info="want to subscribe">
+                                <i class="fa fa-sign-in"></i> I want to Subscribe
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                      </div>
+                      </div>
+
+
+                    </div>
+
+                              </div>
+</div>
+</div>
+<div class="section text-center" >
+                      <div class="row gradient top"><div class="col-md-12"></div></div>
+                      <div style="background-color: #e5e5e5">
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
                                 <h2 class="title">Build applications and use <img src="/assets/img/userspace-positive.png" style="height: 100px"> as your backend</h2>
@@ -203,7 +438,7 @@
 
                         <div class="features">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="info">
                                         <div class="icon icon-info">
                                             <i class="fa fa-server"></i>
@@ -213,7 +448,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="info">
                                         <div class="icon icon-success">
                                             <i class="material-icons">verified_user</i>
@@ -223,46 +458,37 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="info">
                                         <div class="icon icon-warning">
                                             <i class="fa fa-fighter-jet"></i>
                                         </div>
                                         <h4 class="info-title">Start in seconds... literally</h4>
-                                        <p>Convert a single-page-application into a full-stack with a few lines of code. <a target="_blank" rel="noopener" href="https://github.com/userspace/todomvc/commit/2462b7019e91692ff9846203905e55c0708d4887">Take a look</a></p>
+                                        <p>Convert a single-page-application into a full-stack with a few lines of code. <a target="_blank" rel="noopener" href="https://github.com/userspace/todomvc/commit/2462b7019e91692ff9846203905e55c0708d4887" class="mixpanel-tracked" mp-info="take a look">Take a look</a></p>
                                     </div>
                                   </div>
+                                  <div class="col-md-3">
+                                      <div class="info">
+                                          <div class="icon icon-danger">
+                                              <i class="fa fa-usd"></i>
+                                          </div>
+                                          <h4 class="info-title">Build solutions for with no money</h4>
+                                          <p>Host your webapp with <a target="_blank" rel="noopener" href="https://pages.github.com/">github pages</a> or <a target="_blank" rel="noopener" href="http://pages.bitbucket.org/">bitbucket pages</a> and lets us handle the backend</p>
+                                      </div>
+                                  </div>
+
                                 </div>
 
-                                <div class="row">
-                                <div class="col-md-4">
-                                    <div class="info">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="info">
-                                        <div class="icon icon-danger">
-                                            <i class="fa fa-usd"></i>
-                                        </div>
-                                        <h4 class="info-title">Build solutions for with no money</h4>
-                                        <p>Host your webapp with <a target="_blank" rel="noopener" href="https://pages.github.com/">github pages</a> or <a target="_blank" rel="noopener" href="http://pages.bitbucket.org/">bitbucket pages</a> and lets us handle the backend</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="info">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
 
-                    <div class="pricing-4" style="">
+                    </div>
+                      <div class="row gradient bottom"><div class="col-md-12"></div></div>
 
                     		<div class="container">
                     			<div class="row">
                     				<div class="col-md-8 col-md-offset-2 text-center">
-                    					<h2 class="title">Build apps usign the right technology</h2>
-                    					<h5 class="description">
+                    					<h2 class="title" style="color:white">Build apps usign the right technology</h2>
+                    					<h5 class="description" style="color: white">
                                 <p>With <strong>user.space</strong> you will have this services ready to be used. <strong></p>
                                 <p>No string attached:</strong> every service is open-source and without modification so you can switch to your set-up whenever you need.</p>
                               </h5>
@@ -283,7 +509,7 @@
                     								<li><strike>Live queries</strike></li>
                     								<li><strike>Push notifications</strike></li>
                     							</ul>
-                    							<a href="https://github.com/parse-community/parse-server" class="btn btn-primary btn-round">
+                    							<a href="https://github.com/parse-community/parse-server" class="btn btn-primary btn-round mixpanel-tracked">
                     								More information
                     							</a>
                     						</div>
@@ -362,8 +588,11 @@
                     			</div>
 
                     		</div>
-                    	</div>
 
+                    	</div>
+    <div class="main main-raised">
+
+        <div class="container">
 
                     <div class="section ">
                     <div class="blogs-3">
@@ -634,11 +863,14 @@
                     </div>
 
 
+                  </div>
+
+              </div>
                 </div>
 
             </div>
 
-            <footer class="footer">
+            <footer class="footer footer-black">
                 <div class="container">
                     <nav class="pull-left">
                         <ul>
