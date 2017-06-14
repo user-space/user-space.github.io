@@ -60,7 +60,7 @@
                     <a class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1 text-center" href="#angular">
                         <h4>Angular</h4>
                         <div class="text-center col-xs-12">
-                            <img src="https://angular.io/resources/images/logos/angularjs/AngularJS-Shield.svg" alt="Angular" class="text-center"
+                            <img src="https://www.w3schools.com/angular/pic_angular.jpg" alt="Angular" class="text-center"
                                  style="max-height: 110px">
                         </div>
                     </a>
@@ -392,6 +392,9 @@ localStorage.id_token = token
             });
         }
         mixpanel.track("web doc page", {"url": window.location.href});
+        mixpanel.track_links(".mixpanel-tracked", "Link clicked", function(ele) {
+            return { type: ele.attributes["mp-info"].value }
+        });
     </script>
 </div>
 </body>

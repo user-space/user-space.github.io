@@ -53,13 +53,13 @@
                     </div>
                     <div class="text-center">
 
-                        <a class="col-xs-3 col-xs-offset-3 col-sm-2 col-sm-offset-4 text-center" href="mobile.html">
+                        <a class="col-xs-3 col-xs-offset-3 col-sm-2 col-sm-offset-4 text-center mixpanel-tracked" href="mobile.html" mp-info="doc-mobile">
                             <h4>Mobile</h4>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Smartphone_icon_-_Noun_Project_283536.svg/2000px-Smartphone_icon_-_Noun_Project_283536.svg.png" alt="Mobile" class="img-responsive">
                         </a>
                         <a class="col-xs-3 col-sm-2 text-center" href="web.html">
                             <h4>Web</h4>
-                            <img src="https://image.freepik.com/free-icon/html-coding_318-31306.jpg" alt="Web" class="img-responsive">
+                            <img src="https://image.freepik.com/free-icon/html-coding_318-31306.jpg" alt="Web" class="img-responsive mixpanel-tracked" mp-info="doc-web">
                         </a>
                     </div>
                 </div>
@@ -115,7 +115,10 @@
             console.log('Service Worker Ready');
         });
     }
-    mixpanel.track("home page", {"url": window.location.href});
+    mixpanel.track("doc index", {"url": window.location.href});
+    mixpanel.track_links(".mixpanel-tracked", "Link clicked", function(ele) {
+        return { type: ele.attributes["mp-info"].value }
+    });
 </script>
 </body>
 </html>

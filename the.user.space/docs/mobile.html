@@ -49,19 +49,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="title text-center">Web Technology</h2>
+                        <h2 class="title text-center">Documentation missing</h2>
+                        <p>We are working hard to complete documentation. If you have any question please contact us at <a href="https://user.space">our home</a>.</p>
                     </div>
-                    <a class="col-xs-3 col-xs-offset-3 col-sm-2 col-sm-offset-4 text-center" href="#ios">
-                        <h4>IOS</h4>
-                        <img src="https://angular.io/resources/images/logos/angularjs/AngularJS-Shield.svg" alt="IOS" class="img-responsive">
-                    </a>
-                    <a class="col-xs-3 col-sm-2 text-center" href="#android">
-                        <h4>Android</h4>
-                        <img src="https://cdn.worldvectorlogo.com/logos/react.svg" alt="Android" class="img-responsive">
-                    </a>
-
                 </div>
             </div>
+            <!--
             <div class="cd-section" id="ios">
 
                 <div class="angular" id="ios-1">
@@ -181,6 +174,7 @@
 
                 </div>
             </div>
+            -->
 
             <footer class="footer">
                 <div class="container">
@@ -231,7 +225,10 @@
                 console.log('Service Worker Ready');
             });
         }
-        mixpanel.track("home page", {"url": window.location.href});
+        mixpanel.track("mobile page", {"url": window.location.href});
+        mixpanel.track_links(".mixpanel-tracked", "Link clicked", function(ele) {
+            return { type: ele.attributes["mp-info"].value }
+        });
     </script>
 </body>
 </html>
